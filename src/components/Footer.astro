@@ -1,0 +1,49 @@
+---
+import { getLangFromUrl, useTranslations, localizePath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const p = (path: string) => localizePath(path, lang);
+const year = new Date().getFullYear();
+
+const navLinks = [
+  { href: p('/usluge'), label: t('nav.services') },
+  { href: p('/lick'), label: t('nav.lick') },
+  { href: p('/#faq'), label: t('nav.faq') },
+  { href: p('/kontakt'), label: t('nav.contact') },
+];
+---
+
+<footer class="bg-black text-white mt-24">
+  <div class="container-page py-16 grid gap-10 md:grid-cols-3">
+    <div>
+      <div class="font-mono font-bold text-xl mb-3">SEO<span class="text-red">LICK</span></div>
+      <p class="text-gray-200 text-sm max-w-xs">{t('footer.tagline')}</p>
+      <p class="eyebrow mt-4">{t('footer.framework')}</p>
+    </div>
+
+    <div>
+      <h3 class="font-mono text-xs uppercase tracking-wider text-gray-500 mb-4">{t('footer.links.title')}</h3>
+      <ul class="space-y-2 text-sm">
+        {navLinks.map((l) => (
+          <li><a href={l.href} class="text-gray-200 hover:text-white transition-colors">{l.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-mono text-xs uppercase tracking-wider text-gray-500 mb-4">{t('footer.contact.title')}</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="mailto:ivan@seolick.me" class="text-gray-200 hover:text-white transition-colors">ivan@seolick.me</a></li>
+        <li><a href="https://seolick.me" class="text-gray-200 hover:text-white transition-colors">seolick.me</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-900">
+    <div class="container-page py-6 text-xs text-gray-500 flex flex-col sm:flex-row justify-between gap-2">
+      <span>&copy; {year} SEO LICK. {t('footer.rights')}</span>
+      <span class="font-mono">Links · Infrastructure · Content · Keywords</span>
+    </div>
+  </div>
+</footer>

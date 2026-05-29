@@ -1,0 +1,166 @@
+import type { Lang } from '../i18n/ui';
+
+export const lickContent = {
+  hr: {
+    eyebrow: 'L.I.C.K. framework',
+    title: 'L.I.C.K. — Strategija za webshop koji prodaje',
+    subtitle: 'Ispolirajte webshop i povećajte prodaju.',
+    intro1: 'Jeste li znali da trenutno postoji između 25 i 31 milijun webshopova diljem svijeta? Milijuni stranica, proizvoda i priča koje čekaju da ih netko primijeti. I vi još uvijek mislite da će vas Google sam lansirati na vrh? Teško.',
+    intro2: 'Vaš webshop može biti savršeno dizajnirano remek-djelo — naizgled lijep i besprijekoran. Ali ako ga nitko ne vidi, jedini koji će mu aplaudirati ste vi sami. A webshop ste napravili za kupce i prodaju, zar ne?',
+    intro3: 'Zato vam predstavljamo L.I.C.K. strategiju, utemeljenu na četiri ključna SEO kotača koja vaš webshop voze od početne ideje pa sve do tržišta.',
+    pillars: [
+      {
+        k: 'L',
+        title: 'Linkovi',
+        role: 'Koja je uloga linkova u SEO-u?',
+        body: [
+          'Zamislite da idete na put bez mape i GPS-a — jedino što imate su prometni znakovi. Isto je i s Googleom dok prolazi vašom stranicom kako bi je indeksirao. On nema GPS, nego ima znakove (linkove) koje mu ostavljate.',
+          'Ako linkovi vode do praznih stranica, Google vas doživljava neozbiljno. No kada mu ponudite prečace prema kvalitetnom sadržaju, situacija se mijenja — linkovi voze Google kroz vaš webshop i pokazuju koliko ozbiljno shvaćate korisnike.',
+          'Osim internih, Google uzima u obzir i linkove s tuđih stranica. Ako vas linkaju relevantne i autoritativne stranice, Google će vas smatrati vrijednim izvorom. Bitno je tko te linka i koga linkaš.',
+        ],
+        benefits: [
+          'Pokazuju Googleu da je webshop pouzdan i dobro strukturiran',
+          'Pomažu u boljem rangiranju u pretragama',
+          'Dovode posjetitelje s relevantnih stranica',
+          'Jačaju vidljivost i autoritet brenda',
+          'Dugoročno povećavaju promet',
+        ],
+      },
+      {
+        k: 'I',
+        title: 'Infrastruktura',
+        role: 'Koja je uloga infrastrukture u SEO-u?',
+        body: [
+          'Zamislite da je webshop vaša kuća. Bi li je netko pronašao da mu date krivu adresu? Teško. Zato URL adrese trebaju biti prilagođene sadržaju i korisničkim namjerama.',
+          'Ako prodajete apartmane, je li pametno nazvati stranicu samo „apartmani”? Ne baš — tako zalutaju ljudi zainteresirani za najam, što vodi do visoke stope napuštanja i nula konverzija.',
+          'Jednako su bitni hijerarhija naslova, pametno posložene kategorije, dobro strukturirani linkovi, intuitivan dizajn i tehnička ispravnost. Naše iskustvo i strateško planiranje taj proces uvelike olakšavaju.',
+        ],
+        benefits: [
+          'Ubrzava vaš webshop',
+          'Vodi kupce od želje za proizvodom do konverzije',
+          'Ubrzava indeksaciju jer vas Google lakše razumije',
+          'Dovodi prave ljude na prave stranice',
+          'Olakšava širenje webshopa i dodavanje novih proizvoda',
+        ],
+      },
+      {
+        k: 'C',
+        title: 'Content',
+        role: 'Koja je uloga sadržaja u SEO-u?',
+        body: [
+          'Ulazite u butik i prvo što primijetite je mala količina robe i nezainteresirano osoblje. Što činite? Napuštate prostor. Slično je i s online kupnjom.',
+          'Webshopovi koji ozbiljno shvaćaju tržište moraju nuditi „nešto više” — sadržaj koji poboljšava korisničko iskustvo i suptilno uvjerava da ste baš vi najbolji izbor.',
+          'Sadržaj kroz SEO tekstove, blogove i kreativne landing stranice ne olakšava samo odluku o kupnji — pretvara vaš webshop u izvor informacija i inspiracije te vas čini autoritetom kojeg Google nagrađuje.',
+        ],
+        benefits: [
+          'Pomaže tržištu u bržem odlučivanju',
+          'Zadržava posjetitelje i povećava šanse za kupnju',
+          'Inspirira, savjetuje i upoznaje tržište s vašom djelatnosti',
+          'Gradi reputaciju brenda i daje vam autoritet',
+          'Privlači kupce odlučne da izvrše kupnju',
+        ],
+      },
+      {
+        k: 'K',
+        title: 'Ključne riječi',
+        role: 'Koja je uloga ključnih riječi u SEO-u?',
+        body: [
+          'Ako bismo birali glavne zvijezde SEO-a, to su ključne riječi. SEO svijet se zbilja vrti oko njih.',
+          'Ključne riječi nisu samo riječi — one su nečija dilema, namjera, put do cilja. Algoritmi znaju da iza njih stoji motivacija i koriste ih da razumiju tržište i prilagode mu ponudu.',
+          'Da biste se istaknuli, ciljanje dužih fraza s manjom konkurencijom pametan je trik za brže rangiranje. Istraživanje i pametna primjena ključnih riječi naša su uža specijalnost.',
+        ],
+        benefits: [
+          'Dovode ljude koji traže točno ono što nudite',
+          'Pomažu Googleu da bez nagađanja zna što nudite i za koga',
+          'Olakšavaju i ubrzavaju rangiranje',
+          'Daju uvid u to što vaše tržište stvarno traži',
+          'Inspiriraju vas za stvaranje korisnog sadržaja',
+        ],
+      },
+    ],
+    benefitsTitle: 'Što vam ovo donosi?',
+    ctaTitle: 'Ne morate sami voziti do tržišta — mi već znamo put i imamo mapu.',
+    cta: 'Pogledaj naše usluge',
+  },
+  en: {
+    eyebrow: 'L.I.C.K. framework',
+    title: 'L.I.C.K. — The strategy for a store that sells',
+    subtitle: 'Polish your store and grow sales.',
+    intro1: 'Did you know there are currently between 25 and 31 million online stores worldwide? Millions of pages, products and stories waiting to be noticed. And you still think Google will launch you to the top on its own? Unlikely.',
+    intro2: 'Your store can be a perfectly designed masterpiece — beautiful and flawless. But if no one sees it, the only one applauding is you. And you built it for customers and sales, right?',
+    intro3: 'That’s why we present the L.I.C.K. strategy, built on four key SEO wheels that drive your store from the initial idea all the way to the market.',
+    pillars: [
+      {
+        k: 'L',
+        title: 'Links',
+        role: 'What’s the role of links in SEO?',
+        body: [
+          'Imagine traveling with no map or GPS — all you have are road signs. It’s the same for Google crawling your site to index it. It has no GPS, only the signs (links) you leave behind.',
+          'If links lead to empty pages, Google takes you less seriously. But when you offer shortcuts to quality content, links drive Google through your store and show how seriously you take your users.',
+          'Beyond internal links, Google considers links from other sites. If relevant, authoritative sites link to you, Google sees you as a valuable source. It matters who links you and whom you link.',
+        ],
+        benefits: [
+          'Show Google your store is reliable and well-structured',
+          'Help you rank better in search',
+          'Bring visitors from relevant pages',
+          'Strengthen brand visibility and authority',
+          'Increase traffic over the long term',
+        ],
+      },
+      {
+        k: 'I',
+        title: 'Infrastructure',
+        role: 'What’s the role of infrastructure in SEO?',
+        body: [
+          'Imagine your store is your house. Would anyone find it if you gave the wrong address? Hardly. That’s why URLs must match the content and user intent.',
+          'If you sell apartments, is it smart to name a page just “apartments”? Not really — people looking to rent wander in, leading to high bounce and zero conversions.',
+          'Heading hierarchy, smart categories, well-structured links, intuitive design and technical health matter just as much. Our experience and strategic planning make that process far easier.',
+        ],
+        benefits: [
+          'Speeds up your store',
+          'Guides buyers from desire to conversion',
+          'Speeds up indexing as Google understands you better',
+          'Brings the right people to the right pages',
+          'Makes it easier to scale and add new products',
+        ],
+      },
+      {
+        k: 'C',
+        title: 'Content',
+        role: 'What’s the role of content in SEO?',
+        body: [
+          'You walk into a boutique and the first thing you notice is little stock and disinterested staff. What do you do? You leave. Online shopping is similar.',
+          'Stores that take their market seriously must offer “something more” — content that improves the experience and subtly convinces buyers you’re the best choice.',
+          'Content through SEO copy, blogs and creative landing pages doesn’t just ease the buying decision — it turns your store into a source of information and inspiration and makes you an authority Google rewards.',
+        ],
+        benefits: [
+          'Helps the market decide faster',
+          'Keeps visitors and increases the chance of purchase',
+          'Inspires, advises and introduces your field',
+          'Builds brand reputation and authority',
+          'Attracts buyers ready to purchase',
+        ],
+      },
+      {
+        k: 'K',
+        title: 'Keywords',
+        role: 'What’s the role of keywords in SEO?',
+        body: [
+          'If we had to pick the stars of SEO, it’s keywords. The SEO world truly revolves around them.',
+          'Keywords aren’t just words — they’re someone’s dilemma, intent, a path to a goal. Algorithms know there’s motivation behind them and use them to understand the market and tailor what they show.',
+          'To stand out, targeting longer phrases with less competition is a smart trick for faster ranking. Researching and smartly applying keywords is our specialty.',
+        ],
+        benefits: [
+          'Bring people searching for exactly what you offer',
+          'Help Google know what you offer and for whom',
+          'Make ranking easier and faster',
+          'Reveal what your market truly searches for',
+          'Inspire you to create useful content',
+        ],
+      },
+    ],
+    benefitsTitle: 'What this brings you',
+    ctaTitle: 'You don’t have to drive to the market alone — we know the way and have the map.',
+    cta: 'See our services',
+  },
+} satisfies Record<Lang, unknown>;

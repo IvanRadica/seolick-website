@@ -1,0 +1,43 @@
+---
+import { getLangFromUrl } from '../../i18n/utils';
+import InquiryForm from '../InquiryForm.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const c =
+  lang === 'hr'
+    ? {
+        eyebrow: 'Kontakt',
+        title: 'Konkurencija ne čeka, nemojte ni vi.',
+        lead: 'Ostavite nam svoje podatke i javljamo se u što kraćem roku. Rado ćemo se upoznati s vašim webshopom i predložiti najbolje rješenje.',
+        emailLabel: 'E-mail',
+        webLabel: 'Web',
+      }
+    : {
+        eyebrow: 'Contact',
+        title: 'Your competition isn’t waiting — neither should you.',
+        lead: 'Leave us your details and we’ll get back to you shortly. We’ll happily get to know your store and suggest the best solution.',
+        emailLabel: 'Email',
+        webLabel: 'Web',
+      };
+---
+
+<section class="container-page py-20 md:py-28 grid md:grid-cols-2 gap-12 items-start">
+  <div>
+    <p class="eyebrow mb-3">{c.eyebrow}</p>
+    <h1 class="text-4xl md:text-5xl font-black leading-tight">{c.title}</h1>
+    <p class="mt-6 text-lg text-gray-700 max-w-md">{c.lead}</p>
+    <div class="mt-8 space-y-4">
+      <div>
+        <div class="font-mono text-xs uppercase tracking-wider text-gray-500">{c.emailLabel}</div>
+        <a href="mailto:ivan@seolick.me" class="text-lg font-bold hover:text-red transition-colors">ivan@seolick.me</a>
+      </div>
+      <div>
+        <div class="font-mono text-xs uppercase tracking-wider text-gray-500">{c.webLabel}</div>
+        <a href="https://seolick.me" class="text-lg font-bold hover:text-red transition-colors">seolick.me</a>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 md:p-8">
+    <InquiryForm />
+  </div>
+</section>

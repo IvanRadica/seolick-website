@@ -1,1 +1,0 @@
-# seolick-website

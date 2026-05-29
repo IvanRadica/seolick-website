@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PopupForm from '../components/PopupForm.astro';
+import { getLangFromUrl, getAlternatePath } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { title, description, ogImage = '/og-default.svg', noindex = false } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const hrHref = new URL(getAlternatePath(Astro.url, 'hr'), Astro.site).href;
+const enHref = new URL(getAlternatePath(Astro.url, 'en'), Astro.site).href;
+const ogUrl = new URL(ogImage, Astro.site).href;
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'SEO LICK',
+  url: 'https://seolick.me',
+  description: 'Strateška SEO agencija za webshopove — L.I.C.K. framework.',
+  email: 'ivan@seolick.me',
+  sameAs: [],
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="hr" href={hrHref} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="x-default" href={hrHref} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:locale" content={lang === 'hr' ? 'hr_HR' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogUrl} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(org)} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <PopupForm />
+  </body>
+</html>
