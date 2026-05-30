@@ -53,7 +53,7 @@ const c = homeContentV2[lang];
     </div>
     <div class="mt-14 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
       {c.solution.pillars.map((pl, i) => (
-        <div class="flex flex-col" data-reveal style={`--d:${i * 90}ms`}>
+        <div class="pillar flex flex-col" data-reveal style={`--d:${i * 90}ms`} tabindex="0">
           <div
             class="wheel font-mono font-black text-red leading-none mb-6 text-[5rem] md:text-[6.5rem]"
             style={`--d:${i * 150}ms`}
@@ -61,10 +61,12 @@ const c = homeContentV2[lang];
           >
             {pl.k}
           </div>
-          <div class="flex-1 bg-white border border-gray-200 rounded-lg p-6">
-            <div class="h-[5px] w-12 rounded bg-red mb-5"></div>
-            <h3 class="font-bold text-base uppercase tracking-[0.12em] mb-2">{pl.title}</h3>
-            <p class="text-sm text-gray-700 leading-relaxed">{pl.desc}</p>
+          <div class="pillar-card-wrap flex-1">
+            <div class="pillar-card h-full bg-white border border-gray-200 rounded-lg p-6">
+              <div class="h-[5px] w-12 rounded bg-red mb-5"></div>
+              <h3 class="font-bold text-base uppercase tracking-[0.12em] mb-2">{pl.title}</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">{pl.desc}</p>
+            </div>
           </div>
         </div>
       ))}

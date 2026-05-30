@@ -184,4 +184,27 @@
     0%, 100% { transform: translateY(-50%) translateX(0); }
     50% { transform: translateY(-50%) translateX(4px); }
   }
+
+  /* --- L.I.C.K. solution cards: card emerges from below the big letter on hover.
+     Gated on .fx-ready (no-JS keeps cards visible) AND hover-capable pointers
+     (touch devices always show the card). Reduced-motion users fall outside this
+     whole block, so they also see the cards statically. --- */
+  @media (hover: hover) and (pointer: fine) {
+    .fx-ready main.fx .pillar .pillar-card {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.4s ease,
+        transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1),
+        box-shadow 0.4s ease;
+    }
+    .fx-ready main.fx .pillar:hover .pillar-card,
+    .fx-ready main.fx .pillar:focus .pillar-card,
+    .fx-ready main.fx .pillar:focus-within .pillar-card {
+      opacity: 1;
+      transform: none;
+      box-shadow: 0 18px 40px -16px rgba(17, 17, 17, 0.28);
+    }
+    .fx-ready main.fx .pillar { outline: none; cursor: default; }
+  }
 }
