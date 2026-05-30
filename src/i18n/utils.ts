@@ -19,9 +19,22 @@ export function localizePath(path: string, lang: Lang): string {
   return clean;
 }
 
+// Strip the /en locale prefix to get the canonical (HR) path for matching.
+export function stripLocale(url: URL): string {
+  const path = url.pathname;
+  if (path.startsWith('/en')) return path.slice(3) || '/';
+  return path;
+}
+
 // Given the current URL, return the equivalent path in the other locale.
 export function getAlternatePath(url: URL, target: Lang): string {
-  let path = url.pathname;
-  if (path.startsWith('/en')) path = path.slice(3) || '/';
-  return localizePath(path, target);
+  return localizePath(stripLocale(url), target);
+}
+
+// The v2 test track: a parallel set of pages (v2, usluge-v2, lick-v2) used to
+// trial wider positioning behind noindex. Navigation must stay inside the
+// track, so shared components branch on this. Single source of truth — do not
+// re-implement the regex inline.
+export function isV2Track(url: URL): boolean {
+  return /^\/(v2|usluge-v2|lick-v2)\/?$/.test(stripLocale(url));
 }

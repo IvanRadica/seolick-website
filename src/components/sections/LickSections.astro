@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, localizePath } from '../../i18n/utils';
+import { getLangFromUrl, localizePath, isV2Track } from '../../i18n/utils';
 import { lickContent } from '../../content/lick';
 import Roadmap from '../Roadmap.astro';
 
@@ -8,10 +8,7 @@ const p = (path: string) => localizePath(path, lang);
 const c = lickContent[lang];
 
 // Keep navigation inside the v2 test track when viewing /lick-v2.
-const stripped = Astro.url.pathname.startsWith('/en')
-  ? Astro.url.pathname.slice(3) || '/'
-  : Astro.url.pathname;
-const isV2 = /^\/lick-v2\/?$/.test(stripped);
+const isV2 = isV2Track(Astro.url);
 const servicesPath = isV2 ? '/usluge-v2' : '/usluge';
 ---
 

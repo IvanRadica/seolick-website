@@ -1,15 +1,12 @@
 ---
-import { getLangFromUrl, localizePath } from '../i18n/utils';
+import { getLangFromUrl, localizePath, isV2Track } from '../i18n/utils';
 import InquiryForm from './InquiryForm.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const p = (path: string) => localizePath(path, lang);
 
 // Keep the popup's links inside the v2 test track when viewing a v2 page.
-const stripped = Astro.url.pathname.startsWith('/en')
-  ? Astro.url.pathname.slice(3) || '/'
-  : Astro.url.pathname;
-const isV2 = /^\/(v2|usluge-v2|lick-v2)\/?$/.test(stripped);
+const isV2 = isV2Track(Astro.url);
 const servicesPath = isV2 ? '/usluge-v2' : '/usluge';
 const lickPath = isV2 ? '/lick-v2' : '/lick';
 

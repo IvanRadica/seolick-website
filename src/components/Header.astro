@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations, localizePath, getAlternatePath } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, localizePath, getAlternatePath, isV2Track } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -8,10 +8,7 @@ const other = lang === 'hr' ? 'en' : 'hr';
 const altPath = getAlternatePath(Astro.url, other);
 
 // Keep navigation inside the v2 test track when viewing a v2 page.
-const stripped = Astro.url.pathname.startsWith('/en')
-  ? Astro.url.pathname.slice(3) || '/'
-  : Astro.url.pathname;
-const isV2 = /^\/(v2|usluge-v2|lick-v2)\/?$/.test(stripped);
+const isV2 = isV2Track(Astro.url);
 const home = isV2 ? '/v2' : '/';
 
 const navLinks = [
