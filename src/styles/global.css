@@ -70,3 +70,118 @@
     border-color: var(--color-black);
   }
 }
+
+/* ============================================================
+   Motion layer — only active under main.fx (v2 test track).
+   Live pages have no .fx, so they stay fully static.
+   All motion is disabled for prefers-reduced-motion.
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  /* --- Hero: on-load animations (no JS) --- */
+  .fx .hero-line {
+    opacity: 0;
+    transform: translateY(22px);
+    animation: fx-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    animation-delay: var(--d, 0ms);
+  }
+  .fx .hero-glow { animation: fx-breathe 7s ease-in-out infinite; }
+  .fx .hero-spot {
+    position: absolute;
+    top: -50%;
+    left: -40%;
+    width: 55%;
+    height: 200%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    background: radial-gradient(closest-side, rgba(225, 44, 44, 0.4), transparent 70%);
+    filter: blur(24px);
+    opacity: 0;
+    animation: fx-sweep 4.8s ease-in-out 0.4s;
+  }
+  @keyframes fx-rise { to { opacity: 1; transform: none; } }
+  @keyframes fx-breathe { 0%, 100% { opacity: 0.07; } 50% { opacity: 0.16; } }
+  @keyframes fx-sweep {
+    0% { left: -45%; opacity: 0; }
+    15% { opacity: 0.85; }
+    85% { opacity: 0.55; }
+    100% { left: 125%; opacity: 0; }
+  }
+
+  /* --- Red CTA sheen --- */
+  .fx .btn-primary { position: relative; overflow: hidden; }
+  .fx .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    animation: fx-shine 5s ease-in-out infinite;
+  }
+  @keyframes fx-shine { 0%, 65% { left: -150%; } 85% { left: 160%; } 100% { left: 160%; } }
+
+  /* --- Scroll reveal (JS-gated so content never hides without JS) --- */
+  .fx-ready main.fx [data-reveal] {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--d, 0ms);
+  }
+  main.fx [data-reveal].is-visible { opacity: 1; transform: none; }
+
+  /* --- L.I.C.K. wheels (home solution letters) --- */
+  .fx-ready main.fx .wheel { opacity: 0; }
+  main.fx .wheel.is-visible {
+    animation: fx-wheel 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    animation-delay: var(--d, 0ms);
+  }
+  @keyframes fx-wheel {
+    0% { opacity: 0; transform: translateX(-28px) rotate(-160deg); }
+    100% { opacity: 1; transform: none; }
+  }
+
+  /* --- Roadmap drive --- */
+  .fx .rm-grid { position: relative; }
+  .fx-ready main.fx .rm-task {
+    opacity: 0;
+    transform: scaleX(0.02);
+    transform-origin: left center;
+    transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.4s ease;
+    transition-delay: var(--d, 0ms);
+  }
+  .fx .rm-grid.is-visible .rm-task { opacity: 1; transform: none; }
+  .fx .rm-playhead {
+    top: 1.7rem;
+    bottom: 0.25rem;
+    left: 2.75rem;
+    width: 2px;
+    background: var(--color-red);
+    box-shadow: 0 0 8px rgba(225, 44, 44, 0.85);
+    border-radius: 2px;
+    opacity: 0;
+  }
+  .fx .rm-grid.is-visible .rm-playhead { animation: fx-drive 2.6s ease-in-out 0.2s forwards; }
+  .fx .rm-playhead::before {
+    content: "\25B8";
+    position: absolute;
+    top: -1.1rem;
+    left: -0.4rem;
+    color: var(--color-red);
+    font-size: 0.85rem;
+  }
+  @keyframes fx-drive {
+    0% { left: 2.75rem; opacity: 0; }
+    12% { opacity: 1; }
+    88% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  /* --- Services path arrow flow --- */
+  main.fx .svc-arrow.is-visible { animation: fx-arrowflow 1.8s ease-in-out infinite; }
+  @keyframes fx-arrowflow {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(4px); }
+  }
+}

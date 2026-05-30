@@ -10,9 +10,10 @@ interface Props {
   description: string;
   ogImage?: string;
   noindex?: boolean;
+  fx?: boolean;
 }
 
-const { title, description, ogImage = '/og-default.svg', noindex = false } = Astro.props;
+const { title, description, ogImage = '/og-default.svg', noindex = false, fx = false } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const hrHref = new URL(getAlternatePath(Astro.url, 'hr'), Astro.site).href;
@@ -66,13 +67,78 @@ const org = {
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(org)} />
+    {
+      fx && (
+        <script is:inline>
+          document.documentElement.classList.add('fx-ready');
+        </script>
+      )
+    }
   </head>
   <body>
     <Header />
-    <main>
+    <main class={fx ? 'fx' : undefined}>
       <slot />
     </main>
     <Footer />
     <PopupForm />
+    {fx && (
+      <script>
+        // Motion runtime — self-guards on main.fx so it is inert on live pages.
+        const root = document.querySelector('main.fx');
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (root && !reduce) {
+          // Scroll reveal + grouped triggers (wheels, roadmap, arrows).
+          const io = new IntersectionObserver(
+            (entries) => {
+              for (const e of entries) {
+                if (e.isIntersecting) {
+                  e.target.classList.add('is-visible');
+                  io.unobserve(e.target);
+                }
+              }
+            },
+            { threshold: 0.18, rootMargin: '0px 0px -8% 0px' }
+          );
+          root
+            .querySelectorAll('[data-reveal], .wheel, .rm-grid, .svc-arrow')
+            .forEach((el) => io.observe(el));
+
+          // Price count-up.
+          const parsePrice = (s) => {
+            const digits = (s.match(/[\d.]/g) || []).join('').replace(/\./g, '');
+            return { value: parseInt(digits, 10) || 0, raw: s };
+          };
+          const fmt = (n) => n.toLocaleString('hr-HR');
+          const countEls = root.querySelectorAll('[data-countup]');
+          const cio = new IntersectionObserver(
+            (entries) => {
+              for (const e of entries) {
+                if (!e.isIntersecting) continue;
+                const el = e.target;
+                cio.unobserve(el);
+                const target = el.getAttribute('data-countup') || el.textContent || '';
+                const { value } = parsePrice(target);
+                if (!value) continue;
+                const prefix = target.match(/^[^\d]*/)[0] || '';
+                const suffix = target.match(/[^\d.]*$/)[0] || '';
+                const start = performance.now();
+                const dur = 1100;
+                const tick = (now) => {
+                  const t = Math.min(1, (now - start) / dur);
+                  const eased = 1 - Math.pow(1 - t, 3);
+                  el.textContent = prefix + fmt(Math.round(value * eased)) + suffix;
+                  if (t < 1) requestAnimationFrame(tick);
+                  else el.textContent = target;
+                };
+                requestAnimationFrame(tick);
+              }
+            },
+            { threshold: 0.6 }
+          );
+          countEls.forEach((el) => cio.observe(el));
+        }
+      </script>
+    )}
   </body>
 </html>

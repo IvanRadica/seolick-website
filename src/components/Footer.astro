@@ -6,44 +6,193 @@ const t = useTranslations(lang);
 const p = (path: string) => localizePath(path, lang);
 const year = new Date().getFullYear();
 
+// Keep navigation inside the v2 test track when viewing a v2 page.
+const stripped = Astro.url.pathname.startsWith('/en')
+  ? Astro.url.pathname.slice(3) || '/'
+  : Astro.url.pathname;
+const isV2 = /^\/(v2|usluge-v2|lick-v2)\/?$/.test(stripped);
+
 const navLinks = [
-  { href: p('/usluge'), label: t('nav.services') },
-  { href: p('/lick'), label: t('nav.lick') },
-  { href: p('/#faq'), label: t('nav.faq') },
+  { href: p(isV2 ? '/usluge-v2' : '/usluge'), label: t('nav.services') },
+  { href: p(isV2 ? '/lick-v2' : '/lick'), label: t('nav.lick') },
+  { href: p(isV2 ? '/v2#faq' : '/#faq'), label: t('nav.faq') },
   { href: p('/kontakt'), label: t('nav.contact') },
 ];
+
+// --- v2 footer (inspired by the designer's red footer) ---
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? 'YOUR-WEB3FORMS-ACCESS-KEY';
+
+const v2Nav = [
+  { href: p('/v2'), label: lang === 'hr' ? 'Naslovnica' : 'Home' },
+  { href: p('/usluge-v2'), label: t('nav.services') },
+  { href: p('/lick-v2'), label: t('nav.lick') },
+  { href: p('/kontakt'), label: t('nav.contact') },
+];
+
+const socials = [
+  { href: '#', label: 'LinkedIn' },
+  { href: '#', label: 'Instagram' },
+];
+
+const v2Copy =
+  lang === 'hr'
+    ? {
+        contact: 'Kontakt',
+        social: 'Društvene mreže',
+        nav: 'Navigacija',
+        subscribe: 'Newsletter',
+        subLead: 'Povremeni SEO savjeti i novosti ravno u inbox.',
+        email: 'Vaš e-mail',
+        success: 'Hvala na pretplati!',
+        error: 'Nešto je pošlo po krivu. Pokušajte ponovno.',
+      }
+    : {
+        contact: 'Contact',
+        social: 'Social media',
+        nav: 'Navigation',
+        subscribe: 'Newsletter',
+        subLead: 'Occasional SEO tips and news straight to your inbox.',
+        email: 'Your e-mail',
+        success: 'Thanks for subscribing!',
+        error: 'Something went wrong. Please try again.',
+      };
 ---
 
-<footer class="bg-black text-white mt-24">
-  <div class="container-page py-16 grid gap-10 md:grid-cols-3">
-    <div>
-      <div class="font-mono font-bold text-xl mb-3">SEO<span class="text-red">LICK</span></div>
-      <p class="text-gray-200 text-sm max-w-xs">{t('footer.tagline')}</p>
-      <p class="eyebrow mt-4">{t('footer.framework')}</p>
+{isV2 ? (
+  <footer class="relative overflow-hidden bg-red text-white mt-24">
+    <div class="container-page pt-20 pb-10">
+      <div class="grid gap-12 md:grid-cols-3">
+        <!-- Contact + Social -->
+        <div>
+          <h3 class="font-bold uppercase tracking-[0.12em] text-sm mb-5">{v2Copy.contact}</h3>
+          <ul class="space-y-2 text-[15px]">
+            <li><a href="mailto:ivan@seolick.me" class="text-white/90 hover:text-white transition-colors">ivan@seolick.me</a></li>
+            <li><a href="https://seolick.me" class="text-white/90 hover:text-white transition-colors">seolick.me</a></li>
+          </ul>
+          <h3 class="font-bold uppercase tracking-[0.12em] text-sm mt-8 mb-5">{v2Copy.social}</h3>
+          <ul class="space-y-2 text-[15px]">
+            {socials.map((s) => (
+              <li><a href={s.href} class="text-white/90 hover:text-white transition-colors">{s.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <h3 class="font-bold uppercase tracking-[0.12em] text-sm mb-5">{v2Copy.nav}</h3>
+          <ul class="space-y-3 text-[15px]">
+            {v2Nav.map((l) => (
+              <li><a href={l.href} class="text-white/90 hover:text-white transition-colors">{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Subscribe -->
+        <div>
+          <h3 class="font-bold uppercase tracking-[0.12em] text-sm mb-5">{v2Copy.subscribe}</h3>
+          <p class="text-white/80 text-sm mb-4 max-w-xs">{v2Copy.subLead}</p>
+          <form data-subscribe-form class="flex items-center gap-2 max-w-sm">
+            <input type="hidden" name="access_key" value={accessKey} />
+            <input type="hidden" name="subject" value="Nova pretplata — seolick.me" />
+            <input type="hidden" name="from_name" value="SEO LICK Newsletter" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder={v2Copy.email}
+              class="flex-1 bg-transparent border border-white/60 rounded-md px-4 py-3 text-[15px] text-white placeholder:text-white/60 focus:border-white outline-none"
+            />
+            <button
+              type="submit"
+              aria-label={v2Copy.subscribe}
+              class="shrink-0 w-12 h-12 grid place-items-center rounded-md border border-white/60 hover:bg-white hover:text-red transition-colors"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+          </form>
+          <p data-subscribe-status class="text-sm mt-3 hidden" data-success={v2Copy.success} data-error={v2Copy.error}></p>
+          <p class="font-bold mt-10">&copy; SEO LICK {year}</p>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <h3 class="font-mono text-xs uppercase tracking-wider text-gray-500 mb-4">{t('footer.links.title')}</h3>
-      <ul class="space-y-2 text-sm">
-        {navLinks.map((l) => (
-          <li><a href={l.href} class="text-gray-200 hover:text-white transition-colors">{l.label}</a></li>
-        ))}
-      </ul>
+    <!-- Oversized wordmark bleeding off the bottom edge -->
+    <div class="select-none pointer-events-none" aria-hidden="true">
+      <div
+        class="text-white font-black tracking-tight whitespace-nowrap text-center leading-[0.78]"
+        style="font-size: clamp(3.25rem, 19vw, 17rem); margin-bottom: -0.14em;"
+      >
+        SEO LICK
+      </div>
+    </div>
+  </footer>
+) : (
+  <footer class="bg-black text-white mt-24">
+    <div class="container-page py-16 grid gap-10 md:grid-cols-3">
+      <div>
+        <div class="font-mono font-bold text-xl mb-3">SEO<span class="text-red">LICK</span></div>
+        <p class="text-gray-200 text-sm max-w-xs">{t('footer.tagline')}</p>
+        <p class="eyebrow mt-4">{t('footer.framework')}</p>
+      </div>
+
+      <div>
+        <h3 class="font-mono text-xs uppercase tracking-wider text-gray-500 mb-4">{t('footer.links.title')}</h3>
+        <ul class="space-y-2 text-sm">
+          {navLinks.map((l) => (
+            <li><a href={l.href} class="text-gray-200 hover:text-white transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-mono text-xs uppercase tracking-wider text-gray-500 mb-4">{t('footer.contact.title')}</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="mailto:ivan@seolick.me" class="text-gray-200 hover:text-white transition-colors">ivan@seolick.me</a></li>
+          <li><a href="https://seolick.me" class="text-gray-200 hover:text-white transition-colors">seolick.me</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div>
-      <h3 class="font-mono text-xs uppercase tracking-wider text-gray-500 mb-4">{t('footer.contact.title')}</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="mailto:ivan@seolick.me" class="text-gray-200 hover:text-white transition-colors">ivan@seolick.me</a></li>
-        <li><a href="https://seolick.me" class="text-gray-200 hover:text-white transition-colors">seolick.me</a></li>
-      </ul>
+    <div class="border-t border-gray-900">
+      <div class="container-page py-6 text-xs text-gray-500 flex flex-col sm:flex-row justify-between gap-2">
+        <span>&copy; {year} SEO LICK. {t('footer.rights')}</span>
+        <span class="font-mono">Links · Infrastructure · Content · Keywords</span>
+      </div>
     </div>
-  </div>
+  </footer>
+)}
 
-  <div class="border-t border-gray-900">
-    <div class="container-page py-6 text-xs text-gray-500 flex flex-col sm:flex-row justify-between gap-2">
-      <span>&copy; {year} SEO LICK. {t('footer.rights')}</span>
-      <span class="font-mono">Links · Infrastructure · Content · Keywords</span>
-    </div>
-  </div>
-</footer>
+<script>
+  // Newsletter subscribe (v2 footer) — same Web3Forms backend as the inquiry form.
+  document.querySelectorAll<HTMLFormElement>('[data-subscribe-form]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = form.parentElement?.querySelector<HTMLParagraphElement>('[data-subscribe-status]');
+      const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const data = await res.json();
+        if (status) {
+          status.classList.remove('hidden');
+          status.textContent = data.success ? status.dataset.success! : status.dataset.error!;
+        }
+        if (data.success) form.reset();
+      } catch {
+        if (status) {
+          status.classList.remove('hidden');
+          status.textContent = status.dataset.error!;
+        }
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  });
+</script>

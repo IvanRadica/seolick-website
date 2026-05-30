@@ -5,6 +5,14 @@ import InquiryForm from './InquiryForm.astro';
 const lang = getLangFromUrl(Astro.url);
 const p = (path: string) => localizePath(path, lang);
 
+// Keep the popup's links inside the v2 test track when viewing a v2 page.
+const stripped = Astro.url.pathname.startsWith('/en')
+  ? Astro.url.pathname.slice(3) || '/'
+  : Astro.url.pathname;
+const isV2 = /^\/(v2|usluge-v2|lick-v2)\/?$/.test(stripped);
+const servicesPath = isV2 ? '/usluge-v2' : '/usluge';
+const lickPath = isV2 ? '/lick-v2' : '/lick';
+
 const copy =
   lang === 'hr'
     ? {
@@ -39,8 +47,8 @@ const copy =
       <InquiryForm />
 
       <div class="flex flex-wrap gap-x-5 gap-y-2 mt-5 text-xs font-mono">
-        <a href={p('/usluge')} class="text-gray-500 hover:text-black underline">{copy.services}</a>
-        <a href={p('/lick')} class="text-gray-500 hover:text-black underline">{copy.lick}</a>
+        <a href={p(servicesPath)} class="text-gray-500 hover:text-black underline">{copy.services}</a>
+        <a href={p(lickPath)} class="text-gray-500 hover:text-black underline">{copy.lick}</a>
       </div>
     </div>
   </div>

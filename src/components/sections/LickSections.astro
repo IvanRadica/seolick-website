@@ -6,6 +6,13 @@ import Roadmap from '../Roadmap.astro';
 const lang = getLangFromUrl(Astro.url);
 const p = (path: string) => localizePath(path, lang);
 const c = lickContent[lang];
+
+// Keep navigation inside the v2 test track when viewing /lick-v2.
+const stripped = Astro.url.pathname.startsWith('/en')
+  ? Astro.url.pathname.slice(3) || '/'
+  : Astro.url.pathname;
+const isV2 = /^\/lick-v2\/?$/.test(stripped);
+const servicesPath = isV2 ? '/usluge-v2' : '/usluge';
 ---
 
 <section class="bg-black text-white">
@@ -60,5 +67,5 @@ const c = lickContent[lang];
 
 <section class="container-page py-20 md:py-28 text-center">
   <h2 class="text-3xl md:text-5xl font-black max-w-3xl mx-auto leading-tight">{c.ctaTitle}</h2>
-  <a href={p('/usluge')} class="btn btn-primary text-base px-9 py-4 mt-9">{c.cta} &rarr;</a>
+  <a href={p(servicesPath)} class="btn btn-primary text-base px-9 py-4 mt-9">{c.cta} &rarr;</a>
 </section>

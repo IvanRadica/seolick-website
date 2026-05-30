@@ -7,18 +7,31 @@ const p = (path: string) => localizePath(path, lang);
 const other = lang === 'hr' ? 'en' : 'hr';
 const altPath = getAlternatePath(Astro.url, other);
 
+// Keep navigation inside the v2 test track when viewing a v2 page.
+const stripped = Astro.url.pathname.startsWith('/en')
+  ? Astro.url.pathname.slice(3) || '/'
+  : Astro.url.pathname;
+const isV2 = /^\/(v2|usluge-v2|lick-v2)\/?$/.test(stripped);
+const home = isV2 ? '/v2' : '/';
+
 const navLinks = [
-  { href: p('/usluge'), label: t('nav.services') },
-  { href: p('/lick'), label: t('nav.lick') },
-  { href: p('/#faq'), label: t('nav.faq') },
+  { href: p(isV2 ? '/usluge-v2' : '/usluge'), label: t('nav.services') },
+  { href: p(isV2 ? '/lick-v2' : '/lick'), label: t('nav.lick') },
+  { href: p(isV2 ? '/v2#faq' : '/#faq'), label: t('nav.faq') },
   { href: p('/kontakt'), label: t('nav.contact') },
 ];
 ---
 
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-200">
   <nav class="container-page flex items-center justify-between h-16">
-    <a href={p('/')} class="font-mono font-bold tracking-tight text-lg flex items-center gap-1">
-      SEO<span class="text-red">LICK</span>
+    <a href={p(home)} class="flex items-center shrink-0" aria-label="SEO LICK">
+      <img
+        src="/SEOLICK_logo_horizontal.png"
+        alt="SEO LICK"
+        width="826"
+        height="182"
+        class="h-7 md:h-8 w-auto"
+      />
     </a>
 
     <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
