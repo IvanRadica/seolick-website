@@ -56,6 +56,26 @@ const servicesPath = isV2 ? '/usluge-v2' : '/usluge';
   </section>
 ))}
 
+{isV2 && (
+  <section class="bg-black text-white">
+    <div class="container-page py-14 md:py-16 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <p class="max-w-xl text-xl md:text-2xl font-black leading-tight">
+        {lang === 'hr'
+          ? 'Vidite kako L.I.C.K. izgleda u praksi — kroz naše usluge.'
+          : 'See how L.I.C.K. looks in practice — through our services.'}
+      </p>
+      <div class="flex shrink-0 items-center gap-5">
+        <a href={p(servicesPath)} class="font-mono text-sm underline text-white/80 hover:text-white transition-colors">
+          {lang === 'hr' ? 'Pogledaj usluge →' : 'See our services →'}
+        </a>
+        <button data-open-popup class="btn btn-primary">
+          {lang === 'hr' ? 'Zatraži FIRST LICK' : 'Get your FIRST LICK'}
+        </button>
+      </div>
+    </div>
+  </section>
+)}
+
 <section class="bg-gray-50 border-y border-gray-200">
   <div class="container-page py-16 md:py-24">
     <Roadmap />

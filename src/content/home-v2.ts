@@ -6,7 +6,7 @@ export const homeContentV2 = {
       eyebrow: 'Strateška SEO agencija za rast poslovanja',
       titleA: 'Vaš biznis stoji u sjeni?',
       titleB: 'Izvedimo ga pred reflektore.',
-      sub: 'Radimo s brendovima koji žive od upita i rezervacija — od klinika i chartera do agencija za nekretnine. Nismo još jedna SEO agencija koja obećava tron. S L.I.C.K. frameworkom režiramo show za Google pozornicu i vodimo vas ravno do crvenog tepiha.',
+      sub: 'Radimo s brendovima koji žive od upita i rezervacija — klinike, charteri, agencije za nekretnine. S L.I.C.K. frameworkom pretvaramo Google pretragu u stalan priljev upita.',
       cta: 'Zatraži FIRST LICK',
       microcopy: 'Prvi korak za rast vašeg biznisa',
     },
@@ -18,7 +18,7 @@ export const homeContentV2 = {
         'Konkurencija trči maraton, dok vi još učite vezati tenisice.',
         'Plaćate oglase iz mjeseca u mjesec — SEO je nekretnina, oglasi su najam, a vi i dalje samo plaćate najam.',
       ],
-      close: 'Razumijemo izazove vašeg tržišta — tu smo da ih pretvorimo u prilike.',
+      close: 'Svi ovi problemi imaju isti korijen: tržište vas ne pronalazi prije konkurencije. L.I.C.K. to mijenja.',
     },
     solution: {
       eyebrow: 'Rješenje',
@@ -45,15 +45,26 @@ export const homeContentV2 = {
       ],
     },
     proof: {
-      eyebrow: 'Socijalni dokaz',
-      title: 'Klijenti nas ne štede s pohvalama…',
-      sub: 'Bez brige, nismo nikome platili za ovo.',
+      eyebrow: 'Klijenti',
+      title: 'Brendovi koji su nam već vjerovali',
+      sub: 'Od yacht chartera i privatne medicine do nekretnina i webshopova.',
       clients: ['Danielis Yachting', 'KupiLED', 'Green Stay Croatia', 'Alpha Air Ambulance', 'Avanti Montes', 'Aquamed'],
+    },
+    results: {
+      eyebrow: 'Rezultati',
+      title: 'Što se promijeni kad biznis izađe iz sjene',
+      sub: 'Industrije u kojima gradimo mjerljiv organski rast — od prvih upita do stalnog priljeva.',
+      // metric je prazan dok ne dodamo prave brojke po projektu; tad se prikazuje istaknuto.
+      items: [
+        { industry: 'Yacht charter', metric: '', outcome: 'Više rezervacija iz organske pretrage u punoj sezoni, uz manju ovisnost o plaćenim oglasima.' },
+        { industry: 'Privatna medicina', metric: '', outcome: 'Stalan priljev upita pacijenata za ključne tretmane kroz lokalni i organski SEO.' },
+        { industry: 'Nekretnine', metric: '', outcome: 'Vidljivost na pretragama s visokom namjerom — kupci i najmoprimci koji već traže.' },
+      ],
     },
     finalCta: {
       title: 'Spremni da vaš biznis zablista i privuče poglede tržišta? Mi jesmo!',
       sub: 'Pomoću L.I.C.K. frameworka odvezite svoj biznis do odredišta.',
-      cta: 'Zatraži LICK start',
+      cta: 'Zatraži FIRST LICK',
     },
     faqTitle: 'Često postavljana pitanja',
     faq: [
@@ -74,7 +85,7 @@ export const homeContentV2 = {
       eyebrow: 'Strategic SEO agency for business growth',
       titleA: 'Is your business stuck in the shadows?',
       titleB: 'Let’s bring it into the spotlight.',
-      sub: 'We work with brands that live on inquiries and bookings — from clinics and charters to real-estate agencies. We’re not just another SEO agency promising you a throne. With the L.I.C.K. framework we direct the show on Google’s stage and walk you straight to the red carpet.',
+      sub: 'We work with brands that live on inquiries and bookings — clinics, charters, real-estate agencies. With the L.I.C.K. framework we turn Google search into a steady stream of inquiries.',
       cta: 'Get your FIRST LICK',
       microcopy: 'The first step toward growing your business',
     },
@@ -86,7 +97,7 @@ export const homeContentV2 = {
         'It feels like competitors are running a marathon while you’re still learning to tie your shoes.',
         'You pay for ads month after month — SEO is the property you own, ads are the rent, and you’re still only paying rent.',
       ],
-      close: 'We understand your market’s challenges — we’re here to turn them into opportunities.',
+      close: 'All of these problems share one root: the market finds your competitors before it finds you. L.I.C.K. changes that.',
     },
     solution: {
       eyebrow: 'The solution',
@@ -113,15 +124,25 @@ export const homeContentV2 = {
       ],
     },
     proof: {
-      eyebrow: 'Social proof',
-      title: 'Clients don’t hold back on the praise…',
-      sub: 'Don’t worry, we didn’t pay anyone for this.',
+      eyebrow: 'Clients',
+      title: 'Brands that have already trusted us',
+      sub: 'From yacht charter and private medicine to real estate and online stores.',
       clients: ['Danielis Yachting', 'KupiLED', 'Green Stay Croatia', 'Alpha Air Ambulance', 'Avanti Montes', 'Aquamed'],
+    },
+    results: {
+      eyebrow: 'Results',
+      title: 'What changes when your business steps out of the shadows',
+      sub: 'Industries where we build measurable organic growth — from the first inquiries to a steady stream.',
+      items: [
+        { industry: 'Yacht charter', metric: '', outcome: 'More bookings from organic search in peak season, with less reliance on paid ads.' },
+        { industry: 'Private medicine', metric: '', outcome: 'A steady stream of patient inquiries for key treatments through local and organic SEO.' },
+        { industry: 'Real estate', metric: '', outcome: 'Visibility on high-intent searches — buyers and renters who are already looking.' },
+      ],
     },
     finalCta: {
       title: 'Ready for your business to shine and turn the market’s heads? We are!',
       sub: 'Drive your business to its destination with the L.I.C.K. framework.',
-      cta: 'Get your LICK start',
+      cta: 'Get your FIRST LICK',
     },
     faqTitle: 'Frequently asked questions',
     faq: [

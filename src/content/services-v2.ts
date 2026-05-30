@@ -49,6 +49,7 @@ export const servicesV2Content = {
     pathNote:
       'Audit → Foundations → Retainer. Audit je ujedno prva faza Foundationsa, a Retainer kreće kad su temelji postavljeni. Svaku uslugu možete uzeti i samostalno.',
     tiers: {
+      bridge: 'Treća postaja — Retainer — dolazi u tri tiera. Odaberite tempo rasta.',
       eyebrow: 'SEO Retainer',
       title: 'Tri tiera za dugoročni rast',
       subtitle: 'Kapacitet i tim koji rastu zajedno s vama.',
@@ -72,7 +73,7 @@ export const servicesV2Content = {
         { name: 'Tracking & Analitika', desc: 'GA4, GTM i conversion tracking.', price: 'custom' },
       ],
     },
-    cta: 'Pošalji upit',
+    cta: 'Zatraži ponudu',
     formTitle: 'Zatražite ponudu za L.I.C.K. start već danas',
     formSub: 'Konkurencija ne čeka, nemojte ni vi.',
   },
@@ -124,6 +125,7 @@ export const servicesV2Content = {
     pathNote:
       'Audit → Foundations → Retainer. The Audit is also the first phase of Foundations, and the Retainer starts once the foundations are in place. You can take any service on its own.',
     tiers: {
+      bridge: 'The third stop — the Retainer — comes in three tiers. Pick your pace of growth.',
       eyebrow: 'SEO Retainer',
       title: 'Three tiers for long-term growth',
       subtitle: 'Capacity and a team that grow with you.',
@@ -147,7 +149,7 @@ export const servicesV2Content = {
         { name: 'Tracking & Analytics', desc: 'GA4, GTM and conversion tracking.', price: 'custom' },
       ],
     },
-    cta: 'Send inquiry',
+    cta: 'Request a quote',
     formTitle: 'Request your L.I.C.K. start today',
     formSub: 'Your competition isn’t waiting — neither should you.',
   },
