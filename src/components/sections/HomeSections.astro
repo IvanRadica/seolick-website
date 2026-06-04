@@ -11,6 +11,12 @@ const c = homeContent[lang];
 
 <!-- HERO -->
 <section class="relative overflow-hidden bg-black text-white">
+  <video
+    class="absolute inset-0 h-full w-full object-cover opacity-60 motion-reduce:hidden"
+    autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="/video/hero-liquid.mp4" type="video/mp4" />
+  </video>
+  <div class="absolute inset-0 bg-black/50" aria-hidden="true"></div>
   <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true"
     style="background-image: radial-gradient(circle at 50% 0%, #e12c2c 0%, transparent 60%);"></div>
   <div class="container-page relative py-24 md:py-32 text-center">
