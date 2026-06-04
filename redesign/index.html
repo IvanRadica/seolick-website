@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>SEO LICK — SEO koji se vidi u prometu, ne u izvještaju</title>
+  <meta name="description" content="Strateška SEO agencija za brendove koji žive od upita i rezervacija. L.I.C.K. framework — Links · Infrastructure · Content · Keywords — pretvara Google pretragu u stalan priljev upita." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SEO LICK — Izvedimo vaš biznis pred reflektore" />
+  <meta property="og:description" content="Strateška SEO agencija za brendove koji žive od upita i rezervacija." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       SEO LICK — Premium redesign
+       Tokens · Roboto + Roboto Mono · red / black / white
+       ============================================================ */
+    :root {
+      --red: #e12c2c;
+      --red-dark: #c41f1f;
+      --red-soft: rgba(225, 44, 44, 0.14);
+      --black: #000000;
+      --ink: #0a0a0b;
+      --ink-2: #111114;
+      --ink-3: #16161a;
+      --paper: #ffffff;
+      --paper-2: #f6f6f4;
+      --line: rgba(255, 255, 255, 0.10);
+      --line-dark: rgba(0, 0, 0, 0.10);
+      --t-hi: #ffffff;
+      --t-mid: rgba(255, 255, 255, 0.66);
+      --t-low: rgba(255, 255, 255, 0.42);
+      --d-hi: #0a0a0b;
+      --d-mid: #4b4b52;
+
+      --font: "Roboto", Helvetica, Arial, sans-serif;
+      --mono: "Roboto Mono", ui-monospace, monospace;
+
+      --maxw: 1200px;
+      --gutter: clamp(1.25rem, 5vw, 3rem);
+      --r: 16px;
+      --ease: cubic-bezier(0.22, 0.7, 0.16, 1);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+      --nav-h: 72px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      background: var(--ink);
+      color: var(--t-hi);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    img, svg, video { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--red); color: #fff; }
+
+    .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 26px; height: 1px;
+      background: var(--red);
+      display: inline-block;
+    }
+    .eyebrow.center::before { display: none; }
+
+    h1, h2, h3 { line-height: 1.04; letter-spacing: -0.02em; font-weight: 900; }
+    .display {
+      font-size: clamp(2.5rem, 7.2vw, 5.6rem);
+      font-weight: 900;
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+    }
+    .h2 { font-size: clamp(1.9rem, 4.6vw, 3.4rem); letter-spacing: -0.03em; }
+    .lead { font-size: clamp(1.05rem, 1.7vw, 1.3rem); color: var(--t-mid); line-height: 1.62; }
+    .accent { color: var(--red); }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+      font-weight: 700; font-size: 0.98rem;
+      border-radius: 999px;
+      padding: 1rem 1.7rem;
+      min-height: 52px;
+      cursor: pointer; border: 1px solid transparent;
+      transition: transform 0.25s var(--ease), background-color 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease);
+      will-change: transform;
+      position: relative; overflow: hidden;
+      white-space: nowrap;
+    }
+    .btn svg { transition: transform 0.3s var(--ease); }
+    .btn-primary { background: var(--red); color: #fff; }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .btn-primary:hover svg { transform: translateX(4px); }
+    .btn-primary::after {
+      content: ""; position: absolute; inset: 0; left: -150%;
+      width: 55%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.4), transparent);
+      transform: skewX(-20deg);
+    }
+    .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.22); }
+    .btn-ghost:hover { border-color: #fff; transform: translateY(-2px); }
+    .btn-ghost.dark { color: var(--ink); border-color: rgba(0,0,0,0.18); }
+    .btn-ghost.dark:hover { border-color: var(--ink); }
+    .btn-lg { padding: 1.15rem 2.1rem; min-height: 60px; font-size: 1.05rem; }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      transition: background-color 0.4s var(--ease), border-color 0.4s var(--ease), backdrop-filter 0.4s var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(10, 10, 11, 0.72);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border-bottom-color: var(--line);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: 0.6rem; font-weight: 900; letter-spacing: -0.02em; font-size: 1.18rem; }
+    .brand .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--red); box-shadow: 0 0 14px var(--red); }
+    .brand small { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--t-low); font-weight: 500; display: block; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.92rem; color: var(--t-mid); font-weight: 500; transition: color 0.2s; position: relative; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0; background: var(--red); transition: width 0.3s var(--ease); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
+    .progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--red); z-index: 101; box-shadow: 0 0 10px var(--red); }
+    .menu-btn { display: none; background: none; border: 0; color: #fff; cursor: pointer; width: 44px; height: 44px; align-items: center; justify-content: center; }
+    .menu-btn span { display: block; width: 22px; height: 2px; background: #fff; position: relative; transition: 0.3s; }
+    .menu-btn span::before, .menu-btn span::after { content: ""; position: absolute; left: 0; width: 22px; height: 2px; background: #fff; transition: 0.3s; }
+    .menu-btn span::before { top: -7px; } .menu-btn span::after { top: 7px; }
+    body.menu-open .menu-btn span { background: transparent; }
+    body.menu-open .menu-btn span::before { top: 0; transform: rotate(45deg); }
+    body.menu-open .menu-btn span::after { top: 0; transform: rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(10,10,11,0.97);
+      backdrop-filter: blur(20px);
+      display: flex; flex-direction: column; justify-content: center; gap: 0.5rem;
+      padding: var(--gutter);
+      transform: translateY(-100%);
+      transition: transform 0.5s var(--ease);
+    }
+    body.menu-open .mobile-menu { transform: translateY(0); }
+    .mobile-menu a { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; padding: 0.6rem 0; color: #fff; border-bottom: 1px solid var(--line); }
+    .mobile-menu .btn { margin-top: 1.5rem; }
+
+    /* ============================================================
+       HERO — the spotlight stage
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh; min-height: 100dvh;
+      display: flex; align-items: center;
+      padding-top: calc(var(--nav-h) + 2rem); padding-bottom: 4rem;
+      overflow: hidden;
+      background: radial-gradient(120% 90% at 50% -10%, #1b1b20 0%, var(--ink) 45%, #050506 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 75%);
+      -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 75%);
+      opacity: 0.5;
+    }
+    .spotlight {
+      position: absolute; top: -30%; left: 50%; transform: translateX(-50%);
+      width: 90vw; max-width: 1100px; height: 150%;
+      background: radial-gradient(closest-side, rgba(225,44,44,0.22), rgba(225,44,44,0.05) 45%, transparent 70%);
+      filter: blur(20px);
+      pointer-events: none;
+      animation: breathe 8s ease-in-out infinite;
+    }
+    @keyframes breathe { 0%,100% { opacity: 0.7; } 50% { opacity: 1; } }
+    .hero .wrap { position: relative; z-index: 2; }
+    .hero-inner { max-width: 920px; }
+    .hero h1 { margin: 1.5rem 0 0; }
+    .hero h1 .shadow-word { color: var(--t-low); }
+    .hero h1 .line { display: block; overflow: hidden; }
+    .hero h1 .line > span { display: inline-block; }
+    .hero .lead { max-width: 620px; margin-top: 1.6rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.2rem; align-items: center; }
+    .hero-micro { font-family: var(--mono); font-size: 0.78rem; color: var(--t-low); letter-spacing: 0.04em; }
+    .tagline-chip {
+      display: inline-flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; row-gap: 0.4rem;
+      font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--t-mid); max-width: 100%;
+      border: 1px solid var(--line); border-radius: 999px; padding: 0.5rem 1.1rem;
+      background: rgba(255,255,255,0.02);
+    }
+    .tagline-chip b { color: #fff; font-weight: 700; }
+    .tagline-chip .sep { color: var(--red); }
+
+    .scroll-cue {
+      position: absolute; bottom: 1.6rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem; z-index: 2;
+      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--t-low); text-transform: uppercase;
+    }
+    .scroll-cue .rail { width: 1px; height: 40px; background: linear-gradient(var(--red), transparent); position: relative; overflow: hidden; }
+    .scroll-cue .rail::after { content: ""; position: absolute; top: -50%; left: 0; width: 1px; height: 50%; background: #fff; animation: cue 2s var(--ease) infinite; }
+    @keyframes cue { 0% { top: -50%; } 100% { top: 120%; } }
+
+    /* --- Floating elegant shapes (ported from framer-motion HeroGeometric) --- */
+    .hero-shapes { position: absolute; inset: 0; overflow: hidden; z-index: 1; pointer-events: none; }
+    .shape {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(-120px) rotate(calc(var(--rot) - 15deg));
+      animation: shape-in 2.4s cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards;
+      animation-delay: var(--sd, 0ms);
+    }
+    @keyframes shape-in { to { opacity: 1; transform: translateY(0) rotate(var(--rot)); } }
+    .shape .pill-float { width: 100%; height: 100%; animation: shape-float 12s ease-in-out infinite; }
+    @keyframes shape-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(15px); } }
+    .shape .pill {
+      position: relative; width: 100%; height: 100%; border-radius: 999px;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 32px 0 rgba(225, 44, 44, 0.10), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(2px);
+    }
+    .shape .pill::after {
+      content: ""; position: absolute; inset: 0; border-radius: 999px;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.16), transparent 70%);
+    }
+    .s-red .pill    { background: linear-gradient(to right, rgba(225, 44, 44, 0.22), rgba(225, 44, 44, 0.02)); }
+    .s-crimson .pill{ background: linear-gradient(to right, rgba(196, 31, 31, 0.20), rgba(196, 31, 31, 0.01)); }
+    .s-white .pill  { background: linear-gradient(to right, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.01)); }
+    /* placement */
+    .shape-1 { left: -8%;  top: 14%;    width: min(600px, 56vw); height: 140px; --rot: 12deg;  --sd: 300ms; }
+    .shape-2 { right: -6%; top: 66%;    width: min(500px, 46vw); height: 120px; --rot: -15deg; --sd: 500ms; }
+    .shape-3 { left: 4%;   bottom: 8%;  width: min(300px, 30vw); height: 84px;  --rot: -8deg;  --sd: 400ms; }
+    .shape-4 { right: 9%;  top: 9%;     width: min(200px, 22vw); height: 60px;  --rot: 20deg;  --sd: 600ms; }
+    .shape-5 { right: 24%; top: 16%;    width: min(150px, 18vw); height: 46px;  --rot: -25deg; --sd: 700ms; }
+
+    /* ============================================================
+       MARQUEE — clients
+       ============================================================ */
+    .marquee-sec { padding: 2.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--black); }
+    .marquee-label { text-align: center; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em; color: var(--t-low); text-transform: uppercase; margin-bottom: 1.6rem; }
+    .marquee { position: relative; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+    .marquee-track { display: flex; gap: 3.5rem; width: max-content; animation: scroll-x 32s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-track span { font-weight: 900; font-size: clamp(1.1rem, 2.4vw, 1.7rem); color: rgba(255,255,255,0.34); letter-spacing: -0.02em; transition: color 0.3s; white-space: nowrap; }
+    .marquee-track span:hover { color: #fff; }
+    @keyframes scroll-x { to { transform: translateX(-50%); } }
+
+    /* ============================================================
+       SECTION SHELL
+       ============================================================ */
+    section { position: relative; }
+    .sec { padding: clamp(5rem, 11vw, 9rem) 0; }
+    .sec-head { max-width: 760px; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .sec-head.center { margin-inline: auto; text-align: center; }
+    .sec-head h2 { margin-top: 1.2rem; }
+    .sec-head p { margin-top: 1.2rem; }
+
+    .light { background: var(--paper); color: var(--d-hi); }
+    .light .lead, .light p.muted { color: var(--d-mid); }
+    .light .eyebrow { color: var(--red); }
+
+    /* ---------- Problem ---------- */
+    .problem { background: linear-gradient(180deg, var(--black), var(--ink)); }
+    .prob-list { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+    .prob-item { background: var(--ink-2); padding: clamp(1.5rem, 3vw, 2.4rem); display: grid; grid-template-columns: auto 1fr; gap: 1.4rem; align-items: start; transition: background 0.3s; }
+    .prob-item:hover { background: var(--ink-3); }
+    .prob-num { font-family: var(--mono); font-size: 0.85rem; color: var(--red); font-weight: 700; padding-top: 0.4rem; }
+    .prob-item p { font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 500; letter-spacing: -0.015em; line-height: 1.35; color: #fff; }
+    .prob-close { margin-top: 2.2rem; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 700; max-width: 720px; letter-spacing: -0.02em; }
+    .prob-close .arrow { color: var(--red); }
+
+    /* ---------- L.I.C.K. pillars ---------- */
+    .lick { background: var(--ink); }
+    .lick-mark { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .lick-mark .ch {
+      font-size: clamp(3.5rem, 11vw, 8rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+      color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.2);
+      transition: color 0.4s var(--ease), -webkit-text-stroke-color 0.4s;
+    }
+    .lick-mark .ch.on { color: var(--red); -webkit-text-stroke-color: var(--red); }
+    .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+    .pillar {
+      background: linear-gradient(180deg, var(--ink-2), var(--ink-3));
+      border: 1px solid var(--line); border-radius: var(--r);
+      padding: 1.8rem; position: relative; overflow: hidden;
+      transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);
+    }
+    .pillar::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.5s var(--ease); }
+    .pillar:hover { transform: translateY(-6px); border-color: rgba(225,44,44,0.4); }
+    .pillar:hover::before { transform: scaleX(1); }
+    .pillar .k { font-size: 3.2rem; font-weight: 900; color: var(--red); line-height: 1; letter-spacing: -0.04em; }
+    .pillar h3 { font-size: 1.25rem; margin: 0.8rem 0 0.6rem; }
+    .pillar p { font-size: 0.95rem; color: var(--t-mid); line-height: 1.55; }
+    .pillar .idx { position: absolute; top: 1.4rem; right: 1.5rem; font-family: var(--mono); font-size: 0.72rem; color: var(--t-low); }
+    .lick-cta { margin-top: 3rem; text-align: center; }
+
+    /* ---------- Process ---------- */
+    .process { background: var(--paper); color: var(--d-hi); }
+    .steps { display: grid; gap: 0; }
+    .step {
+      display: grid; grid-template-columns: 88px 1fr auto; gap: clamp(1rem, 4vw, 3rem); align-items: center;
+      padding: clamp(1.6rem, 3.2vw, 2.4rem) 0; border-top: 1px solid var(--line-dark);
+    }
+    .step:last-child { border-bottom: 1px solid var(--line-dark); }
+    .step-num { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; color: var(--paper); -webkit-text-stroke: 1.5px var(--red); letter-spacing: -0.04em; }
+    .step-body h3 { font-size: clamp(1.3rem, 2.6vw, 1.8rem); color: var(--d-hi); }
+    .step-body p { color: var(--d-mid); margin-top: 0.5rem; max-width: 540px; }
+    .step-tag { font-family: var(--mono); font-size: 0.74rem; color: var(--red); font-weight: 700; letter-spacing: 0.08em; white-space: nowrap; }
+    .process .sign { margin-top: 3rem; font-size: clamp(1.2rem, 2.6vw, 1.9rem); font-weight: 900; letter-spacing: -0.025em; max-width: 720px; color: var(--d-hi); }
+    .process .sign .accent { display: inline; }
+
+    /* ---------- Guides ---------- */
+    .guides { background: var(--ink); }
+    .guides-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    .guides-copy p { color: var(--t-mid); margin-top: 1.1rem; }
+    .founders { display: grid; gap: 1.2rem; }
+    .founder { display: flex; align-items: center; gap: 1.2rem; background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--r); padding: 1.3rem 1.5rem; transition: transform 0.35s var(--ease), border-color 0.35s; }
+    .founder:hover { transform: translateX(6px); border-color: rgba(225,44,44,0.4); }
+    .founder .av { width: 64px; height: 64px; border-radius: 50%; flex: none; display: grid; place-items: center; font-weight: 900; font-size: 1.5rem; color: #fff; background: linear-gradient(135deg, var(--red), var(--red-dark)); box-shadow: 0 8px 24px -8px var(--red); }
+    .founder h4 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; }
+    .founder span { font-family: var(--mono); font-size: 0.78rem; color: var(--t-low); }
+
+    /* ---------- Results / industries ---------- */
+    .results { background: linear-gradient(180deg, var(--ink), var(--black)); }
+    .res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .res-card { border: 1px solid var(--line); border-radius: var(--r); padding: 2rem; background: var(--ink-2); transition: transform 0.4s var(--ease), border-color 0.4s; }
+    .res-card:hover { transform: translateY(-6px); border-color: rgba(225,44,44,0.4); }
+    .res-card .ind { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); }
+    .res-card .big { font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 900; letter-spacing: -0.04em; margin: 1rem 0 0.4rem; line-height: 1; }
+    .res-card p { color: var(--t-mid); font-size: 0.96rem; line-height: 1.55; }
+    .res-foot { margin-top: 1.6rem; font-family: var(--mono); font-size: 0.78rem; color: var(--t-low); text-align: center; }
+
+    /* ---------- Pricing ---------- */
+    .pricing { background: var(--paper); color: var(--d-hi); }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; align-items: stretch; }
+    .price-card { border: 1px solid var(--line-dark); border-radius: var(--r); padding: 2rem; display: flex; flex-direction: column; background: #fff; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+    .price-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.25); }
+    .price-card.feat { background: var(--ink); color: #fff; border-color: var(--ink); position: relative; }
+    .price-card.feat .price, .price-card.feat h3 { color: #fff; }
+    .price-card.feat .desc { color: var(--t-mid); }
+    .price-card.feat li { color: var(--t-mid); }
+    .price-badge { position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: var(--red); padding: 0.3rem 0.7rem; border-radius: 999px; }
+    .price-card .tier { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); }
+    .price-card h3 { font-size: 1.4rem; margin-top: 0.5rem; }
+    .price-card .price { font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 900; letter-spacing: -0.03em; margin: 1rem 0 0.2rem; color: var(--d-hi); }
+    .price-card .price small { font-size: 0.95rem; font-weight: 500; color: var(--d-mid); letter-spacing: 0; }
+    .price-card .desc { color: var(--d-mid); font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .price-card ul { list-style: none; display: grid; gap: 0.7rem; margin: 0.4rem 0 1.6rem; }
+    .price-card li { font-size: 0.92rem; color: var(--d-mid); display: grid; grid-template-columns: auto 1fr; gap: 0.6rem; align-items: start; }
+    .price-card li svg { color: var(--red); margin-top: 3px; flex: none; }
+    .price-card .btn { margin-top: auto; }
+    .price-note { text-align: center; margin-top: 1.8rem; color: var(--d-mid); font-size: 0.9rem; }
+
+    /* ---------- FAQ ---------- */
+    .faq { background: var(--ink); }
+    .faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    .acc { border-top: 1px solid var(--line); }
+    .acc-item { border-bottom: 1px solid var(--line); }
+    .acc-q { width: 100%; background: none; border: 0; color: #fff; cursor: pointer; text-align: left; padding: 1.4rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; font-size: clamp(1.02rem, 1.8vw, 1.18rem); font-weight: 700; letter-spacing: -0.01em; font-family: var(--font); }
+    .acc-q .ico { flex: none; width: 26px; height: 26px; position: relative; }
+    .acc-q .ico::before, .acc-q .ico::after { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: var(--red); transition: transform 0.3s var(--ease); }
+    .acc-q .ico::before { width: 14px; height: 2px; }
+    .acc-q .ico::after { width: 2px; height: 14px; }
+    .acc-item.open .acc-q .ico::after { transform: translate(-50%,-50%) scaleY(0); }
+    .acc-a { overflow: hidden; max-height: 0; transition: max-height 0.4s var(--ease); }
+    .acc-a p { color: var(--t-mid); padding-bottom: 1.4rem; max-width: 620px; line-height: 1.6; }
+
+    /* ---------- Final CTA ---------- */
+    .final { background: radial-gradient(120% 120% at 50% 0%, #1b1b20, var(--black) 60%); text-align: center; overflow: hidden; }
+    .final .spot { position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 80vw; max-width: 900px; height: 120%; background: radial-gradient(closest-side, rgba(225,44,44,0.2), transparent 70%); filter: blur(30px); animation: breathe 8s ease-in-out infinite; }
+    .final .wrap { position: relative; z-index: 2; }
+    .final h2 { font-size: clamp(2.2rem, 6vw, 4.4rem); max-width: 900px; margin-inline: auto; }
+    .final p { margin: 1.4rem auto 0; max-width: 560px; }
+    .final .hero-actions { justify-content: center; }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--black); padding: clamp(3.5rem, 7vw, 5rem) 0 2.5rem; border-top: 1px solid var(--line); }
+    .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2rem; }
+    .foot-brand .brand { margin-bottom: 1rem; }
+    .foot-brand p { color: var(--t-low); font-size: 0.92rem; max-width: 300px; }
+    .foot-col h5 { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t-low); margin-bottom: 1.1rem; }
+    .foot-col a { display: block; color: var(--t-mid); font-size: 0.92rem; padding: 0.35rem 0; transition: color 0.2s; }
+    .foot-col a:hover { color: #fff; }
+    .foot-bottom { margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; color: var(--t-low); font-size: 0.82rem; font-family: var(--mono); }
+    .foot-tag { color: var(--t-mid); }
+    .foot-tag .sep { color: var(--red); }
+
+    /* ============================================================
+       MOTION — reveals (JS-gated via .reveal / .in)
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); transition-delay: var(--d, 0ms); }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-x { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); transition-delay: var(--d, 0ms); }
+    .reveal-x.in { opacity: 1; transform: none; }
+
+    /* hero load lines */
+    .hero .line > span { transform: translateY(110%); transition: transform 0.9s var(--ease-out); transition-delay: var(--d, 0ms); }
+    .hero.in .line > span { transform: none; }
+    .hero .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); transition-delay: var(--d, 0ms); }
+    .hero.in .fade-up { opacity: 1; transform: none; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1000px) {
+      .nav-links { display: none; }
+      .nav-cta .btn-ghost { display: none; }
+      .menu-btn { display: flex; }
+      .pillars { grid-template-columns: repeat(2, 1fr); }
+      .guides-grid { grid-template-columns: 1fr; }
+      .res-grid { grid-template-columns: 1fr; }
+      .price-grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr 1fr; }
+      .foot-brand { grid-column: 1 / -1; }
+      .brand small { display: none; }
+    }
+    @media (max-width: 600px) {
+      .nav-cta .btn-primary { display: none; }
+      .scroll-cue { display: none; }
+      .shape-4, .shape-5 { display: none; }
+      .tagline-chip { font-size: 0.64rem; letter-spacing: 0.1em; gap: 0.5rem; border-radius: 18px; }
+      .pillars { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 56px 1fr; }
+      .step-tag { grid-column: 2; }
+      .prob-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .hero-actions .btn { width: 100%; }
+      .foot-top { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+      .reveal, .reveal-x, .hero .line > span, .hero .fade-up { opacity: 1 !important; transform: none !important; }
+      .marquee-track { animation: none; }
+      .scroll-cue .rail::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav" id="nav">
+    <div class="wrap">
+      <a href="#top" class="brand" aria-label="SEO LICK — početna">
+        <span class="dot"></span>
+        <span>SEO&nbsp;LICK<small>LINKS · INFRA · CONTENT · KEYWORDS</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#lick">L.I.C.K.</a>
+        <a href="#proces">Proces</a>
+        <a href="#tim">Tim</a>
+        <a href="#cijene">Cijene</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#kontakt" class="btn btn-ghost">Loom audit</a>
+        <a href="#kontakt" class="btn btn-primary">Zatraži FIRST LICK
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Izbornik"><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#lick">L.I.C.K. framework</a>
+    <a href="#proces">Kako radimo</a>
+    <a href="#tim">Tim</a>
+    <a href="#cijene">Cijene</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontakt" class="btn btn-primary btn-lg">Zatraži FIRST LICK</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="top">
+    <div class="hero-grid"></div>
+    <div class="spotlight"></div>
+    <div class="hero-shapes" aria-hidden="true">
+      <div class="shape shape-1 s-red"><div class="pill-float"><div class="pill"></div></div></div>
+      <div class="shape shape-2 s-crimson"><div class="pill-float"><div class="pill"></div></div></div>
+      <div class="shape shape-3 s-red"><div class="pill-float"><div class="pill"></div></div></div>
+      <div class="shape shape-4 s-white"><div class="pill-float"><div class="pill"></div></div></div>
+      <div class="shape shape-5 s-crimson"><div class="pill-float"><div class="pill"></div></div></div>
+    </div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="tagline-chip fade-up" style="--d:80ms"><b>Links</b><span class="sep">/</span><b>Infrastructure</b><span class="sep">/</span><b>Content</b><span class="sep">/</span><b>Keywords</b></span>
+        <h1 class="display">
+          <span class="line"><span style="--d:160ms" class="shadow-word">Vaš biznis stoji</span></span>
+          <span class="line"><span style="--d:240ms" class="shadow-word">u sjeni?</span></span>
+          <span class="line"><span style="--d:340ms">Izvedimo ga <span class="accent">pred reflektore.</span></span></span>
+        </h1>
+        <p class="lead fade-up" style="--d:520ms">
+          Radimo s brendovima koji žive od upita i rezervacija — klinike, charteri, agencije za nekretnine.
+          S <b style="color:#fff">L.I.C.K. frameworkom</b> pretvaramo Google pretragu u stalan priljev upita.
+        </p>
+        <div class="hero-actions fade-up" style="--d:640ms">
+          <a href="#kontakt" class="btn btn-primary btn-lg">Zatraži FIRST LICK
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#lick" class="btn btn-ghost btn-lg">Pogledaj kako radimo</a>
+        </div>
+        <p class="hero-micro fade-up" style="--d:760ms; margin-top:1.4rem">→ Prvi korak za rast vašeg biznisa. Bez prodajne skripte.</p>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="rail"></span>
+    </div>
+  </header>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <section class="marquee-sec">
+    <p class="marquee-label">Klijenti u HR, EU i DACH regiji</p>
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Empower Brands</span><span>·</span><span>Danielis Yachting</span><span>·</span><span>KupiLED</span><span>·</span><span>Alpha Air Ambulance</span><span>·</span><span>Green Stay Croatia</span><span>·</span><span>SolHome</span><span>·</span><span>Rent a Boat Split</span><span>·</span><span>Aquamed</span><span>·</span><span>Nutricionisti</span><span>·</span>
+        <span>Empower Brands</span><span>·</span><span>Danielis Yachting</span><span>·</span><span>KupiLED</span><span>·</span><span>Alpha Air Ambulance</span><span>·</span><span>Green Stay Croatia</span><span>·</span><span>SolHome</span><span>·</span><span>Rent a Boat Split</span><span>·</span><span>Aquamed</span><span>·</span><span>Nutricionisti</span><span>·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROBLEM ===================== -->
+  <section class="sec problem">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Problem</span>
+        <h2 class="h2">Ako se prepoznate u ijednoj od ovih tvrdnji — treba vam L.I.C.K.</h2>
+      </div>
+      <div class="prob-list">
+        <div class="prob-item reveal" style="--d:0ms"><span class="prob-num">01</span><p>Vaš biznis je obiteljska tajna koju tržište još nije otkrilo.</p></div>
+        <div class="prob-item reveal" style="--d:90ms"><span class="prob-num">02</span><p>Konkurencija trči maraton, dok vi još učite vezati tenisice.</p></div>
+        <div class="prob-item reveal" style="--d:180ms"><span class="prob-num">03</span><p>Plaćate oglase iz mjeseca u mjesec — <span class="accent">SEO je nekretnina, oglasi su najam</span>, a vi i dalje samo plaćate najam.</p></div>
+      </div>
+      <p class="prob-close reveal" style="--d:120ms">Svi ovi problemi imaju isti korijen: tržište vas ne pronalazi prije konkurencije. <span class="arrow">→</span> L.I.C.K. to mijenja.</p>
+    </div>
+  </section>
+
+  <!-- ===================== L.I.C.K. ===================== -->
+  <section class="sec lick" id="lick">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Rješenje</span>
+        <h2 class="h2">L.I.C.K. nije trik — evo što predstavlja ovaj akronim</h2>
+        <p class="lead">Strateški plan i karta za dominaciju u vašoj niši. Zamislite ga kao auto čiji svaki kotač pokriva jedno od četiri ključna SEO područja — od zastoja do stvarnih rezultata.</p>
+      </div>
+      <div class="lick-mark reveal" aria-hidden="true">
+        <span class="ch" data-ch>L</span><span class="ch" data-ch>I</span><span class="ch" data-ch>C</span><span class="ch" data-ch>K</span>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal" style="--d:0ms"><span class="idx">01</span><div class="k">L</div><h3>Linkovi</h3><p>Prometni znakovi koji vode Google kroz vašu stranicu i grade autoritet brenda. Editorial linkovi, ne PBN, ne spam.</p></div>
+        <div class="pillar reveal" style="--d:90ms"><span class="idx">02</span><div class="k">I</div><h3>Infrastruktura</h3><p>Arhitektura, URL-ovi i tehnička ispravnost koji vode posjetitelja do upita ili kupnje. Google ne rangira ono što ne može pročitati.</p></div>
+        <div class="pillar reveal" style="--d:180ms"><span class="idx">03</span><div class="k">C</div><h3>Sadržaj</h3><p>Tekstovi, blogovi i landing stranice koje grade autoritet i potiču odluku. Za kupca koji čita — ne za algoritam.</p></div>
+        <div class="pillar reveal" style="--d:270ms"><span class="idx">04</span><div class="k">K</div><h3>Ključne riječi</h3><p>Glavne zvijezde SEO-a — dovode ljude koji traže točno ono što nudite. Strategija, ne stuffing.</p></div>
+      </div>
+      <div class="lick-cta reveal">
+        <a href="#proces" class="btn btn-ghost btn-lg">Saznaj kako L.I.C.K. funkcionira
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section class="sec process" id="proces">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Kako radimo</span>
+        <h2 class="h2">Kako počinje suradnja.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal-x" style="--d:0ms">
+          <span class="step-num">01</span>
+          <div class="step-body"><h3>Diskovery poziv</h3><p>Saznajemo gdje ste, što ste pokušali i postoji li fit. 30 minuta, besplatno.</p></div>
+          <span class="step-tag">30 MIN · BESPLATNO</span>
+        </div>
+        <div class="step reveal-x" style="--d:90ms">
+          <span class="step-num">02</span>
+          <div class="step-body"><h3>Tehnička i konkurentska analiza</h3><p>Pogledamo vaš L.I.C.K. Pokažemo gdje gubite promet i tko ga uzima umjesto vas.</p></div>
+          <span class="step-tag">FIRST LICK</span>
+        </div>
+        <div class="step reveal-x" style="--d:180ms">
+          <span class="step-num">03</span>
+          <div class="step-body"><h3>Prijedlog rada</h3><p>Konkretan plan — fazno, s rokovima i mjerljivim outputom. Bez „12-mjesečnih ugovora po defaultu”.</p></div>
+          <span class="step-tag">FAZNO · MJERLJIVO</span>
+        </div>
+        <div class="step reveal-x" style="--d:270ms">
+          <span class="step-num">04</span>
+          <div class="step-body"><h3>Pokretanje</h3><p>Onboarding u tjedan dana. Prvi mjerljivi rezultat u prva tri mjeseca.</p></div>
+          <span class="step-tag">7 DANA</span>
+        </div>
+      </div>
+      <p class="sign reveal">Ne želimo vam prodavati audite. <span class="accent">Želimo vam pokazati strategiju.</span></p>
+    </div>
+  </section>
+
+  <!-- ===================== GUIDES / TEAM ===================== -->
+  <section class="sec guides" id="tim">
+    <div class="wrap">
+      <div class="guides-grid">
+        <div class="guides-copy reveal">
+          <span class="eyebrow">Tko su vodiči?</span>
+          <h2 class="h2" style="margin-top:1.2rem">Iza L.I.C.K. strategije ne stoje algoritmi, već ljudi.</h2>
+          <p>Pozdrav, mi smo Marko i Ivan. Dva prijatelja s jednom vizijom — graditi SEO koji ima smisla i donosi stvarne poslovne rezultate.</p>
+          <p>Iza nas je dugogodišnje iskustvo i projekti u različitim industrijama — yacht charter, privatna medicina, nekretnine, suplementi, rasvjeta, turizam. Naučili smo da dobar SEO počinje razumijevanjem ljudi.</p>
+          <p>Ne agencija od stotinu ljudi — dva osnivača koja stvarno rade na vašem projektu, uz mrežu provjerenih specijalista koji se uvode kad projekt to traži.</p>
+        </div>
+        <div class="founders">
+          <div class="founder reveal" style="--d:80ms"><div class="av">IR</div><div><h4>Ivan Radica</h4><span>CEO · Strategija</span></div></div>
+          <div class="founder reveal" style="--d:160ms"><div class="av">MS</div><div><h4>Marko Smolčić-Uzunović</h4><span>Suosnivač · Operacije</span></div></div>
+          <div class="founder reveal" style="--d:240ms" aria-hidden="true"><div class="av" style="background:linear-gradient(135deg,#16161a,#26262c);box-shadow:none;color:var(--t-mid)">+</div><div><h4 style="color:var(--t-mid)">Specijalizirani tim</h4><span>SEO · Content · Dev · Tracking · Ads</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section class="sec results">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Rezultati</span>
+        <h2 class="h2">Što se promijeni kad biznis izađe iz sjene</h2>
+        <p class="lead">Industrije u kojima gradimo mjerljiv organski rast — od prvih upita do stalnog priljeva.</p>
+      </div>
+      <div class="res-grid">
+        <div class="res-card reveal" style="--d:0ms">
+          <span class="ind">Yacht charter</span>
+          <div class="big"><span data-count="213" data-suffix="%" data-prefix="+">+0%</span></div>
+          <p>Više rezervacija iz organske pretrage u punoj sezoni, uz manju ovisnost o plaćenim oglasima.</p>
+        </div>
+        <div class="res-card reveal" style="--d:120ms">
+          <span class="ind">Privatna medicina</span>
+          <div class="big"><span data-count="83" data-suffix="%" data-prefix="+">+0%</span></div>
+          <p>Stalan priljev upita pacijenata za ključne tretmane kroz lokalni i organski SEO.</p>
+        </div>
+        <div class="res-card reveal" style="--d:240ms">
+          <span class="ind">Nekretnine</span>
+          <div class="big"><span data-count="119" data-suffix="%" data-prefix="+">+0%</span></div>
+          <p>Vidljivost na pretragama s visokom namjerom — kupci i najmoprimci koji već traže.</p>
+        </div>
+      </div>
+      <p class="res-foot reveal">→ Ilustrativni rasponi po industriji. Točne brojke po projektu pokazujemo na diskovery pozivu.</p>
+    </div>
+  </section>
+
+  <!-- ===================== PRICING ===================== -->
+  <section class="sec pricing" id="cijene">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Usluge</span>
+        <h2 class="h2">Tri usluge, jedan put do tržišta.</h2>
+        <p class="lead muted">Audit → Foundations → Retainer. Svaka se nadovezuje na prethodnu — a svaku možete uzeti i zasebno.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card reveal" style="--d:0ms">
+          <span class="tier">01 · SEO Strategija &amp; Audit</span>
+          <h3>Polazna točka svakog ozbiljnog SEO-a</h3>
+          <div class="price">od 1.000€</div>
+          <p class="desc">Dubinska analiza biznisa, konkurencije i tržišta te strategija s jasnim prioritetima. Zasebno ili kao prva faza Foundationsa.</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tehnička, content i backlink analiza</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Analiza konkurencije i tržišta</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Strategija s jasnim prioritetima</li>
+          </ul>
+          <a href="#kontakt" class="btn btn-ghost dark">Kreni od audita</a>
+        </div>
+        <div class="price-card feat reveal" style="--d:120ms">
+          <span class="price-badge">Preporučeno</span>
+          <span class="tier">02 · SEO LICK Foundations</span>
+          <h3>Postavljamo temelje koje Google voli</h3>
+          <div class="price">od 4.000€<small> / projekt</small></div>
+          <p class="desc">Projektno postavljanje SEO temelja — arhitektura, tehnika, dizajn i sadržaj. Uključuje Strategiju &amp; Audit iz prve postaje.</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Arhitektura prilagođena ključnim riječima</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tehnički SEO i on-page optimizacija</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dizajn i tracking koji prodaju</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Uključuje Strategiju &amp; Audit</li>
+          </ul>
+          <a href="#kontakt" class="btn btn-primary">Postavi temelje</a>
+        </div>
+        <div class="price-card reveal" style="--d:240ms">
+          <span class="tier">03 · SEO Retainer</span>
+          <h3>Dugoročno partnerstvo nakon temelja</h3>
+          <div class="price">od 2.200€<small> / mj</small></div>
+          <p class="desc">Kad su temelji postavljeni, preuzimamo kontinuirani rast. Dedicirani tim radi po L.I.C.K. pilarima iz mjeseca u mjesec — tri tiera ovisno o tempu.</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dedicirani tim (PM + SEO specijalisti)</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rad po L.I.C.K. pilarima</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>START 40h · GROWTH 80h · SCALE 120h</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Redovni sync pozivi i izvještaji</li>
+          </ul>
+          <a href="#kontakt" class="btn btn-ghost dark">Raspravimo tempo</a>
+        </div>
+      </div>
+      <p class="price-note">SEO Retainer dolazi u tri tiera: START (40h, 2.200€/mj), GROWTH (80h, 4.000€/mj) i SCALE (120h, 5.400€/mj). Ugovor na 6 mj: −10%, na 12 mj: −20%. Na M2M nema lock-ina.</p>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="sec faq" id="faq">
+    <div class="wrap">
+      <div class="faq-grid">
+        <div class="sec-head reveal" style="margin-bottom:0">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="h2" style="margin-top:1.2rem">Pitanja koja čujemo svaki tjedan.</h2>
+          <p class="lead">Nešto nije pokriveno? <a href="#kontakt" style="color:#fff;text-decoration:underline;text-decoration-color:var(--red)">Javite se</a> — odgovaramo u 24h.</p>
+        </div>
+        <div class="acc reveal">
+          <div class="acc-item">
+            <button class="acc-q">U kojem roku mogu očekivati prve rezultate?<span class="ico"></span></button>
+            <div class="acc-a"><p>SEO je dugoročna investicija. Prve mjerljive pomake obično vidimo unutar 3–6 mjeseci, ovisno o startnoj poziciji, konkurenciji i opsegu rada.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-q">Imate li lock-in ugovor?<span class="ico"></span></button>
+            <div class="acc-a"><p>Ne kao default. Retainer može biti M2M bez lock-ina. Za ugovore na 6 ili 12 mjeseci nudimo popuste od −10% do −20% — ali nije obavezno.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-q">Za kakve biznise radite SEO?<span class="ico"></span></button>
+            <div class="acc-a"><p>Najbolje rezultate vidimo kod brendova koji žive od upita i rezervacija — privatne klinike, charteri, agencije za nekretnine, B2B usluge i e-trgovina s višom vrijednošću košarice. Strategiju gradimo na podacima i prilagođavamo industriji.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-q">Radite li samo u Hrvatskoj?<span class="ico"></span></button>
+            <div class="acc-a"><p>Ne. Aktivno radimo na .hr, .eu, .de, .at, .pl, .rs i .ba tržištima. DACH klijenti rastu — Empower Brands, trywellbe, apotheke-zaversky.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-q">Što ako već imamo SEO agenciju?<span class="ico"></span></button>
+            <div class="acc-a"><p>Onda krećemo s drugim mišljenjem — pokažemo gdje vidimo prilike koje trenutni partner ne adresira. Bez pritiska da mijenjate.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-q">Kako mjerite uspješnost?<span class="ico"></span></button>
+            <div class="acc-a"><p>Pratimo organski promet, pozicije ključnih riječi, konverzije i prihod — i redovito izvještavamo o stvarnim poslovnim pokazateljima, ne snimkama ekrana iz alata.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section class="sec final" id="kontakt">
+    <div class="spot"></div>
+    <div class="wrap">
+      <span class="eyebrow center reveal" style="justify-content:center;display:flex">Spremni?</span>
+      <h2 class="reveal" style="--d:60ms;margin-top:1.2rem">Spremni da vaš biznis zablista i privuče poglede tržišta?</h2>
+      <p class="lead reveal" style="--d:140ms">Pomoću L.I.C.K. frameworka odvezite svoj biznis do odredišta. Razgovor počinje s 30 minuta — bez prodajne skripte.</p>
+      <div class="hero-actions reveal" style="--d:220ms">
+        <a href="mailto:ivan@seolick.me" class="btn btn-primary btn-lg">Zatraži FIRST LICK
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="mailto:ivan@seolick.me" class="btn btn-ghost btn-lg">Zatraži besplatni Loom audit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="#top" class="brand"><span class="dot"></span><span>SEO&nbsp;LICK</span></a>
+          <p>Strateška SEO agencija za brendove koji žive od upita i rezervacija. HR · EU · DACH.</p>
+        </div>
+        <div class="foot-col">
+          <h5>Usluge</h5>
+          <a href="#cijene">SEO Strategija &amp; Audit</a>
+          <a href="#cijene">SEO LICK Foundations</a>
+          <a href="#cijene">SEO Retainer</a>
+          <a href="#cijene">Google Ads</a>
+        </div>
+        <div class="foot-col">
+          <h5>Agencija</h5>
+          <a href="#lick">L.I.C.K. Framework</a>
+          <a href="#proces">Kako radimo</a>
+          <a href="#tim">Tim</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h5>Kontakt</h5>
+          <a href="mailto:ivan@seolick.me">ivan@seolick.me</a>
+          <a href="mailto:marko@seolick.me">marko@seolick.me</a>
+          <a href="#kontakt">Rezerviraj poziv</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 SEO LICK</span>
+        <span class="foot-tag">Links <span class="sep">·</span> Infrastructure <span class="sep">·</span> Content <span class="sep">·</span> Keywords</span>
+        <span>Privacy · Impressum</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // --- Nav scroll state + progress bar ---
+    const nav = document.getElementById('nav');
+    const progress = document.getElementById('progress');
+    const onScroll = () => {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 24);
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // --- Mobile menu ---
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleMenu = (force) => {
+      const open = force !== undefined ? force : !document.body.classList.contains('menu-open');
+      document.body.classList.toggle('menu-open', open);
+    };
+    menuBtn.addEventListener('click', () => toggleMenu());
+    mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggleMenu(false)));
+
+    // --- Hero load-in ---
+    const hero = document.getElementById('top');
+    requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('in')));
+
+    // --- Reveal observer ---
+    const revealEls = document.querySelectorAll('.reveal, .reveal-x');
+    if (reduce) {
+      revealEls.forEach((el) => el.classList.add('in'));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }
+      }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+      revealEls.forEach((el) => io.observe(el));
+    }
+
+    // --- L.I.C.K. letters light up in sequence on view ---
+    const mark = document.querySelector('.lick-mark');
+    if (mark) {
+      const chars = mark.querySelectorAll('[data-ch]');
+      const mio = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          mio.unobserve(e.target);
+          chars.forEach((c, i) => setTimeout(() => c.classList.add('on'), reduce ? 0 : 160 + i * 140));
+        }
+      }, { threshold: 0.5 });
+      mio.observe(mark);
+    }
+
+    // --- Count-up numbers ---
+    const counters = document.querySelectorAll('[data-count]');
+    const animate = (el) => {
+      const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      const prefix = el.getAttribute('data-prefix') || '';
+      const suffix = el.getAttribute('data-suffix') || '';
+      if (reduce) { el.textContent = prefix + target + suffix; return; }
+      const dur = 1400, start = performance.now();
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = prefix + Math.round(target * eased) + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const cio = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { animate(e.target); cio.unobserve(e.target); }
+      }
+    }, { threshold: 0.6 });
+    counters.forEach((el) => cio.observe(el));
+
+    // --- FAQ accordion ---
+    document.querySelectorAll('.acc-item').forEach((item) => {
+      const q = item.querySelector('.acc-q');
+      const a = item.querySelector('.acc-a');
+      q.addEventListener('click', () => {
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.acc-item.open').forEach((other) => {
+          if (other !== item) { other.classList.remove('open'); other.querySelector('.acc-a').style.maxHeight = null; }
+        });
+        item.classList.toggle('open', !open);
+        a.style.maxHeight = !open ? a.scrollHeight + 'px' : null;
+      });
+    });
+
+    // --- Magnetic primary buttons (fine pointers only) ---
+    if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      document.querySelectorAll('.btn-primary').forEach((btn) => {
+        btn.addEventListener('mousemove', (ev) => {
+          const r = btn.getBoundingClientRect();
+          const mx = ev.clientX - r.left - r.width / 2;
+          const my = ev.clientY - r.top - r.height / 2;
+          btn.style.transform = `translate(${mx * 0.18}px, ${my * 0.28 - 2}px)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
