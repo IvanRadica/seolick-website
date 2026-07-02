@@ -75,6 +75,7 @@ const org = {
     </script>
   </head>
   <body>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
     <Header />
     <main class="fx">
       <slot />
@@ -87,7 +88,7 @@ const org = {
         const root = document.querySelector('main.fx');
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (root && !reduce) {
-          // Scroll reveal + grouped triggers (wheels, roadmap, arrows).
+          // Scroll reveal + grouped triggers (wheels, roadmap, arrows, lick underlines).
           const io = new IntersectionObserver(
             (entries) => {
               for (const e of entries) {
@@ -100,8 +101,49 @@ const org = {
             { threshold: 0.18, rootMargin: '0px 0px -8% 0px' }
           );
           root
-            .querySelectorAll('[data-reveal], .wheel, .rm-grid, .svc-arrow')
+            .querySelectorAll('[data-reveal], .wheel, .rm-grid, .svc-arrow, .title-lick')
             .forEach((el) => io.observe(el));
+
+          // Red-thread scroll progress.
+          const progress = document.querySelector('[data-scroll-progress]');
+          if (progress) {
+            let ticking = false;
+            const paint = () => {
+              const max = document.documentElement.scrollHeight - innerHeight;
+              progress.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+              ticking = false;
+            };
+            addEventListener('scroll', () => {
+              if (!ticking) { ticking = true; requestAnimationFrame(paint); }
+            }, { passive: true });
+            paint();
+          }
+
+          // Pointer-tracked spotlight on grid cards (hover-capable pointers only).
+          if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            root.querySelectorAll('.card').forEach((card) => {
+              card.addEventListener('pointermove', (e) => {
+                const r = card.getBoundingClientRect();
+                card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                card.style.setProperty('--my', `${e.clientY - r.top}px`);
+              });
+            });
+
+            // Magnetic primary CTAs — ease toward the pointer, snap back on leave.
+            document.querySelectorAll('.btn-primary').forEach((btn) => {
+              btn.addEventListener('pointermove', (e) => {
+                const r = btn.getBoundingClientRect();
+                const dx = e.clientX - (r.left + r.width / 2);
+                const dy = e.clientY - (r.top + r.height / 2);
+                btn.style.setProperty('--tx', `${dx * 0.14}px`);
+                btn.style.setProperty('--ty', `${dy * 0.22}px`);
+              });
+              btn.addEventListener('pointerleave', () => {
+                btn.style.setProperty('--tx', '0px');
+                btn.style.setProperty('--ty', '0px');
+              });
+            });
+          }
 
           // Price count-up.
           const parsePrice = (s) => {
