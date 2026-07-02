@@ -1,93 +1,167 @@
 ---
-import { getLangFromUrl, useTranslations, localizePath } from '../../i18n/utils';
+import { getLangFromUrl, localizePath } from '../../i18n/utils';
 import { homeContent } from '../../content/home';
+import { resultsContent } from '../../content/results';
+import HeroLick from '../HeroLick.astro';
 import FaqAccordion from '../FaqAccordion.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 const p = (path: string) => localizePath(path, lang);
 const c = homeContent[lang];
+const r = resultsContent[lang];
 ---
 
-<!-- HERO -->
-<section class="relative overflow-hidden bg-black text-white">
-  <video
-    class="absolute inset-0 h-full w-full object-cover opacity-60 motion-reduce:hidden"
-    autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-    <source src="/video/hero-liquid.mp4" type="video/mp4" />
-  </video>
-  <div class="absolute inset-0 bg-black/50" aria-hidden="true"></div>
-  <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true"
-    style="background-image: radial-gradient(circle at 50% 0%, #e12c2c 0%, transparent 60%);"></div>
-  <div class="container-page relative py-24 md:py-32 text-center">
-    <p class="eyebrow mb-6">{c.hero.eyebrow}</p>
-    <h1 class="text-4xl md:text-6xl font-black leading-[1.05] max-w-4xl mx-auto">
-      {c.hero.titleA}<br /><span class="text-red">{c.hero.titleB}</span>
-    </h1>
-    <p class="mt-6 text-lg text-gray-200 max-w-2xl mx-auto">{c.hero.sub}</p>
-    <div class="mt-9 flex flex-col items-center gap-2">
-      <button data-open-popup class="btn btn-primary text-base px-9 py-4">{c.hero.cta}</button>
-      <span class="text-xs text-gray-500 font-mono">* {c.hero.microcopy}</span>
-    </div>
+<HeroLick />
+
+<!-- POSITIONING BAND -->
+<section class="section section-first">
+  <div class="container-page max-w-4xl text-center" data-reveal>
+    <p class="eyebrow mb-5">{c.intro.eyebrow}</p>
+    <p class="font-display text-2xl md:text-4xl font-black leading-[1.2] tracking-tight text-balance">
+      {c.intro.text}
+    </p>
+    <button data-open-popup class="btn btn-primary mt-9">{c.intro.cta}</button>
   </div>
 </section>
 
 <!-- PROBLEM -->
-<section class="container-page py-20 md:py-28">
-  <p class="eyebrow mb-3">{c.problem.eyebrow}</p>
-  <h2 class="text-3xl md:text-4xl font-black max-w-3xl leading-tight">{c.problem.title}</h2>
-  <div class="mt-10 grid gap-5 md:grid-cols-3">
-    {c.problem.items.map((item, i) => (
-      <div class="border border-gray-200 rounded-lg p-6">
-        <div class="font-mono text-red font-bold text-sm mb-3">{String(i + 1).padStart(2, '0')}</div>
-        <p class="text-gray-700 leading-relaxed">{item}</p>
-      </div>
-    ))}
-  </div>
-  <p class="mt-10 text-xl font-bold max-w-2xl">{c.problem.close}</p>
-</section>
-
-<!-- SOLUTION / LICK OVERVIEW -->
-<section class="bg-gray-50 border-y border-gray-200">
-  <div class="container-page py-20 md:py-28">
-    <p class="eyebrow mb-3">{c.solution.eyebrow}</p>
-    <h2 class="text-3xl md:text-4xl font-black max-w-3xl leading-tight">{c.solution.title}</h2>
-    <div class="mt-6 max-w-3xl space-y-4 text-gray-700 leading-relaxed">
-      <p>{c.solution.body}</p>
-      <p>{c.solution.body2}</p>
-    </div>
-    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {c.solution.pillars.map((pl) => (
-        <div class="bg-white border border-gray-200 rounded-lg p-6">
-          <div class="font-mono font-black text-4xl text-red mb-3">{pl.k}</div>
-          <h3 class="font-bold text-lg mb-2">{pl.title}</h3>
-          <p class="text-sm text-gray-700 leading-relaxed">{pl.desc}</p>
+<section class="section">
+  <div class="container-page">
+    <p class="section-label" data-reveal>{c.problem.eyebrow}</p>
+    <h2 class="section-title max-w-3xl" data-reveal>{c.problem.title}</h2>
+    <div class="grid-frame grid-3 mt-12">
+      {c.problem.items.map((item, i) => (
+        <div class="card" data-reveal style={`--d:${i * 90}ms`}>
+          <div class="font-mono text-red font-bold text-sm">{String(i + 1).padStart(2, '0')}</div>
+          <p class="card-desc text-white/70">{item}</p>
         </div>
       ))}
     </div>
-    <a href={p('/lick')} class="btn btn-ghost mt-10">{c.solution.cta} &rarr;</a>
+    <p class="mt-10 text-xl md:text-2xl font-bold max-w-3xl text-balance" data-reveal>{c.problem.close}</p>
   </div>
 </section>
 
-<!-- GUIDES -->
-<section class="container-page py-20 md:py-28">
-  <div class="grid md:grid-cols-2 gap-12 items-start">
-    <div>
-      <p class="eyebrow mb-3">{c.guides.eyebrow}</p>
-      <h2 class="text-3xl md:text-4xl font-black leading-tight">{c.guides.title}</h2>
+<!-- L.I.C.K. FRAMEWORK -->
+<section id="framework" class="section">
+  <div class="container-page">
+    <p class="section-label" data-reveal>{c.framework.eyebrow}</p>
+    <h2 class="section-title max-w-3xl" data-reveal>{c.framework.title}</h2>
+    <p class="section-intro" data-reveal>{c.framework.intro}</p>
+    <div class="grid-frame grid-4 mt-12">
+      {c.framework.pillars.map((pl, i) => (
+        <div class="card">
+          <div class="card-letter wheel" style={`--d:${i * 110}ms`}>{pl.letter}</div>
+          <div class="card-kicker">{pl.name}</div>
+          <div class="card-rule"></div>
+          <p class="card-lead">{pl.lead}</p>
+          <p class="card-desc">{pl.desc}</p>
+          <ul class="card-list">
+            {pl.includes.map((inc) => <li>{inc}</li>)}
+          </ul>
+        </div>
+      ))}
     </div>
-    <div class="space-y-4 text-gray-700 leading-relaxed">
+    <a href={p('/lick')} class="btn btn-ghost mt-10" data-reveal>{c.framework.cta} &rarr;</a>
+  </div>
+</section>
+
+<!-- RESULTS / CASE STUDIES -->
+<section id="results" class="section">
+  <div class="container-page">
+    <p class="section-label" data-reveal>{r.eyebrow}</p>
+    <h2 class="section-title max-w-3xl" data-reveal>{r.title}</h2>
+    <p class="section-intro" data-reveal>{r.intro}</p>
+
+    <div class="stats-strip mt-12" data-reveal>
+      {r.stats.map((s) => (
+        <div class="stat-item">
+          <div class="stat-number" set:html={s.number}></div>
+          <div class="stat-label" set:html={s.label.replace(/\n/g, '<br>')}></div>
+        </div>
+      ))}
+    </div>
+
+    <div class="grid-frame grid-3 mt-6">
+      {r.cases.map((cs, i) => (
+        <div class="card" data-reveal style={`--d:${(i % 3) * 90}ms`}>
+          <div class="case-industry">{cs.name ?? cs.industry}</div>
+          <div class="flex flex-col gap-3 mt-1">
+            <div>
+              <div class="case-row-label">{lang === 'hr' ? 'Izazov' : 'Challenge'}</div>
+              <div class="case-row-text">{cs.challenge}</div>
+            </div>
+            <div>
+              <div class="case-row-label">{lang === 'hr' ? 'Rješenje' : 'Solution'}</div>
+              <div class="case-row-text">{cs.solution}</div>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <div class="case-result">{cs.result}</div>
+            <div class="case-result-sub">{cs.resultSub}</div>
+            {cs.note && <div class="case-note">* {cs.note}</div>}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Team's earlier track record (self-reported, clearly labelled) -->
+    <div class="mt-14 border border-white/10 rounded-lg p-6 md:p-8" data-reveal>
+      <p class="section-label !mb-2">{r.priorTitle}</p>
+      <p class="text-white/45 text-sm mb-6">{r.priorNote}</p>
+      <div class="grid gap-4 sm:grid-cols-3">
+        {r.prior.map((pr) => (
+          <div class="border-l-2 border-red/60 pl-4">
+            <div class="font-mono text-[11px] uppercase tracking-[0.15em] text-white/40 mb-1">{pr.industry}</div>
+            <div class="font-display font-black text-lg text-white leading-tight">{pr.result}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <p class="mt-8 font-mono text-[11px] text-white/30 leading-relaxed max-w-2xl" data-reveal>{r.disclaimer}</p>
+  </div>
+</section>
+
+<!-- SERVICES TEASER -->
+<section id="services" class="section">
+  <div class="container-page">
+    <p class="section-label" data-reveal>{c.servicesTeaser.eyebrow}</p>
+    <h2 class="section-title max-w-3xl" data-reveal>{c.servicesTeaser.title}</h2>
+    <p class="section-intro" data-reveal>{c.servicesTeaser.intro}</p>
+    <div class="grid-frame grid-3 mt-12">
+      {c.servicesTeaser.items.map((s, i) => (
+        <div class="card" data-reveal style={`--d:${i * 90}ms`}>
+          <div class="font-mono text-red text-sm font-semibold tracking-[0.2em]">{s.num}</div>
+          <h3 class="card-title">{s.name}</h3>
+          <div class="card-rule"></div>
+          <p class="card-desc">{s.desc}</p>
+          <div class="font-display font-black text-xl text-white mt-2">{s.price}</div>
+        </div>
+      ))}
+    </div>
+    <a href={p('/usluge')} class="btn btn-ghost mt-10" data-reveal>{c.servicesTeaser.cta} &rarr;</a>
+  </div>
+</section>
+
+<!-- GUIDES / TEAM -->
+<section class="section">
+  <div class="container-page grid md:grid-cols-2 gap-12 items-start">
+    <div data-reveal>
+      <p class="section-label">{c.guides.eyebrow}</p>
+      <h2 class="section-title">{c.guides.title}</h2>
+    </div>
+    <div class="space-y-4 text-white/60 leading-relaxed" data-reveal>
       <p>{c.guides.body}</p>
       <p>{c.guides.body2}</p>
       <p>{c.guides.body3}</p>
       <div class="grid grid-cols-2 gap-4 pt-4">
         {c.guides.people.map((person) => (
-          <div class="border border-gray-200 rounded-lg p-5">
-            <div class="w-14 h-14 rounded-full bg-black text-white font-mono font-bold grid place-items-center text-xl mb-3">
+          <div class="border border-white/10 rounded-lg p-5">
+            <div class="w-14 h-14 rounded-full bg-red text-white font-display font-black grid place-items-center text-xl mb-3">
               {person.name[0]}
             </div>
-            <div class="font-bold">{person.name}</div>
-            <div class="text-xs text-gray-500 font-mono mt-1">{person.role}</div>
+            <div class="font-bold text-white">{person.name}</div>
+            <div class="text-xs text-white/40 font-mono mt-1">{person.role}</div>
           </div>
         ))}
       </div>
@@ -95,32 +169,37 @@ const c = homeContent[lang];
   </div>
 </section>
 
-<!-- SOCIAL PROOF -->
-<section class="bg-black text-white">
-  <div class="container-page py-20 md:py-28 text-center">
-    <p class="eyebrow mb-3">{c.proof.eyebrow}</p>
-    <h2 class="text-3xl md:text-4xl font-black max-w-3xl mx-auto leading-tight">{c.proof.title}</h2>
-    <p class="mt-3 text-gray-500">{c.proof.sub}</p>
-    <div class="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-6">
-      {c.proof.clients.map((client) => (
-        <span class="font-mono text-gray-200 text-sm md:text-base font-medium">{client}</span>
-      ))}
+<!-- TESTIMONIAL -->
+<section class="section">
+  <div class="container-page max-w-4xl" data-reveal>
+    <p class="section-label">{c.testimonial.eyebrow}</p>
+    <blockquote class="font-display text-2xl md:text-3xl font-bold leading-snug text-balance">
+      <span class="text-red">“</span>{c.testimonial.quote}<span class="text-red">”</span>
+    </blockquote>
+    <div class="mt-6 flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-white/10 grid place-items-center font-mono text-red text-sm">★</div>
+      <div>
+        <div class="font-bold text-white text-sm">{c.testimonial.author}</div>
+        <div class="text-white/40 text-xs font-mono">{c.testimonial.role} · {c.testimonial.source}</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="container-page py-20 md:py-28 text-center">
-  <h2 class="text-3xl md:text-5xl font-black max-w-3xl mx-auto leading-tight">{c.finalCta.title}</h2>
-  <p class="mt-5 text-lg text-gray-700 max-w-2xl mx-auto">{c.finalCta.sub}</p>
-  <button data-open-popup class="btn btn-primary text-base px-9 py-4 mt-9">{c.finalCta.cta}</button>
+<section class="section">
+  <div class="container-page text-center" data-reveal>
+    <h2 class="section-title max-w-3xl mx-auto">{c.finalCta.title}</h2>
+    <p class="mt-4 text-lg text-white/60 max-w-2xl mx-auto">{c.finalCta.sub}</p>
+    <button data-open-popup class="btn btn-primary mt-9">{c.finalCta.cta}</button>
+  </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="bg-gray-50 border-t border-gray-200">
-  <div class="container-page py-20 md:py-28 max-w-3xl">
-    <p class="eyebrow mb-3">FAQ</p>
-    <h2 class="text-3xl md:text-4xl font-black mb-10 leading-tight">{c.faqTitle}</h2>
+<section id="faq" class="section">
+  <div class="container-page max-w-3xl">
+    <p class="section-label" data-reveal>FAQ</p>
+    <h2 class="section-title mb-10" data-reveal>{c.faqTitle}</h2>
     <FaqAccordion items={c.faq} />
   </div>
 </section>

@@ -1,52 +1,50 @@
 ---
-import { getLangFromUrl, localizePath, isV2Track } from '../../i18n/utils';
+import { getLangFromUrl, localizePath } from '../../i18n/utils';
 import { lickContent } from '../../content/lick';
 import Roadmap from '../Roadmap.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const p = (path: string) => localizePath(path, lang);
 const c = lickContent[lang];
-
-// Keep navigation inside the v2 test track when viewing /lick-v2.
-const isV2 = isV2Track(Astro.url);
-const servicesPath = isV2 ? '/usluge-v2' : '/usluge';
 ---
 
-<section class="bg-black text-white">
-  <div class="container-page py-20 md:py-28">
+<!-- HEADER -->
+<section class="section section-first pt-28 md:pt-32">
+  <div class="container-page" data-reveal>
     <p class="eyebrow mb-4">{c.eyebrow}</p>
-    <h1 class="text-4xl md:text-6xl font-black leading-[1.05] max-w-4xl">{c.title}</h1>
+    <h1 class="font-display text-4xl md:text-6xl font-black leading-[1.05] max-w-4xl tracking-tight">{c.title}</h1>
     <p class="mt-4 text-xl text-red font-bold">{c.subtitle}</p>
-    <div class="mt-8 max-w-3xl space-y-4 text-gray-200 leading-relaxed">
+    <div class="mt-8 max-w-3xl space-y-4 text-white/60 leading-relaxed">
       <p>{c.intro1}</p>
       <p>{c.intro2}</p>
       <p>{c.intro3}</p>
     </div>
     <div class="mt-10 flex gap-3">
       {c.pillars.map((pl) => (
-        <a href={`#${pl.k}`} class="font-mono font-black text-2xl w-12 h-12 grid place-items-center border border-gray-700 rounded hover:border-red hover:text-red transition-colors">{pl.k}</a>
+        <a href={`#${pl.k}`} class="font-display font-black text-2xl w-12 h-12 grid place-items-center border border-white/15 rounded hover:border-red hover:text-red transition-colors">{pl.k}</a>
       ))}
     </div>
   </div>
 </section>
 
-{c.pillars.map((pl, i) => (
-  <section id={pl.k} class={`scroll-mt-16 ${i % 2 === 1 ? 'bg-gray-50 border-y border-gray-200' : ''}`}>
-    <div class="container-page py-16 md:py-24 grid md:grid-cols-3 gap-12">
-      <div class="md:col-span-2">
+{c.pillars.map((pl) => (
+  <section id={pl.k} class="section scroll-mt-16">
+    <div class="container-page grid md:grid-cols-3 gap-12">
+      <div class="md:col-span-2" data-reveal>
         <h2 class="flex items-baseline font-black mb-6">
-          <span class="font-mono text-5xl text-red">{pl.k}</span><span class="text-3xl">{pl.title.slice(1)}</span>
+          <span class="font-display text-5xl text-red">{pl.k}</span>
+          <span class="font-display text-3xl">{pl.title.slice(1)}</span>
         </h2>
-        <h3 class="font-bold text-lg text-gray-500 mb-4">{pl.role}</h3>
-        <div class="space-y-4 text-gray-700 leading-relaxed max-w-2xl">
+        <h3 class="font-bold text-lg text-white/40 mb-4">{pl.role}</h3>
+        <div class="space-y-4 text-white/60 leading-relaxed max-w-2xl">
           {pl.body.map((para) => <p>{para}</p>)}
         </div>
       </div>
-      <div class="md:pt-2">
+      <div class="md:pt-2" data-reveal style="--d:120ms">
         <p class="eyebrow mb-4">{c.benefitsTitle}</p>
         <ul class="space-y-3">
           {pl.benefits.map((b) => (
-            <li class="flex gap-3 text-sm text-gray-700">
+            <li class="flex gap-3 text-sm text-white/70">
               <span class="text-red font-bold">→</span>{b}
             </li>
           ))}
@@ -56,33 +54,17 @@ const servicesPath = isV2 ? '/usluge-v2' : '/usluge';
   </section>
 ))}
 
-{isV2 && (
-  <section class="bg-black text-white">
-    <div class="container-page py-14 md:py-16 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-      <p class="max-w-xl text-xl md:text-2xl font-black leading-tight">
-        {lang === 'hr'
-          ? 'Vidite kako L.I.C.K. izgleda u praksi — kroz naše usluge.'
-          : 'See how L.I.C.K. looks in practice — through our services.'}
-      </p>
-      <div class="flex shrink-0 items-center gap-5">
-        <a href={p(servicesPath)} class="font-mono text-sm underline text-white/80 hover:text-white transition-colors">
-          {lang === 'hr' ? 'Pogledaj usluge →' : 'See our services →'}
-        </a>
-        <button data-open-popup class="btn btn-primary">
-          {lang === 'hr' ? 'Zatraži FIRST LICK' : 'Get your FIRST LICK'}
-        </button>
-      </div>
-    </div>
-  </section>
-)}
-
-<section class="bg-gray-50 border-y border-gray-200">
-  <div class="container-page py-16 md:py-24">
+<!-- ROADMAP -->
+<section class="section">
+  <div class="container-page">
     <Roadmap />
   </div>
 </section>
 
-<section class="container-page py-20 md:py-28 text-center">
-  <h2 class="text-3xl md:text-5xl font-black max-w-3xl mx-auto leading-tight">{c.ctaTitle}</h2>
-  <a href={p(servicesPath)} class="btn btn-primary text-base px-9 py-4 mt-9">{c.cta} &rarr;</a>
+<!-- CTA -->
+<section class="section">
+  <div class="container-page text-center" data-reveal>
+    <h2 class="section-title max-w-3xl mx-auto">{c.ctaTitle}</h2>
+    <a href={p('/usluge')} class="btn btn-primary text-base px-9 py-4 mt-9">{c.cta} &rarr;</a>
+  </div>
 </section>

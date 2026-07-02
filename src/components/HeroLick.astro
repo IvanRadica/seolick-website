@@ -1,0 +1,267 @@
+---
+// SEO LICK — locked LICK letter-reveal hero.
+// Ported verbatim from the approved dark hero. LOCKED choreography — do not
+// change the timeline. Brand-conformed only: red -> #e12c2c (guidelines),
+// Montserrat letterforms kept (Ivan: hybrid). Tagline: "For organic growth".
+// A prefers-reduced-motion resting state was added so it degrades gracefully.
+interface Props {
+  tagline?: string;
+  scrollLabel?: string;
+}
+const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel = 'Scroll' } = Astro.props;
+---
+
+<section class="hero-lick" id="hero" aria-label="SEO LICK">
+  <div class="letters" id="letters">
+    <div class="letter-group" id="lg-l">
+      <div class="letter" id="lt-l">L</div>
+      <div class="descriptor" id="dc-l">Links &amp;<br />Authority</div>
+    </div>
+    <div class="letter-group" id="lg-i">
+      <div class="letter" id="lt-i">I</div>
+      <div class="descriptor" id="dc-i">Infra-<br />structure</div>
+    </div>
+    <div class="letter-group" id="lg-c">
+      <div class="letter" id="lt-c">C</div>
+      <div class="descriptor" id="dc-c">Content</div>
+    </div>
+    <div class="letter-group" id="lg-k">
+      <div class="letter" id="lt-k">K</div>
+      <div class="descriptor" id="dc-k">Keywords</div>
+    </div>
+  </div>
+
+  <div class="divider-wrap">
+    <div class="divider-line" id="divider"></div>
+  </div>
+
+  <div class="tagline" id="tagline" set:html={tagline}></div>
+
+  <div class="hero-logo" id="hero-logo">SEOLICK</div>
+
+  <div class="scroll-hint" id="scroll-hint">
+    <span class="scroll-hint-label">{scrollLabel}</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<style is:global>
+  /* ── Locked LICK hero — namespaced under .hero-lick, keyframes global so the
+       runtime JS can assign them by name. ── */
+  .hero-lick {
+    --red: #e12c2c;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 3rem 1.25rem 4rem;
+    background: #000;
+  }
+  .hero-lick .letters {
+    display: flex;
+    gap: clamp(20px, 4vw, 60px);
+    align-items: flex-start;
+  }
+  .hero-lick .letter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+  }
+  .hero-lick .letter {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(80px, 14vw, 180px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  .hero-lick .descriptor {
+    font-family: "Roboto Mono", monospace;
+    font-size: clamp(9px, 1vw, 13px);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .hero-lick .divider-wrap {
+    width: clamp(300px, 70vw, 900px);
+    margin: 48px 0 40px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .hero-lick .divider-line {
+    width: 0%;
+    height: 100%;
+    background: var(--red);
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hero-lick .tagline {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(14px, 2vw, 22px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(14px);
+    text-align: center;
+  }
+  .hero-lick .tagline em { color: var(--red); font-style: normal; }
+  .hero-lick .hero-logo {
+    margin-top: 72px;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(13px, 1.4vw, 17px);
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.35);
+  }
+  .hero-lick .scroll-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .hero-lick .scroll-hint.show { opacity: 1; }
+  .hero-lick .scroll-hint-label {
+    font-family: "Roboto Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+  }
+  .hero-lick .scroll-line {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(to bottom, rgba(225, 44, 44, 0.7), transparent);
+    animation: hl-scrollPulse 1.6s ease-in-out infinite;
+  }
+
+  /* Small screens: shrink letterforms so all four letters + tagline fit.
+     Sizing only — the animation timeline is untouched. */
+  @media (max-width: 520px) {
+    .hero-lick .letters { gap: 14px; }
+    .hero-lick .letter { font-size: clamp(52px, 18vw, 80px); }
+    .hero-lick .descriptor { font-size: 8px; letter-spacing: 0.14em; }
+    .hero-lick .tagline { font-size: 14px; padding: 0 10px; }
+    .hero-lick .hero-logo { margin-top: 48px; }
+  }
+
+  @keyframes hl-scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+  @keyframes letterIn {
+    0%   { opacity: 0; transform: scale(1.5) translateY(-16px); filter: blur(8px); }
+    60%  { filter: blur(0px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes descriptorIn {
+    from { color: rgba(255, 255, 255, 0); transform: translateY(6px); }
+    to   { color: rgba(255, 255, 255, 0.45); transform: translateY(0); }
+  }
+  @keyframes turnRed { from { color: #fff; } to { color: var(--red); } }
+  @keyframes taglineIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Reduced motion: skip the timeline, show the final resting state. */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-lick .letter-group { opacity: 1; }
+    .hero-lick .letter { color: var(--red); }
+    .hero-lick .descriptor { color: rgba(255, 255, 255, 0.45); }
+    .hero-lick .divider-line { width: 100%; transition: none; }
+    .hero-lick .tagline { opacity: 1; transform: none; }
+    .hero-lick .hero-logo { opacity: 1; }
+    .hero-lick .scroll-hint { opacity: 1; }
+    .hero-lick .scroll-line { animation: none; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return; // resting state is handled by CSS
+
+    var STEP = 750;
+    var steps = [
+      { group: 'lg-l', letter: 'lt-l', desc: 'dc-l', t: 400 },
+      { group: 'lg-i', letter: 'lt-i', desc: 'dc-i', t: 400 + STEP },
+      { group: 'lg-c', letter: 'lt-c', desc: 'dc-c', t: 400 + STEP * 2 },
+      { group: 'lg-k', letter: 'lt-k', desc: 'dc-k', t: 400 + STEP * 3 },
+    ];
+
+    function runHero() {
+      steps.forEach(function (s) {
+        setTimeout(function () {
+          var g = document.getElementById(s.group);
+          if (!g) return;
+          void g.offsetWidth;
+          g.style.animation = 'letterIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards';
+        }, s.t);
+        setTimeout(function () {
+          var d = document.getElementById(s.desc);
+          if (!d) return;
+          void d.offsetWidth;
+          d.style.animation = 'descriptorIn 0.4s ease forwards';
+        }, s.t + 280);
+      });
+
+      var redAt = steps[steps.length - 1].t + 480;
+
+      setTimeout(function () {
+        ['lt-l', 'lt-i', 'lt-c', 'lt-k'].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          void el.offsetWidth;
+          el.style.animation = 'turnRed 0.35s ease forwards';
+        });
+      }, redAt);
+
+      setTimeout(function () {
+        var d = document.getElementById('divider');
+        if (!d) return;
+        void d.offsetWidth;
+        d.style.transition = 'width 0.9s cubic-bezier(0.4, 0, 0.2, 1)';
+        d.style.width = '100%';
+      }, redAt + 300);
+
+      setTimeout(function () {
+        var t = document.getElementById('tagline');
+        if (!t) return;
+        void t.offsetWidth;
+        t.style.animation = 'taglineIn 0.7s ease forwards';
+      }, redAt + 900);
+
+      setTimeout(function () {
+        var l = document.getElementById('hero-logo');
+        if (!l) return;
+        void l.offsetWidth;
+        l.style.animation = 'fadeIn 0.8s ease forwards';
+      }, redAt + 1600);
+
+      setTimeout(function () {
+        var s = document.getElementById('scroll-hint');
+        if (s) s.classList.add('show');
+      }, redAt + 2400);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', runHero);
+    } else {
+      runHero();
+    }
+  })();
+</script>

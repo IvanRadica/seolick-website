@@ -16,13 +16,13 @@ export const roadmap: {
       eyebrow: 'Mapa puta',
       title: 'Imamo mapu — evo kako izgleda put do tržišta',
       subtitle:
-        'Okvirni 6-mjesečni plan složen po L.I.C.K. metodi. Faze prilagođavamo vašem webshopu i ciljevima.',
+        'Okvirni 6-mjesečni plan složen po L.I.C.K. metodi. Faze prilagođavamo vašem biznisu i ciljevima.',
     },
     en: {
       eyebrow: 'The roadmap',
       title: 'We have the map — here’s the road to your market',
       subtitle:
-        'An indicative 6-month plan built on the L.I.C.K. method. We adapt the phases to your store and goals.',
+        'An indicative 6-month plan built on the L.I.C.K. method. We adapt the phases to your business and goals.',
     },
   },
   pillars: [

@@ -1,14 +1,9 @@
 ---
-import { getLangFromUrl, localizePath, isV2Track } from '../i18n/utils';
+import { getLangFromUrl, localizePath } from '../i18n/utils';
 import InquiryForm from './InquiryForm.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const p = (path: string) => localizePath(path, lang);
-
-// Keep the popup's links inside the v2 test track when viewing a v2 page.
-const isV2 = isV2Track(Astro.url);
-const servicesPath = isV2 ? '/usluge-v2' : '/usluge';
-const lickPath = isV2 ? '/lick-v2' : '/lick';
 
 const copy =
   lang === 'hr'
@@ -18,7 +13,6 @@ const copy =
         lead: 'Ostavite nam svoje podatke i javljamo se u što kraćem roku.',
         services: 'Više o uslugama',
         lick: 'Što znači L.I.C.K.?',
-        close: 'Zatvori',
       }
     : {
         title: 'The market rewards your competitors, but your offer is better?',
@@ -26,26 +20,25 @@ const copy =
         lead: 'Leave us your details and we’ll get back to you shortly.',
         services: 'More about services',
         lick: 'What does L.I.C.K. mean?',
-        close: 'Close',
       };
 ---
 
 <div data-popup class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-  <div data-popup-overlay class="absolute inset-0 bg-black/60"></div>
-  <div class="relative bg-white rounded-xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+  <div data-popup-overlay class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+  <div class="relative bg-[#0a0a0a] border border-white/10 rounded-xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
     <button data-close-popup aria-label="Close"
-      class="absolute top-4 right-4 text-gray-500 hover:text-black text-2xl leading-none">&times;</button>
+      class="absolute top-4 right-4 text-white/40 hover:text-white text-2xl leading-none">&times;</button>
     <div class="p-8">
       <p class="eyebrow mb-2">FIRST LICK</p>
-      <h2 class="text-2xl font-black leading-tight mb-1">{copy.title}</h2>
+      <h2 class="text-2xl font-black leading-tight mb-1 text-white">{copy.title}</h2>
       <p class="text-lg font-bold text-red mb-3">{copy.subtitle}</p>
-      <p class="text-gray-700 text-sm mb-6">{copy.lead}</p>
+      <p class="text-white/55 text-sm mb-6">{copy.lead}</p>
 
       <InquiryForm />
 
       <div class="flex flex-wrap gap-x-5 gap-y-2 mt-5 text-xs font-mono">
-        <a href={p(servicesPath)} class="text-gray-500 hover:text-black underline">{copy.services}</a>
-        <a href={p(lickPath)} class="text-gray-500 hover:text-black underline">{copy.lick}</a>
+        <a href={p('/usluge')} class="text-white/40 hover:text-white underline">{copy.services}</a>
+        <a href={p('/lick')} class="text-white/40 hover:text-white underline">{copy.lick}</a>
       </div>
     </div>
   </div>

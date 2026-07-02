@@ -30,11 +30,3 @@ export function stripLocale(url: URL): string {
 export function getAlternatePath(url: URL, target: Lang): string {
   return localizePath(stripLocale(url), target);
 }
-
-// The v2 test track: a parallel set of pages (v2, usluge-v2, lick-v2) used to
-// trial wider positioning behind noindex. Navigation must stay inside the
-// track, so shared components branch on this. Single source of truth — do not
-// re-implement the regex inline.
-export function isV2Track(url: URL): boolean {
-  return /^\/(v2|usluge-v2|lick-v2)\/?$/.test(stripLocale(url));
-}

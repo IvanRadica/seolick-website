@@ -376,6 +376,187 @@
     }
 
     /* ══════════════════════════════
+       AEO SECTION
+    ══════════════════════════════ */
+    .aeo-section { border-top: 1px solid var(--border); }
+
+    .aeo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: start;
+    }
+
+    /* ── Claims (left) ── */
+    .aeo-claims {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--border);
+    }
+
+    .aeo-claim {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: clamp(16px, 2vw, 28px);
+      padding: clamp(20px, 2.5vw, 32px) 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .aeo-section.in .aeo-claim { opacity: 1; transform: none; }
+    .aeo-section.in .aeo-claim:nth-child(1) { transition-delay: 0.1s; }
+    .aeo-section.in .aeo-claim:nth-child(2) { transition-delay: 0.25s; }
+    .aeo-section.in .aeo-claim:nth-child(3) { transition-delay: 0.4s; }
+
+    .aeo-claim-index {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--red);
+      padding-top: 5px;
+    }
+
+    .aeo-claim-name {
+      font-size: clamp(16px, 1.8vw, 22px);
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .aeo-claim-desc {
+      font-size: clamp(13px, 1.1vw, 14px);
+      color: rgba(255,255,255,0.45);
+      line-height: 1.75;
+    }
+
+    /* ── Answer-engine mock (right) ── */
+    .answer-mock {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      font-family: var(--mono);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+    }
+    .aeo-section.in .answer-mock { opacity: 1; transform: none; }
+
+    .answer-mock-bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .mock-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    .mock-dot:first-child { background: rgba(229,40,40,0.6); }
+    .answer-mock-title {
+      margin-left: auto;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .answer-mock-body {
+      padding: clamp(20px, 2.5vw, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mock-query {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      font-size: clamp(13px, 1.2vw, 15px);
+      font-weight: 600;
+      color: var(--white);
+    }
+    .mock-prompt { color: var(--red); }
+    .mock-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.05em;
+      background: var(--red);
+      vertical-align: text-bottom;
+      margin-left: 2px;
+      animation: cursorBlink 0.9s steps(1) infinite;
+    }
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0; }
+    }
+
+    .mock-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mock-line {
+      height: 10px;
+      background: rgba(255,255,255,0.06);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .mock-answer {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 14px 16px;
+      border: 1px solid rgba(229,40,40,0.4);
+      background: var(--red-dim);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .mock-answer-chip {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .mock-answer-text {
+      font-size: clamp(12px, 1.1vw, 14px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    .answer-mock.answered .mock-line,
+    .answer-mock.answered .mock-answer { opacity: 1; transform: none; }
+    .answer-mock.answered .mock-lines > :nth-child(1) { transition-delay: 0.05s; }
+    .answer-mock.answered .mock-lines > :nth-child(2) { transition-delay: 0.2s; }
+    .answer-mock.answered .mock-lines > :nth-child(3) { transition-delay: 0.45s; }
+    .answer-mock.answered .mock-lines > :nth-child(4) { transition-delay: 0.75s; }
+
+    .mock-engines {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .mock-engine {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+    }
+
+    @media (max-width: 900px) {
+      .aeo-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════
        PROOF / RESULTS SECTION
     ══════════════════════════════ */
     .results-section { border-top: 1px solid var(--border); }
@@ -755,7 +936,7 @@
   </section>
 
   <!-- ══════════════════════════════
-       02 — LICK FRAMEWORK
+       01 — LICK FRAMEWORK
   ══════════════════════════════ -->
   <section class="section framework-section" id="framework">
     <div class="container">
@@ -770,7 +951,54 @@
   </section>
 
   <!-- ══════════════════════════════
-       02 — PROOF & RESULTS
+       02 — AEO
+  ══════════════════════════════ -->
+  <section class="section aeo-section" id="aeo">
+    <div class="container">
+      <div class="section-label" data-copy="aeo.label"></div>
+      <h2 class="section-title" data-copy="aeo.title"></h2>
+      <p class="section-intro" data-copy="aeo.intro"></p>
+
+      <div class="aeo-grid">
+        <div class="aeo-claims" id="aeo-claims">
+          <!-- populated by JS -->
+        </div>
+
+        <div class="answer-mock" id="answer-mock" aria-hidden="true">
+          <div class="answer-mock-bar">
+            <span class="mock-dot"></span>
+            <span class="mock-dot"></span>
+            <span class="mock-dot"></span>
+            <span class="answer-mock-title">answer engine</span>
+          </div>
+          <div class="answer-mock-body">
+            <div class="mock-query">
+              <span class="mock-prompt">&gt;</span>
+              <span><span id="mock-query-text"></span><span class="mock-cursor"></span></span>
+            </div>
+            <div class="mock-lines">
+              <div class="mock-line" style="width:92%"></div>
+              <div class="mock-line" style="width:74%"></div>
+              <div class="mock-answer">
+                <div class="mock-answer-chip" data-copy="aeo.mockChip"></div>
+                <div class="mock-answer-text" data-copy="aeo.mockAnswer"></div>
+              </div>
+              <div class="mock-line" style="width:58%"></div>
+            </div>
+            <div class="mock-engines">
+              <span class="mock-engine">Google</span>
+              <span class="mock-engine">ChatGPT</span>
+              <span class="mock-engine">Perplexity</span>
+              <span class="mock-engine">AI Overviews</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       03 — PROOF & RESULTS
   ══════════════════════════════ -->
   <section class="section results-section" id="results">
     <div class="container">
@@ -789,7 +1017,7 @@
   </section>
 
   <!-- ══════════════════════════════
-       03 — SERVICES
+       04 — SERVICES
   ══════════════════════════════ -->
   <section class="section services-section" id="services">
     <div class="container">
@@ -804,7 +1032,7 @@
   </section>
 
   <!-- ══════════════════════════════
-       04 — CONTACT
+       05 — CONTACT
   ══════════════════════════════ -->
   <section class="section contact-section" id="contact">
     <div class="container">
@@ -833,7 +1061,7 @@
     ══════════════════════════════ */
     const COPY = {
       en: {
-        nav: ['Framework', 'Results', 'Services', 'Contact'],
+        nav: ['Framework', 'AEO', 'Results', 'Services', 'Contact'],
         framework: {
           label: '01 — Framework',
           title: 'Four pillars.\nOne system.\nNo shortcuts.',
@@ -869,8 +1097,30 @@
             includes: ['Keyword research', 'Intent mapping', 'Gap analysis', 'KW-to-page mapping'],
           },
         ],
+        aeo: {
+          label: '02 — AEO',
+          title: 'Google is no longer\nthe only one answering.',
+          intro: 'Your customers ask ChatGPT, Perplexity and AI Overviews before they ever reach page one. AEO — Answer Engine Optimization — makes sure the answer they get is you.',
+          claims: [
+            {
+              name: 'Entity-based SEO',
+              desc: 'AI doesn\'t rank pages — it understands brands. We build your entity: who you are, what you do, and why you\'re the relevant answer.',
+            },
+            {
+              name: 'Search everywhere',
+              desc: 'Google, ChatGPT, Perplexity, AI Overviews. Visibility where your customers actually ask — not just where they used to.',
+            },
+            {
+              name: 'The cited source',
+              desc: 'Structured content AI can quote. When the answer engine answers, your brand is the source it cites.',
+            },
+          ],
+          mockQuery: 'who do you recommend?',
+          mockChip: 'Source 01 — cited',
+          mockAnswer: 'The brand the AI understands — yours.',
+        },
         results: {
-          label: '02 — Results',
+          label: '03 — Results',
           title: 'Numbers don\'t lie.\nClients do stay.',
           intro: 'We don\'t promise rankings. We deliver them. Here\'s what the work looks like in practice.',
           stats: [
@@ -903,7 +1153,7 @@
           ],
         },
         services: {
-          label: '03 — Services',
+          label: '04 — Services',
           title: 'Choose your\nlevel of serious.',
           intro: 'We work with brands that are committed to long-term organic growth. Three ways to engage.',
           items: [
@@ -928,7 +1178,7 @@
           ],
         },
         contact: {
-          label: '04 — Contact',
+          label: '05 — Contact',
           title: 'Let\'s talk.',
           titleAccent: 'talk',
           sub:   'If you\'re building a brand that wants to be the obvious choice in search — we should speak. No hard sell. Just a conversation about where you are and where you want to be.',
@@ -940,7 +1190,7 @@
       },
 
       hr: {
-        nav: ['Framework', 'Rezultati', 'Usluge', 'Kontakt'],
+        nav: ['Framework', 'AEO', 'Rezultati', 'Usluge', 'Kontakt'],
         framework: {
           label: '01 — Metodologija',
           title: 'Četiri stupa.\nJedan sustav.\nBez prečaca.',
@@ -976,8 +1226,30 @@
             includes: ['Istraživanje ključnih riječi', 'Mapiranje namjere', 'Gap analiza', 'KW-to-page mapiranje'],
           },
         ],
+        aeo: {
+          label: '02 — AEO',
+          title: 'Google više nije\njedini koji odgovara.',
+          intro: 'Tvoji kupci pitaju ChatGPT, Perplexity i AI Overviews prije nego što uopće dođu do prve stranice Googlea. AEO — Answer Engine Optimization — osigurava da odgovor koji dobiju budeš ti.',
+          claims: [
+            {
+              name: 'Entity-based SEO',
+              desc: 'AI ne rangira stranice — AI razumije brendove. Gradimo tvoj entitet: tko si, što radiš i zašto si baš ti relevantan odgovor.',
+            },
+            {
+              name: 'Search everywhere',
+              desc: 'Google, ChatGPT, Perplexity, AI Overviews. Vidljivost tamo gdje tvoji kupci stvarno pitaju — ne samo tamo gdje su pitali prije.',
+            },
+            {
+              name: 'Citirani izvor',
+              desc: 'Strukturiran sadržaj koji AI može citirati. Kad answer engine odgovara, tvoj brend je izvor.',
+            },
+          ],
+          mockQuery: 'koga preporučuješ?',
+          mockChip: 'Izvor 01 — citiran',
+          mockAnswer: 'Brend koji AI razumije — tvoj.',
+        },
         results: {
-          label: '02 — Rezultati',
+          label: '03 — Rezultati',
           title: 'Brojevi ne lažu.\nKlijenti ostaju.',
           intro: 'Ne obećavamo pozicije. Dostavljamo ih. Ovako izgleda rad u praksi.',
           stats: [
@@ -1010,7 +1282,7 @@
           ],
         },
         services: {
-          label: '03 — Usluge',
+          label: '04 — Usluge',
           title: 'Odaberi svoju\nrazinu ozbiljnosti.',
           intro: 'Radimo s brendovima koji su predani dugoročnom organskom rastu. Tri načina suradnje.',
           items: [
@@ -1035,7 +1307,7 @@
           ],
         },
         contact: {
-          label: '04 — Kontakt',
+          label: '05 — Kontakt',
           title: 'Razgovarajmo.',
           titleAccent: 'Razgovarajmo',
           sub:   'Ako gradiš brend koji želi biti prvi izbor u pretrazi — trebamo razgovarati. Bez pritiska. Samo razgovor o tome gdje si i gdje želiš biti.',
@@ -1064,7 +1336,7 @@
       const c = COPY[lang];
 
       // Nav links
-      const anchors = ['#framework', '#results', '#services', '#contact'];
+      const anchors = ['#framework', '#aeo', '#results', '#services', '#contact'];
       document.getElementById('nav-links').innerHTML = c.nav
         .map((label, i) => `<li><a href="${anchors[i]}">${label}</a></li>`)
         .join('');
@@ -1073,6 +1345,10 @@
       const map = {
         'framework.label': c.framework.label,
         'framework.intro': c.framework.intro,
+        'aeo.label':       c.aeo.label,
+        'aeo.intro':       c.aeo.intro,
+        'aeo.mockChip':    c.aeo.mockChip,
+        'aeo.mockAnswer':  c.aeo.mockAnswer,
         'results.label':   c.results.label,
         'results.intro':   c.results.intro,
         'services.label':  c.services.label,
@@ -1090,6 +1366,8 @@
       // Titles with line breaks
       document.querySelector('[data-copy="framework.title"]').innerHTML =
         c.framework.title.replace(/\n/g, '<br>');
+      document.querySelector('[data-copy="aeo.title"]').innerHTML =
+        c.aeo.title.replace(/\n/g, '<br>');
       document.querySelector('[data-copy="results.title"]').innerHTML =
         c.results.title.replace(/\n/g, '<br>');
       document.querySelector('[data-copy="services.title"]').innerHTML =
@@ -1164,6 +1442,22 @@
         </div>
       `).join('');
 
+      // AEO claims
+      document.getElementById('aeo-claims').innerHTML = c.aeo.claims.map((cl, i) => `
+        <div class="aeo-claim">
+          <div class="aeo-claim-index">0${i + 1}</div>
+          <div>
+            <div class="aeo-claim-name">${cl.name}</div>
+            <div class="aeo-claim-desc">${cl.desc}</div>
+          </div>
+        </div>
+      `).join('');
+
+      // AEO mock query — typed on first reveal; instant swap on later lang change
+      if (aeoPlayed) {
+        document.getElementById('mock-query-text').textContent = c.aeo.mockQuery;
+      }
+
       // Placeholders
       ['results','services','contact'].forEach(key => {
         const el = document.querySelector(`[data-copy="placeholder.${key}"]`);
@@ -1177,6 +1471,41 @@
     window.addEventListener('scroll', () => {
       document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
+
+    /* ══════════════════════════════
+       AEO — SCROLL REVEAL + TYPEWRITER
+    ══════════════════════════════ */
+    let aeoPlayed = false;
+
+    function playAeo() {
+      if (aeoPlayed) return;
+      aeoPlayed = true;
+      document.getElementById('aeo').classList.add('in');
+
+      const full   = COPY[lang].aeo.mockQuery;
+      const target = document.getElementById('mock-query-text');
+      let i = 0;
+
+      const type = () => {
+        if (i <= full.length) {
+          target.textContent = full.slice(0, i);
+          i++;
+          setTimeout(type, 45);
+        } else {
+          document.getElementById('answer-mock').classList.add('answered');
+        }
+      };
+      setTimeout(type, 500);
+    }
+
+    new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          playAeo();
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.2 }).observe(document.getElementById('aeo'));
 
     /* ══════════════════════════════
        HERO ANIMATION (v1 — unchanged)

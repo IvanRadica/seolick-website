@@ -1,53 +1,108 @@
 ---
 import { getLangFromUrl } from '../../i18n/utils';
-import { servicesContent } from '../../content/services';
+import { servicesV2Content } from '../../content/services-v2';
 import InquiryForm from '../InquiryForm.astro';
 
 const lang = getLangFromUrl(Astro.url);
-const c = servicesContent[lang];
+const c = servicesV2Content[lang];
 ---
 
-<section class="bg-black text-white">
-  <div class="container-page py-20 md:py-24 text-center">
-    <p class="eyebrow mb-3">{c.eyebrow}</p>
-    <h1 class="text-4xl md:text-5xl font-black">{c.title}</h1>
-    <p class="mt-2 text-lg text-red font-bold italic">{c.subtitle}</p>
-    <p class="mt-6 text-gray-200 max-w-2xl mx-auto leading-relaxed">{c.intro}</p>
-    <p class="mt-4 text-gray-500 max-w-2xl mx-auto text-sm">{c.introNote}</p>
+<!-- HEADER -->
+<section class="section section-first pt-28 md:pt-32">
+  <div class="container-page text-center" data-reveal>
+    <p class="eyebrow mb-4">{c.eyebrow}</p>
+    <h1 class="font-display text-4xl md:text-6xl font-black tracking-tight">{c.title}</h1>
+    <p class="mt-3 text-lg text-red font-bold">{c.subtitle}</p>
+    <p class="mt-6 text-white/60 max-w-2xl mx-auto leading-relaxed">{c.intro}</p>
   </div>
 </section>
 
-<div class="container-page py-16 md:py-24 space-y-16">
-  {c.items.map((s) => (
-    <article id={s.id} class="grid md:grid-cols-3 gap-8 scroll-mt-20">
-      <div class="md:sticky md:top-20 self-start">
-        <div class="font-mono text-red font-black text-sm mb-2">{s.num}</div>
-        <h2 class="text-2xl font-black">{s.name}</h2>
-        <p class="text-gray-500 mt-2 text-sm">{s.tagline}</p>
-        <div class="mt-4 inline-block font-mono text-xs border border-gray-200 rounded px-3 py-1">{c.priceLabel}</div>
-        <div class="mt-4">
-          <button data-open-popup class="btn btn-primary text-sm w-full md:w-auto">{c.cta}</button>
-        </div>
-      </div>
-      <div class="md:col-span-2 space-y-6">
-        {s.blocks.map((b) => (
-          <div>
-            <h3 class="font-bold text-lg mb-2">{b.h}</h3>
-            <p class="text-gray-700 leading-relaxed">{b.p}</p>
+<!-- TRIO -->
+<section class="section">
+  <div class="container-page">
+    <div class="grid md:grid-cols-3 gap-6">
+      {c.trio.map((s, i) => (
+        <article class="relative flex flex-col border border-white/10 rounded-xl p-6 md:p-8 bg-white/[0.02] hover:border-white/25 transition-colors" data-reveal style={`--d:${i * 120}ms`}>
+          <div class="font-mono text-red font-black text-sm mb-2">{s.num}</div>
+          <h2 class="font-display text-2xl font-black">{s.name}</h2>
+          <div class="mt-3 font-display font-black text-lg text-white">{s.price}</div>
+          <p class="text-white/40 mt-3 text-sm italic">{s.tagline}</p>
+          <p class="text-white/60 mt-4 leading-relaxed text-sm">{s.desc}</p>
+          <ul class="mt-5 space-y-2 text-sm text-white/70 flex-1">
+            {s.bullets.map((b) => (
+              <li class="flex gap-2"><span class="text-red font-bold">→</span><span>{b}</span></li>
+            ))}
+          </ul>
+          <div class="mt-6">
+            <button data-open-popup class="btn btn-primary text-sm w-full">{c.cta}</button>
           </div>
-        ))}
-      </div>
-    </article>
-  ))}
-</div>
-
-<section id="upit" class="bg-gray-50 border-t border-gray-200 scroll-mt-16">
-  <div class="container-page py-20 md:py-24 grid md:grid-cols-2 gap-12 items-start">
-    <div>
-      <h2 class="text-3xl md:text-4xl font-black leading-tight">{c.formTitle}</h2>
-      <p class="mt-4 text-lg text-gray-700">{c.formSub}</p>
+        </article>
+      ))}
     </div>
-    <div class="bg-white border border-gray-200 rounded-xl p-6 md:p-8">
+    <p class="mt-8 text-center text-white/40 text-sm max-w-3xl mx-auto leading-relaxed">{c.pathNote}</p>
+  </div>
+</section>
+
+<!-- RETAINER TIERS -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center">
+      <p class="mx-auto mb-6 max-w-xl text-sm font-mono text-white/40" data-reveal>{c.tiers.bridge}</p>
+      <p class="eyebrow mb-3" data-reveal>{c.tiers.eyebrow}</p>
+      <h2 class="section-title" data-reveal>{c.tiers.title}</h2>
+      <p class="mt-3 text-white/60" data-reveal>{c.tiers.subtitle}</p>
+    </div>
+    <div class="mt-12 grid md:grid-cols-3 gap-6 items-stretch">
+      {c.tiers.plans.map((plan, i) => (
+        <div class={`relative flex flex-col rounded-xl p-6 md:p-8 ${plan.featured ? 'border-2 border-red bg-red/[0.06]' : 'border border-white/10 bg-white/[0.02]'}`} data-reveal style={`--d:${i * 120}ms`}>
+          {plan.featured && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red text-white font-mono text-xs font-bold px-3 py-1 rounded">{c.tiers.featuredLabel}</div>
+          )}
+          <h3 class="font-display font-black text-xl">{plan.name}</h3>
+          <div class="mt-1 font-mono text-xs text-white/40">{plan.capacity}</div>
+          <div class="mt-4 flex items-baseline gap-1">
+            <span class="font-display text-3xl font-black" data-countup={plan.price}>{plan.price}</span>
+            <span class="text-sm text-white/40">{c.tiers.perMonth}</span>
+          </div>
+          <p class="mt-5 text-sm leading-relaxed flex-1 text-white/60">{plan.team}</p>
+          <div class="mt-6">
+            <button data-open-popup class="btn btn-primary text-sm w-full">{c.tiers.cta}</button>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="mt-8 text-center text-white/40 text-sm">{c.tiers.note}</p>
+  </div>
+</section>
+
+<!-- RELATED SERVICES -->
+<section class="section">
+  <div class="container-page">
+    <div class="text-center">
+      <p class="eyebrow mb-3" data-reveal>{c.width.eyebrow}</p>
+      <h2 class="section-title" data-reveal>{c.width.title}</h2>
+      <p class="mt-3 text-white/60" data-reveal>{c.width.subtitle}</p>
+    </div>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {c.width.items.map((it, i) => (
+        <div class="flex flex-col border border-white/10 rounded-xl p-6 bg-white/[0.02]" data-reveal style={`--d:${i * 110}ms`}>
+          <h3 class="font-bold text-lg">{it.name}</h3>
+          <p class="text-white/60 mt-2 text-sm leading-relaxed flex-1">{it.desc}</p>
+          <div class="mt-4 inline-block self-start font-mono text-xs border border-white/15 rounded px-3 py-1 text-white/70">{it.price}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY -->
+<section id="upit" class="section scroll-mt-16">
+  <div class="container-page grid md:grid-cols-2 gap-12 items-start">
+    <div data-reveal>
+      <h2 class="section-title">{c.formTitle}</h2>
+      <p class="mt-4 text-lg text-white/60">{c.formSub}</p>
+    </div>
+    <div class="border border-white/10 rounded-xl p-6 md:p-8 bg-white/[0.02]">
       <InquiryForm />
     </div>
   </div>

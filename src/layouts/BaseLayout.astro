@@ -3,29 +3,25 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PopupForm from '../components/PopupForm.astro';
-import { getLangFromUrl, getAlternatePath, isV2Track } from '../i18n/utils';
+import { getLangFromUrl, getAlternatePath } from '../i18n/utils';
 
 interface Props {
   title: string;
   description: string;
   ogImage?: string;
   noindex?: boolean;
-  fx?: boolean;
 }
 
-const { title, description, ogImage = '/og-default.svg', noindex = false, fx = false } = Astro.props;
+const { title, description, ogImage = '/og-default.svg', noindex = false } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const hrHref = new URL(getAlternatePath(Astro.url, 'hr'), Astro.site).href;
 const enHref = new URL(getAlternatePath(Astro.url, 'en'), Astro.site).href;
 const ogUrl = new URL(ogImage, Astro.site).href;
 
-// The live track keeps its original "webshopove" positioning; the noindex v2
-// track trials the wider ICP so its structured data must not leak the narrow
-// one. Branches on the track, not the locale of the page copy.
-const orgDescription = isV2Track(Astro.url)
-  ? 'Strateška SEO agencija za brendove koji žive od upita i rezervacija — L.I.C.K. framework.'
-  : 'Strateška SEO agencija za webshopove — L.I.C.K. framework.';
+// Canonical broad-ICP positioning (Second Brain wiki is source of truth).
+const orgDescription =
+  'Strateška SEO agencija za brendove koji žive od upita i rezervacija — L.I.C.K. framework.';
 
 const org = {
   '@context': 'https://schema.org',
@@ -69,29 +65,25 @@ const org = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(org)} />
-    {
-      fx && (
-        <script is:inline>
-          document.documentElement.classList.add('fx-ready');
-        </script>
-      )
-    }
+    <script is:inline>
+      document.documentElement.classList.add('fx-ready');
+    </script>
   </head>
   <body>
     <Header />
-    <main class={fx ? 'fx' : undefined}>
+    <main class="fx">
       <slot />
     </main>
     <Footer />
     <PopupForm />
-    {fx && (
+    {(
       <script>
-        // Motion runtime — self-guards on main.fx so it is inert on live pages.
+        // Motion runtime — self-guards on main.fx and reduced-motion.
         const root = document.querySelector('main.fx');
         const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (root && !reduce) {

@@ -1,19 +1,33 @@
 @import "tailwindcss";
 
+/* ============================================================
+   SEO LICK — dark premium design system
+   Ported from the approved dark hero direction. Brand-conformed:
+   red #e12c2c (guidelines), Montserrat display + Roboto body.
+   ============================================================ */
+
 @theme {
   --color-red: #e12c2c;
   --color-red-dark: #c41f1f;
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-gray-50: #fafafa;
-  --color-gray-100: #f4f4f4;
-  --color-gray-200: #e5e5e5;
-  --color-gray-500: #737373;
-  --color-gray-700: #404040;
-  --color-gray-900: #171717;
 
+  --font-display: "Montserrat", "Roboto", Helvetica, Arial, sans-serif;
   --font-sans: "Roboto", Helvetica, Arial, sans-serif;
   --font-mono: "Roboto Mono", ui-monospace, monospace;
+}
+
+:root {
+  --red: #e12c2c;
+  --red-strong: #ff3a3a;
+  --red-dim: rgba(225, 44, 44, 0.12);
+  --black: #000000;
+  --white: #ffffff;
+  --dim: rgba(255, 255, 255, 0.45);
+  --dimmer: rgba(255, 255, 255, 0.28);
+  --faint: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.08);
+  --surface: #0a0a0a;
 }
 
 @layer base {
@@ -21,128 +35,316 @@
     font-family: var(--font-sans);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    background: var(--black);
   }
   body {
-    color: var(--color-black);
-    background: var(--color-white);
+    color: var(--white);
+    background: var(--black);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, .display {
+    font-family: var(--font-display);
+  }
+  ::selection {
+    background: var(--red);
+    color: var(--white);
+  }
+  :focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
   }
 }
 
 @layer components {
   .container-page {
     width: 100%;
-    max-width: 1140px;
+    max-width: 1200px;
     margin-inline: auto;
-    padding-inline: 1.5rem;
+    padding-inline: clamp(1.25rem, 5vw, 5rem);
   }
+
+  /* --- Eyebrow / section label --- */
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--color-red);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: var(--red);
     text-transform: uppercase;
   }
+
+  /* --- Buttons --- */
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    font-weight: 700;
-    border-radius: 6px;
-    padding: 0.875rem 1.75rem;
-    transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 2px;
     cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   }
   .btn-primary {
-    background: var(--color-red);
-    color: var(--color-white);
+    background: var(--red);
+    color: var(--white);
+    border: 1px solid var(--red);
   }
   .btn-primary:hover {
-    background: var(--color-red-dark);
+    background: var(--red-dark, #c41f1f);
+    border-color: var(--red-dark, #c41f1f);
   }
   .btn-ghost {
     background: transparent;
-    color: var(--color-black);
-    border: 1px solid var(--color-gray-200);
+    color: var(--white);
+    border: 1px solid var(--border);
   }
   .btn-ghost:hover {
-    border-color: var(--color-black);
+    border-color: var(--red);
+    color: var(--red);
+  }
+
+  /* --- Section shell --- */
+  .section {
+    padding: clamp(72px, 12vh, 140px) 0;
+    border-top: 1px solid var(--border);
+  }
+  .section-first { border-top: none; }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.75rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4.5vw, 54px);
+    font-weight: 900;
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+    text-wrap: balance;
+  }
+  .section-title em { color: var(--red); font-style: normal; }
+  .section-intro {
+    font-size: clamp(0.95rem, 1.4vw, 1.125rem);
+    color: var(--dim);
+    max-width: 620px;
+    line-height: 1.75;
+  }
+
+  /* --- Grid card system (pillars / services / cases) --- */
+  .grid-frame {
+    display: grid;
+    border: 1px solid var(--border);
+    background: var(--border);
+    gap: 1px;
+  }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .card {
+    background: var(--black);
+    padding: clamp(1.75rem, 3vw, 2.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    transition: background 0.3s ease;
+  }
+  .card:hover { background: var(--red-dim); }
+
+  .card-letter {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--red);
+    letter-spacing: -0.03em;
+  }
+  .card-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  .card-rule { width: 28px; height: 1px; background: var(--red); margin: 0.25rem 0; }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .card-lead {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--white);
+  }
+  .card-desc {
+    font-size: 0.875rem;
+    color: var(--dim);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    margin-top: 0.25rem;
+    border-top: 1px solid var(--faint);
+  }
+  .card-list li {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--dimmer);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .card-list li::before {
+    content: "";
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+
+  /* --- Stats strip --- */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .stat-number em { color: var(--red); font-style: normal; }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    line-height: 1.5;
+  }
+
+  /* --- Case card result --- */
+  .case-industry {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .case-row-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dimmer);
+    margin-bottom: 0.25rem;
+  }
+  .case-row-text {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+  }
+  .case-result {
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--faint);
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--red);
+    line-height: 1;
+  }
+  .case-result-sub {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 0.4rem;
+  }
+  .case-note {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+    color: var(--dimmer);
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 960px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .grid-3 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .grid-4 { grid-template-columns: 1fr; }
+    .stats-strip { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat-item:last-child { border-bottom: none; }
   }
 }
 
 /* ============================================================
-   Motion layer — only active under main.fx (v2 test track).
-   Live pages have no .fx, so they stay fully static.
-   All motion is disabled for prefers-reduced-motion.
+   Motion layer — active sitewide, disabled for reduced-motion.
+   Scroll reveal is JS-gated (.fx-ready) so content never hides
+   without JS.
    ============================================================ */
 @media (prefers-reduced-motion: no-preference) {
-  /* --- Hero: on-load animations (no JS) --- */
-  .fx .hero-line {
-    opacity: 0;
-    transform: translateY(22px);
-    animation: fx-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-    animation-delay: var(--d, 0ms);
-  }
-  .fx .hero-glow { animation: fx-breathe 7s ease-in-out infinite; }
-  .fx .hero-spot {
-    position: absolute;
-    top: -50%;
-    left: -40%;
-    width: 55%;
-    height: 200%;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    background: radial-gradient(closest-side, rgba(225, 44, 44, 0.4), transparent 70%);
-    filter: blur(24px);
-    opacity: 0;
-    animation: fx-sweep 4.8s ease-in-out 0.4s;
-  }
-  @keyframes fx-rise { to { opacity: 1; transform: none; } }
-  @keyframes fx-breathe { 0%, 100% { opacity: 0.07; } 50% { opacity: 0.16; } }
-  @keyframes fx-sweep {
-    0% { left: -45%; opacity: 0; }
-    15% { opacity: 0.85; }
-    85% { opacity: 0.55; }
-    100% { left: 125%; opacity: 0; }
-  }
-
-  /* --- Red CTA sheen --- */
-  .fx .btn-primary { position: relative; overflow: hidden; }
-  .fx .btn-primary::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 55%;
-    height: 100%;
-    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-    transform: skewX(-20deg);
-    animation: fx-shine 5s ease-in-out infinite;
-  }
-  @keyframes fx-shine { 0%, 65% { left: -150%; } 85% { left: 160%; } 100% { left: 160%; } }
-
-  /* --- Scroll reveal (JS-gated so content never hides without JS) --- */
   .fx-ready main.fx [data-reveal] {
     opacity: 0;
-    transform: translateY(26px);
+    transform: translateY(24px);
     transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
     transition-delay: var(--d, 0ms);
   }
   main.fx [data-reveal].is-visible { opacity: 1; transform: none; }
 
-  /* --- L.I.C.K. wheels (home solution letters) --- */
+  /* L.I.C.K. letters spin in */
   .fx-ready main.fx .wheel { opacity: 0; }
   main.fx .wheel.is-visible {
     animation: fx-wheel 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
     animation-delay: var(--d, 0ms);
   }
   @keyframes fx-wheel {
-    0% { opacity: 0; transform: translateX(-28px) rotate(-160deg); }
+    0% { opacity: 0; transform: translateY(24px) rotate(-140deg); }
     100% { opacity: 1; transform: none; }
   }
 
-  /* --- Roadmap drive --- */
+  /* Roadmap drive (L.I.C.K. page) */
   .fx .rm-grid { position: relative; }
   .fx-ready main.fx .rm-task {
     opacity: 0;
@@ -157,7 +359,7 @@
     bottom: 0.25rem;
     left: 2.75rem;
     width: 2px;
-    background: var(--color-red);
+    background: var(--red);
     box-shadow: 0 0 8px rgba(225, 44, 44, 0.85);
     border-radius: 2px;
     opacity: 0;
@@ -168,7 +370,7 @@
     position: absolute;
     top: -1.1rem;
     left: -0.4rem;
-    color: var(--color-red);
+    color: var(--red);
     font-size: 0.85rem;
   }
   @keyframes fx-drive {
@@ -178,33 +380,16 @@
     100% { left: 100%; opacity: 0; }
   }
 
-  /* --- Services path arrow flow --- */
-  main.fx .svc-arrow.is-visible { animation: fx-arrowflow 1.8s ease-in-out infinite; }
-  @keyframes fx-arrowflow {
-    0%, 100% { transform: translateY(-50%) translateX(0); }
-    50% { transform: translateY(-50%) translateX(4px); }
+  /* Red CTA sheen */
+  .fx .btn-primary { position: relative; overflow: hidden; }
+  .fx .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -150%;
+    width: 55%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    animation: fx-shine 5s ease-in-out infinite;
   }
-
-  /* --- L.I.C.K. solution cards: card emerges from below the big letter on hover.
-     Gated on .fx-ready (no-JS keeps cards visible) AND hover-capable pointers
-     (touch devices always show the card). Reduced-motion users fall outside this
-     whole block, so they also see the cards statically. --- */
-  @media (hover: hover) and (pointer: fine) {
-    .fx-ready main.fx .pillar .pillar-card {
-      opacity: 0;
-      transform: translateY(22px);
-      transition:
-        opacity 0.4s ease,
-        transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1),
-        box-shadow 0.4s ease;
-    }
-    .fx-ready main.fx .pillar:hover .pillar-card,
-    .fx-ready main.fx .pillar:focus .pillar-card,
-    .fx-ready main.fx .pillar:focus-within .pillar-card {
-      opacity: 1;
-      transform: none;
-      box-shadow: 0 18px 40px -16px rgba(17, 17, 17, 0.28);
-    }
-    .fx-ready main.fx .pillar { outline: none; cursor: default; }
-  }
+  @keyframes fx-shine { 0%, 65% { left: -150%; } 85% { left: 160%; } 100% { left: 160%; } }
 }
