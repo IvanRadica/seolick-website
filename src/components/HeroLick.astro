@@ -1,9 +1,10 @@
 ---
-// SEO LICK — locked LICK letter-reveal hero.
+// SEO LICK — locked LICK letter-reveal hero (LIGHT theme).
 // Ported verbatim from the approved dark hero. LOCKED choreography — do not
-// change the timeline. Brand-conformed only: red -> #e12c2c (guidelines),
-// Montserrat letterforms kept (Ivan: hybrid). Tagline: "For organic growth".
-// A prefers-reduced-motion resting state was added so it degrades gracefully.
+// change the timeline. Light re-theme per design_handoff_light_theme: colors
+// only (white ground, #111 letters, same red flip at #e12c2c). Includes the
+// optional "↺ Replay" control from the mocks and a prefers-reduced-motion
+// resting state.
 interface Props {
   tagline?: string;
   scrollLabel?: string;
@@ -43,11 +44,13 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     <span class="scroll-hint-label">{scrollLabel}</span>
     <div class="scroll-line"></div>
   </div>
+
+  <button class="hero-replay" id="hero-replay" type="button" aria-label="Replay animation">&#8635; Replay</button>
 </section>
 
 <style is:global>
   /* ── Locked LICK hero — namespaced under .hero-lick, keyframes global so the
-       runtime JS can assign them by name. ── */
+       runtime JS can assign them by name. Light theme: colors only. ── */
   .hero-lick {
     --red: #e12c2c;
     min-height: 100svh;
@@ -58,7 +61,7 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     overflow: hidden;
     position: relative;
     padding: 3rem 1.25rem 4rem;
-    background: #000;
+    background: #fff;
   }
   .hero-lick .letters {
     display: flex;
@@ -78,13 +81,13 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     font-weight: 900;
     line-height: 1;
     letter-spacing: -0.02em;
-    color: #fff;
+    color: #111;
   }
   .hero-lick .descriptor {
     font-family: "Roboto Mono", monospace;
     font-size: clamp(9px, 1vw, 13px);
     font-weight: 600;
-    color: rgba(255, 255, 255, 0);
+    color: rgba(0, 0, 0, 0);
     text-transform: uppercase;
     letter-spacing: 0.18em;
     text-align: center;
@@ -107,7 +110,7 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     font-size: clamp(14px, 2vw, 22px);
     font-weight: 700;
     letter-spacing: 0.04em;
-    color: #fff;
+    color: #111;
     opacity: 0;
     transform: translateY(14px);
     text-align: center;
@@ -121,7 +124,7 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     letter-spacing: 0.25em;
     text-transform: uppercase;
     opacity: 0;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(0, 0, 0, 0.5);
   }
   .hero-lick .scroll-hint {
     position: absolute;
@@ -141,7 +144,7 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     font-size: 10px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(0, 0, 0, 0.35);
   }
   .hero-lick .scroll-line {
     width: 1px;
@@ -149,6 +152,22 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     background: linear-gradient(to bottom, rgba(225, 44, 44, 0.7), transparent);
     animation: hl-scrollPulse 1.6s ease-in-out infinite;
   }
+  .hero-lick .hero-replay {
+    position: absolute;
+    bottom: 28px;
+    right: clamp(20px, 5vw, 80px);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: "Roboto Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.35);
+    padding: 8px;
+    transition: color 0.2s ease;
+  }
+  .hero-lick .hero-replay:hover { color: var(--red); }
 
   /* Small screens: shrink letterforms so all four letters + tagline fit.
      Sizing only — the animation timeline is untouched. */
@@ -167,10 +186,10 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     100% { opacity: 1; transform: scale(1) translateY(0); }
   }
   @keyframes descriptorIn {
-    from { color: rgba(255, 255, 255, 0); transform: translateY(6px); }
-    to   { color: rgba(255, 255, 255, 0.45); transform: translateY(0); }
+    from { color: rgba(0, 0, 0, 0); transform: translateY(6px); }
+    to   { color: rgba(0, 0, 0, 0.55); transform: translateY(0); }
   }
-  @keyframes turnRed { from { color: #fff; } to { color: var(--red); } }
+  @keyframes turnRed { from { color: #111; } to { color: var(--red); } }
   @keyframes taglineIn {
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -181,18 +200,20 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
   @media (prefers-reduced-motion: reduce) {
     .hero-lick .letter-group { opacity: 1; }
     .hero-lick .letter { color: var(--red); }
-    .hero-lick .descriptor { color: rgba(255, 255, 255, 0.45); }
+    .hero-lick .descriptor { color: rgba(0, 0, 0, 0.55); }
     .hero-lick .divider-line { width: 100%; transition: none; }
     .hero-lick .tagline { opacity: 1; transform: none; }
     .hero-lick .hero-logo { opacity: 1; }
     .hero-lick .scroll-hint { opacity: 1; }
     .hero-lick .scroll-line { animation: none; }
+    .hero-lick .hero-replay { display: none; }
   }
 </style>
 
 <script is:inline>
   (function () {
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var replayBtn = document.getElementById('hero-replay');
     if (reduce) return; // resting state is handled by CSS
 
     var STEP = 750;
@@ -203,60 +224,92 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
       { group: 'lg-k', letter: 'lt-k', desc: 'dc-k', t: 400 + STEP * 3 },
     ];
 
+    var timers = [];
+
     function runHero() {
       steps.forEach(function (s) {
-        setTimeout(function () {
+        timers.push(setTimeout(function () {
           var g = document.getElementById(s.group);
           if (!g) return;
           void g.offsetWidth;
           g.style.animation = 'letterIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards';
-        }, s.t);
-        setTimeout(function () {
+        }, s.t));
+        timers.push(setTimeout(function () {
           var d = document.getElementById(s.desc);
           if (!d) return;
           void d.offsetWidth;
           d.style.animation = 'descriptorIn 0.4s ease forwards';
-        }, s.t + 280);
+        }, s.t + 280));
       });
 
       var redAt = steps[steps.length - 1].t + 480;
 
-      setTimeout(function () {
+      timers.push(setTimeout(function () {
         ['lt-l', 'lt-i', 'lt-c', 'lt-k'].forEach(function (id) {
           var el = document.getElementById(id);
           if (!el) return;
           void el.offsetWidth;
           el.style.animation = 'turnRed 0.35s ease forwards';
         });
-      }, redAt);
+      }, redAt));
 
-      setTimeout(function () {
+      timers.push(setTimeout(function () {
         var d = document.getElementById('divider');
         if (!d) return;
         void d.offsetWidth;
         d.style.transition = 'width 0.9s cubic-bezier(0.4, 0, 0.2, 1)';
         d.style.width = '100%';
-      }, redAt + 300);
+      }, redAt + 300));
 
-      setTimeout(function () {
+      timers.push(setTimeout(function () {
         var t = document.getElementById('tagline');
         if (!t) return;
         void t.offsetWidth;
         t.style.animation = 'taglineIn 0.7s ease forwards';
-      }, redAt + 900);
+      }, redAt + 900));
 
-      setTimeout(function () {
+      timers.push(setTimeout(function () {
         var l = document.getElementById('hero-logo');
         if (!l) return;
         void l.offsetWidth;
         l.style.animation = 'fadeIn 0.8s ease forwards';
-      }, redAt + 1600);
+      }, redAt + 1600));
 
-      setTimeout(function () {
+      timers.push(setTimeout(function () {
         var s = document.getElementById('scroll-hint');
         if (s) s.classList.add('show');
-      }, redAt + 2400);
+      }, redAt + 2400));
     }
+
+    // Reset inline styles back to the pre-animation state, then rerun the
+    // exact same locked timeline.
+    function replayHero() {
+      timers.forEach(clearTimeout);
+      timers = [];
+      steps.forEach(function (s) {
+        var g = document.getElementById(s.group);
+        var l = document.getElementById(s.letter);
+        var d = document.getElementById(s.desc);
+        if (g) g.style.animation = '';
+        if (l) l.style.animation = '';
+        if (d) d.style.animation = '';
+      });
+      var divider = document.getElementById('divider');
+      if (divider) {
+        divider.style.transition = 'none';
+        divider.style.width = '0%';
+        void divider.offsetWidth;
+      }
+      var tagline = document.getElementById('tagline');
+      if (tagline) tagline.style.animation = '';
+      var logo = document.getElementById('hero-logo');
+      if (logo) logo.style.animation = '';
+      var hint = document.getElementById('scroll-hint');
+      if (hint) hint.classList.remove('show');
+      requestAnimationFrame(function () { runHero(); });
+    }
+
+    if (replayBtn) replayBtn.addEventListener('click', replayHero);
 
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', runHero);

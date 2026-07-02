@@ -20,24 +20,24 @@ const navLinks = [
   class="fixed top-0 inset-x-0 z-40 h-16 border-b border-transparent transition-colors duration-300"
 >
   <nav class="container-page flex items-center justify-between h-16">
-    <a href={p('/')} class="shrink-0 font-display font-black text-lg tracking-[0.18em] uppercase" aria-label="SEO LICK">
+    <a href={p('/')} class="shrink-0 font-display font-black text-lg tracking-[0.18em] uppercase text-ink" aria-label="SEO LICK">
       SEO<span class="text-red">LICK</span>
     </a>
 
     <ul class="hidden md:flex items-center gap-8 font-mono text-[11px] font-semibold uppercase tracking-[0.15em]">
       {navLinks.map((l) => (
-        <li><a href={l.href} class="text-white/45 hover:text-white transition-colors">{l.label}</a></li>
+        <li><a href={l.href} class="text-black/55 hover:text-ink transition-colors">{l.label}</a></li>
       ))}
     </ul>
 
     <div class="flex items-center gap-4">
-      <a href={altPath} class="font-mono text-[11px] font-semibold tracking-[0.12em] text-white/35 hover:text-white transition-colors">
+      <a href={altPath} class="font-mono text-[11px] font-semibold tracking-[0.12em] text-black/40 hover:text-ink transition-colors">
         {other.toUpperCase()}
       </a>
       <button data-open-popup class="btn btn-primary text-[11px] px-5 py-3 hidden sm:inline-flex">
         {t('nav.cta')}
       </button>
-      <button data-toggle-menu class="md:hidden p-2 text-white" aria-label="Menu">
+      <button data-toggle-menu class="md:hidden p-2 text-ink" aria-label="Menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
         </svg>
@@ -45,10 +45,10 @@ const navLinks = [
     </div>
   </nav>
 
-  <div data-mobile-menu class="hidden md:hidden border-t border-white/10 bg-black/95 backdrop-blur">
+  <div data-mobile-menu class="hidden md:hidden border-t border-black/10 bg-white/95 backdrop-blur">
     <ul class="container-page py-4 flex flex-col gap-4 font-mono text-xs font-semibold uppercase tracking-[0.15em]">
       {navLinks.map((l) => (
-        <li><a href={l.href} class="block text-white/60 hover:text-white transition-colors">{l.label}</a></li>
+        <li><a href={l.href} class="block text-black/55 hover:text-ink transition-colors">{l.label}</a></li>
       ))}
       <li><button data-open-popup class="btn btn-primary w-full">{t('nav.cta')}</button></li>
     </ul>
@@ -60,14 +60,14 @@ const navLinks = [
   const menu = document.querySelector('[data-mobile-menu]');
   toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
 
-  // Solid backdrop once scrolled past the fold.
+  // Glass backdrop once scrolled past the fold.
   const header = document.querySelector('[data-site-header]');
   const onScroll = () => {
     if (!header) return;
     if (window.scrollY > 60) {
-      header.classList.add('bg-black/90', 'backdrop-blur', 'border-white/10');
+      header.classList.add('bg-white/[0.88]', 'backdrop-blur', 'border-black/10');
     } else {
-      header.classList.remove('bg-black/90', 'backdrop-blur', 'border-white/10');
+      header.classList.remove('bg-white/[0.88]', 'backdrop-blur', 'border-black/10');
     }
   };
   onScroll();

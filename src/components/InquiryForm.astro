@@ -27,26 +27,20 @@ const options = [
   <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
 
   <div class="grid sm:grid-cols-2 gap-4">
-    <input type="text" name="name" required placeholder={t('form.name')}
-      class="w-full px-4 py-3 bg-white/[0.03] border border-white/15 rounded-md text-[15px] text-white placeholder:text-white/40 focus:border-red outline-none" />
-    <input type="email" name="email" required placeholder={t('form.email')}
-      class="w-full px-4 py-3 bg-white/[0.03] border border-white/15 rounded-md text-[15px] text-white placeholder:text-white/40 focus:border-red outline-none" />
+    <input type="text" name="name" required placeholder={t('form.name')} class="input" />
+    <input type="email" name="email" required placeholder={t('form.email')} class="input" />
   </div>
   <div class="grid sm:grid-cols-2 gap-4">
-    <input type="text" name="company" placeholder={t('form.company')}
-      class="w-full px-4 py-3 bg-white/[0.03] border border-white/15 rounded-md text-[15px] text-white placeholder:text-white/40 focus:border-red outline-none" />
-    <input type="tel" name="phone" placeholder={t('form.phone')}
-      class="w-full px-4 py-3 bg-white/[0.03] border border-white/15 rounded-md text-[15px] text-white placeholder:text-white/40 focus:border-red outline-none" />
+    <input type="text" name="company" placeholder={t('form.company')} class="input" />
+    <input type="tel" name="phone" placeholder={t('form.phone')} class="input" />
   </div>
-  <select name="service" required
-    class="w-full px-4 py-3 bg-white/[0.03] border border-white/15 rounded-md text-[15px] text-white focus:border-red outline-none">
-    <option value="" disabled selected={!preselect} class="bg-black text-white">{t('form.service')}</option>
+  <select name="service" required class="input">
+    <option value="" disabled selected={!preselect}>{t('form.service')}</option>
     {options.map((o) => (
-      <option value={o.value} selected={preselect === o.value} class="bg-black text-white">{o.label}</option>
+      <option value={o.value} selected={preselect === o.value}>{o.label}</option>
     ))}
   </select>
-  <textarea name="message" rows="3" placeholder={t('form.message')}
-    class="w-full px-4 py-3 bg-white/[0.03] border border-white/15 rounded-md text-[15px] text-white placeholder:text-white/40 focus:border-red outline-none"></textarea>
+  <textarea name="message" rows="3" placeholder={t('form.message')} class="input"></textarea>
 
   <button type="submit" class="btn btn-primary w-full">{t('form.submit')}</button>
 

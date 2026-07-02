@@ -25,20 +25,20 @@ const c =
   <div class="container-page grid md:grid-cols-2 gap-12 items-start">
     <div data-reveal>
       <p class="eyebrow mb-3">{c.eyebrow}</p>
-      <h1 class="font-display text-4xl md:text-5xl font-black leading-tight tracking-tight">{c.title}</h1>
-      <p class="mt-6 text-lg text-white/60 max-w-md">{c.lead}</p>
+      <h1 class="font-display text-4xl md:text-5xl font-black leading-tight tracking-tight text-ink">{c.title}</h1>
+      <p class="mt-6 text-lg text-black/65 max-w-md">{c.lead}</p>
       <div class="mt-8 space-y-4">
         <div>
-          <div class="font-mono text-xs uppercase tracking-wider text-white/35">{c.emailLabel}</div>
-          <a href="mailto:ivan@seolick.me" class="text-lg font-bold hover:text-red transition-colors">ivan@seolick.me</a>
+          <div class="font-mono text-xs uppercase tracking-wider text-black/45">{c.emailLabel}</div>
+          <a href="mailto:ivan@seolick.me" class="text-lg font-bold text-ink hover:text-red transition-colors">ivan@seolick.me</a>
         </div>
         <div>
-          <div class="font-mono text-xs uppercase tracking-wider text-white/35">{c.webLabel}</div>
-          <a href="https://seolick.me" class="text-lg font-bold hover:text-red transition-colors">seolick.me</a>
+          <div class="font-mono text-xs uppercase tracking-wider text-black/45">{c.webLabel}</div>
+          <a href="https://seolick.me" class="text-lg font-bold text-ink hover:text-red transition-colors">seolick.me</a>
         </div>
       </div>
     </div>
-    <div class="border border-white/10 rounded-xl p-6 md:p-8 bg-white/[0.02]" data-reveal style="--d:120ms">
+    <div class="border border-black/[0.12] bg-white p-6 md:p-8" data-reveal style="--d:120ms">
       <InquiryForm />
     </div>
   </div>

@@ -14,37 +14,37 @@ const navLinks = [
 ];
 ---
 
-<footer class="relative overflow-hidden border-t border-white/10 mt-0">
+<footer class="relative overflow-hidden border-t border-black/[0.12] mt-0 bg-white">
   <div class="container-page pt-20 pb-10 grid gap-12 md:grid-cols-3">
     <div>
-      <div class="font-display font-black text-xl tracking-[0.16em] uppercase mb-4">
+      <div class="font-display font-black text-xl tracking-[0.16em] uppercase mb-4 text-ink">
         SEO<span class="text-red">LICK</span>
       </div>
-      <p class="text-white/45 text-sm max-w-xs leading-relaxed">{t('footer.tagline')}</p>
+      <p class="text-black/55 text-sm max-w-xs leading-relaxed">{t('footer.tagline')}</p>
       <p class="eyebrow mt-5">Links · Infrastructure · Content · Keywords</p>
     </div>
 
     <div>
-      <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-white/30 mb-5">{t('footer.links.title')}</h3>
+      <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-black/45 mb-5">{t('footer.links.title')}</h3>
       <ul class="space-y-3 text-[15px]">
         {navLinks.map((l) => (
-          <li><a href={l.href} class="text-white/70 hover:text-white transition-colors">{l.label}</a></li>
+          <li><a href={l.href} class="text-black/70 hover:text-ink transition-colors">{l.label}</a></li>
         ))}
       </ul>
     </div>
 
     <div>
-      <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-white/30 mb-5">{t('footer.contact.title')}</h3>
+      <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-black/45 mb-5">{t('footer.contact.title')}</h3>
       <ul class="space-y-3 text-[15px]">
-        <li><a href="mailto:ivan@seolick.me" class="text-white/70 hover:text-white transition-colors">ivan@seolick.me</a></li>
-        <li><a href="https://seolick.me" class="text-white/70 hover:text-white transition-colors">seolick.me</a></li>
+        <li><a href="mailto:ivan@seolick.me" class="text-black/70 hover:text-ink transition-colors">ivan@seolick.me</a></li>
+        <li><a href="https://seolick.me" class="text-black/70 hover:text-ink transition-colors">seolick.me</a></li>
       </ul>
-      <p class="text-white/30 text-xs font-mono mt-6">Split, Hrvatska</p>
+      <p class="text-black/45 text-xs font-mono mt-6">Split, Hrvatska</p>
     </div>
   </div>
 
-  <div class="border-t border-white/10">
-    <div class="container-page py-6 text-[11px] font-mono text-white/30 flex flex-col sm:flex-row justify-between gap-2">
+  <div class="border-t border-black/[0.12]">
+    <div class="container-page py-6 text-[11px] font-mono text-black/45 flex flex-col sm:flex-row justify-between gap-2">
       <span>&copy; {year} SEO LICK. {t('footer.rights')}</span>
       <span>We LICK websites. For organic growth.</span>
     </div>
@@ -53,7 +53,7 @@ const navLinks = [
   <!-- Oversized wordmark bleeding off the bottom edge -->
   <div class="select-none pointer-events-none px-4" aria-hidden="true">
     <div
-      class="font-display font-black tracking-tight whitespace-nowrap text-center leading-[0.78] text-white/[0.04]"
+      class="font-display font-black tracking-tight whitespace-nowrap text-center leading-[0.78] text-black/[0.05]"
       style="font-size: clamp(3.25rem, 19vw, 15rem); margin-bottom: -0.12em;"
     >
       SEO LICK

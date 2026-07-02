@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 /* ============================================================
-   SEO LICK — dark premium design system
-   Ported from the approved dark hero direction. Brand-conformed:
-   red #e12c2c (guidelines), Montserrat display + Roboto body.
+   SEO LICK — light premium design system
+   Light re-theme of the dark build per design_handoff_light_theme:
+   white ground, #111 typography, red #e12c2c accents, warm
+   #f6f4ef section bands. Same structure, tokens only.
    ============================================================ */
 
 @theme {
@@ -11,6 +12,7 @@
   --color-red-dark: #c41f1f;
   --color-black: #000000;
   --color-white: #ffffff;
+  --color-ink: #111111;
 
   --font-display: "Montserrat", "Roboto", Helvetica, Arial, sans-serif;
   --font-sans: "Roboto", Helvetica, Arial, sans-serif;
@@ -19,15 +21,15 @@
 
 :root {
   --red: #e12c2c;
-  --red-strong: #ff3a3a;
   --red-dim: rgba(225, 44, 44, 0.12);
-  --black: #000000;
+  --ink: #111111;
   --white: #ffffff;
-  --dim: rgba(255, 255, 255, 0.45);
-  --dimmer: rgba(255, 255, 255, 0.28);
-  --faint: rgba(255, 255, 255, 0.06);
-  --border: rgba(255, 255, 255, 0.08);
-  --surface: #0a0a0a;
+  --dim: rgba(0, 0, 0, 0.55);
+  --dimmer: rgba(0, 0, 0, 0.4);
+  --faint: rgba(0, 0, 0, 0.08);
+  --border: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.12);
+  --surface: #f6f4ef;
 }
 
 @layer base {
@@ -35,11 +37,11 @@
     font-family: var(--font-sans);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    background: var(--black);
+    background: var(--white);
   }
   body {
-    color: var(--white);
-    background: var(--black);
+    color: var(--ink);
+    background: var(--white);
     overflow-x: hidden;
   }
   h1, h2, h3, .display {
@@ -95,13 +97,13 @@
     border: 1px solid var(--red);
   }
   .btn-primary:hover {
-    background: var(--red-dark, #c41f1f);
-    border-color: var(--red-dark, #c41f1f);
+    background: var(--color-red-dark, #c41f1f);
+    border-color: var(--color-red-dark, #c41f1f);
   }
   .btn-ghost {
     background: transparent;
-    color: var(--white);
-    border: 1px solid var(--border);
+    color: var(--ink);
+    border: 1px solid rgba(0, 0, 0, 0.18);
   }
   .btn-ghost:hover {
     border-color: var(--red);
@@ -114,6 +116,8 @@
     border-top: 1px solid var(--border);
   }
   .section-first { border-top: none; }
+  /* Warm band for Results / Testimonial / Retainer tiers / Roadmap */
+  .section-band { background: var(--surface); }
   .section-label {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
@@ -150,7 +154,7 @@
   .grid-4 { grid-template-columns: repeat(4, 1fr); }
   .grid-3 { grid-template-columns: repeat(3, 1fr); }
   .card {
-    background: var(--black);
+    background: var(--white);
     padding: clamp(1.75rem, 3vw, 2.75rem);
     display: flex;
     flex-direction: column;
@@ -187,7 +191,7 @@
     font-size: 0.9375rem;
     font-weight: 700;
     line-height: 1.45;
-    color: var(--white);
+    color: var(--ink);
   }
   .card-desc {
     font-size: 0.875rem;
@@ -226,11 +230,12 @@
   .stats-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-strong);
+    background: var(--white);
   }
   .stat-item {
     padding: clamp(1.5rem, 3vw, 2.5rem);
-    border-right: 1px solid var(--border);
+    border-right: 1px solid var(--border-strong);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -242,7 +247,7 @@
     font-weight: 900;
     line-height: 1;
     letter-spacing: -0.03em;
-    color: var(--white);
+    color: var(--ink);
   }
   .stat-number em { color: var(--red); font-style: normal; }
   .stat-label {
@@ -275,7 +280,7 @@
   .case-row-text {
     font-size: 0.9375rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--ink);
     line-height: 1.4;
   }
   .case-result {
@@ -305,6 +310,20 @@
     margin-top: 0.5rem;
   }
 
+  /* --- Form controls (light) --- */
+  .input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 2px;
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+  }
+  .input::placeholder { color: rgba(0, 0, 0, 0.5); }
+  .input:focus { border-color: var(--red); }
+
   @media (max-width: 960px) {
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
   }
@@ -314,7 +333,7 @@
   @media (max-width: 640px) {
     .grid-4 { grid-template-columns: 1fr; }
     .stats-strip { grid-template-columns: 1fr; }
-    .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--border-strong); }
     .stat-item:last-child { border-bottom: none; }
   }
 }

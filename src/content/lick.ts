@@ -3,8 +3,8 @@ import type { Lang } from '../i18n/ui';
 export const lickContent = {
   hr: {
     eyebrow: 'L.I.C.K. framework',
-    title: 'L.I.C.K. — Strategija za webshop koji prodaje',
-    subtitle: 'Ispolirajte webshop i povećajte prodaju.',
+    title: 'L.I.C.K. — Strategija za web koji prodaje',
+    subtitle: 'Ispolirajte svoj web i povećajte prodaju.',
     intro1: 'Jeste li znali da trenutno postoji između 25 i 31 milijun webshopova diljem svijeta? Milijuni stranica, proizvoda i priča koje čekaju da ih netko primijeti. I vi još uvijek mislite da će vas Google sam lansirati na vrh? Teško.',
     intro2: 'Vaš webshop može biti savršeno dizajnirano remek-djelo — naizgled lijep i besprijekoran. Ali ako ga nitko ne vidi, jedini koji će mu aplaudirati ste vi sami. A webshop ste napravili za kupce i prodaju, zar ne?',
     intro3: 'Zato vam predstavljamo L.I.C.K. strategiju, utemeljenu na četiri ključna SEO kotača koja vaš webshop voze od početne ideje pa sve do tržišta.',
@@ -84,8 +84,8 @@ export const lickContent = {
   },
   en: {
     eyebrow: 'L.I.C.K. framework',
-    title: 'L.I.C.K. — The strategy for a store that sells',
-    subtitle: 'Polish your store and grow sales.',
+    title: 'L.I.C.K. — The strategy for a website that sells',
+    subtitle: 'Polish your website and grow sales.',
     intro1: 'Did you know there are currently between 25 and 31 million online stores worldwide? Millions of pages, products and stories waiting to be noticed. And you still think Google will launch you to the top on its own? Unlikely.',
     intro2: 'Your store can be a perfectly designed masterpiece — beautiful and flawless. But if no one sees it, the only one applauding is you. And you built it for customers and sales, right?',
     intro3: 'That’s why we present the L.I.C.K. strategy, built on four key SEO wheels that drive your store from the initial idea all the way to the market.',
