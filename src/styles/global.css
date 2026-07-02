@@ -324,32 +324,6 @@
     transform: scaleX(0);
   }
 
-  /* --- Verticals marquee strip --- */
-  .marquee {
-    overflow: hidden;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 1.1rem 0;
-    display: flex;
-    user-select: none;
-  }
-  .marquee-track {
-    display: flex;
-    flex-shrink: 0;
-    min-width: 100%;
-    gap: 2.5rem;
-    padding-right: 2.5rem;
-    align-items: center;
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--dimmer);
-    white-space: nowrap;
-  }
-  .marquee-track .dot { color: var(--red); }
-
   /* --- Section-title "lick" underline (draws in on reveal) --- */
   .title-lick { position: relative; display: inline-block; }
   .title-lick svg {
@@ -390,19 +364,6 @@
   .card:hover .card-rule { width: 48px; }
   .card:hover .card-letter { color: var(--color-red-dark, #c41f1f); }
 
-  /* --- Team photos: grayscale until hover --- */
-  .team-photo {
-    filter: grayscale(1);
-    transition: filter 0.45s ease;
-  }
-  .team-photo:hover, .team-photo:focus-visible { filter: grayscale(0); }
-
-  /* --- Primary button: arrow nudge + magnetic (JS sets --tx/--ty) --- */
-  .btn-primary {
-    transform: translate(var(--tx, 0px), var(--ty, 0px));
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-
   /* --- FAQ: smooth open where supported (progressive enhancement) --- */
   @supports (interpolate-size: allow-keywords) {
     :root { interpolate-size: allow-keywords; }
@@ -413,23 +374,6 @@
     }
     details[open]::details-content { block-size: auto; }
   }
-
-  /* --- Ambient CTA band (Higgsfield loop sits behind content) --- */
-  .cta-ambient { position: relative; overflow: hidden; }
-  .cta-ambient > .container-page { position: relative; z-index: 1; }
-  .cta-ambient-media {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.55;
-    pointer-events: none;
-    /* ribbon surfaces toward the bottom; the copy zone stays clean white */
-    -webkit-mask-image: linear-gradient(to bottom, transparent 18%, black 70%);
-    mask-image: linear-gradient(to bottom, transparent 18%, black 70%);
-  }
-  .cta-ambient .container-page { padding-bottom: clamp(120px, 18vh, 220px); }
 
   /* --- Form controls (light) --- */
   .input {
@@ -533,22 +477,14 @@
   }
   @keyframes fx-shine { 0%, 65% { left: -150%; } 85% { left: 160%; } 100% { left: 160%; } }
 
-  /* Verticals marquee drift */
-  .marquee-track { animation: fx-marquee 28s linear infinite; }
-  .marquee:hover .marquee-track { animation-play-state: paused; }
-  @keyframes fx-marquee { to { transform: translateX(calc(-100% - 2.5rem)); } }
-
   /* Section-title lick underline draws when revealed */
   .title-lick svg path { transition: stroke-dashoffset 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.25s; }
   .title-lick.is-visible svg path,
   [data-reveal].is-visible .title-lick svg path { stroke-dashoffset: 0; }
 }
 
-/* Reduced motion: marquee static, underline drawn, no ambient video (element
-   itself is also hidden via motion-reduce class). */
+/* Reduced motion: underline drawn statically, no scroll thread. */
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
   .title-lick svg path { stroke-dashoffset: 0; }
   .scroll-progress { display: none; }
-  .cta-ambient-media { display: none; }
 }

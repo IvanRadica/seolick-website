@@ -15,11 +15,6 @@ const teamPhotos: Record<string, string> = {
   Ivan: '/team/ivan.jpg',
 };
 
-const marqueeItems =
-  lang === 'hr'
-    ? ['Yacht charter', 'Privatne klinike', 'Nekretnine', 'Turizam', 'E-commerce', 'Suplementi', 'SEO', 'AEO', 'Google Ads', 'Web']
-    : ['Yacht charter', 'Private clinics', 'Real estate', 'Tourism', 'E-commerce', 'Supplements', 'SEO', 'AEO', 'Google Ads', 'Web'];
-
 // Wrap the leading number of a stat in a count-up span (runtime animates it).
 const countable = (html: string) => html.replace(/([\d.,]+)/, '<span data-countup="$1">$1</span>');
 ---
@@ -36,20 +31,6 @@ const countable = (html: string) => html.replace(/([\d.,]+)/, '<span data-countu
     <button data-open-popup class="btn btn-primary mt-9">{c.intro.cta}</button>
   </div>
 </section>
-
-<!-- VERTICALS MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  {[0, 1].map(() => (
-    <div class="marquee-track">
-      {marqueeItems.map((item) => (
-        <>
-          <span>{item}</span>
-          <span class="dot">●</span>
-        </>
-      ))}
-    </div>
-  ))}
-</div>
 
 <!-- PROBLEM -->
 <section class="section">
@@ -195,7 +176,7 @@ const countable = (html: string) => html.replace(/([\d.,]+)/, '<span data-countu
                 width="88"
                 height="88"
                 loading="lazy"
-                class="team-photo w-[88px] h-[88px] rounded-full object-cover"
+                class="w-[88px] h-[88px] rounded-full object-cover"
               />
             ) : (
               <div class="w-[88px] h-[88px] rounded-full bg-red text-white font-display font-black grid place-items-center text-3xl">
@@ -230,14 +211,8 @@ const countable = (html: string) => html.replace(/([\d.,]+)/, '<span data-countu
   </div>
 </section>
 
-<!-- FINAL CTA — ambient red-ribbon loop behind -->
-<section class="section cta-ambient">
-  <video
-    class="cta-ambient-media motion-reduce:hidden"
-    autoplay muted loop playsinline preload="metadata"
-    poster="/ambient/lick-ribbon.jpg" aria-hidden="true">
-    <source src="/ambient/lick-ribbon.mp4" type="video/mp4" />
-  </video>
+<!-- FINAL CTA -->
+<section class="section">
   <div class="container-page text-center" data-reveal>
     <h2 class="section-title max-w-3xl mx-auto">{c.finalCta.title}</h2>
     <p class="mt-4 text-lg text-black/65 max-w-2xl mx-auto">{c.finalCta.sub}</p>
