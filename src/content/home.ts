@@ -7,8 +7,8 @@ import type { Lang } from '../i18n/ui';
 export const homeContent = {
   hr: {
     intro: {
-      eyebrow: 'Strateška SEO agencija · Split',
-      text: 'Radimo s brendovima koji žive od upita i rezervacija — klinike, charteri, agencije za nekretnine. S L.I.C.K. frameworkom pretvaramo Google pretragu u stalan priljev upita, ne u trošak koji staje kad ugasite oglase.',
+      eyebrow: 'Strateška SEO agencija',
+      text: 'Radimo s brendovima koji žive od upita i rezervacija\nklinike, charteri, agencije za nekretnine.\n\nL.I.C.K. framework pretvara Google pretragu u stalan priljev upita, ne u trošak koji staje kad ugasite oglase.',
       cta: 'Zatraži FIRST LICK',
     },
     problem: {
@@ -99,7 +99,7 @@ export const homeContent = {
     faqTitle: 'Često postavljana pitanja',
     faq: [
       { q: 'Kolika je cijena vaših SEO usluga?', a: 'Cijena ovisi o usluzi i složenosti vašeg projekta. Nakon kratkih konzultacija dajemo jasnu ponudu prilagođenu vašim ciljevima i budžetu.' },
-      { q: 'U kojem roku mogu očekivati prve rezultate?', a: 'SEO je dugoročna investicija. Prve pomake obično vidimo unutar 3–6 mjeseci, ovisno o startnoj poziciji, konkurenciji i opsegu rada.' },
+      { q: 'U kojem roku mogu očekivati prve rezultate?', a: 'SEO je dugoročna investicija. Prve pomake obično vidimo od 2 mjeseca, ovisno o startnoj poziciji, konkurenciji i opsegu rada.' },
       { q: 'Radite li s malim i novim biznisima?', a: 'Da. Upravo novim biznisima dobro postavljeni SEO temelji štede mjesece lutanja i odmah ih usmjeravaju prema pravom tržištu.' },
       { q: 'Za kakve biznise radite SEO?', a: 'Najbolje rezultate vidimo kod brendova koji žive od upita i rezervacija — privatne klinike, charter, agencije za nekretnine, suplementi, webshopovi s višom vrijednošću košarice. Strategiju gradimo na podacima i prilagođavamo je vašoj industriji.' },
       { q: 'Koje alate koristite u svom radu?', a: 'Koristimo industrijske standarde za istraživanje ključnih riječi, tehničke audite i praćenje rezultata (npr. Ahrefs, Google Search Console, GA4 i druge).' },
@@ -112,8 +112,8 @@ export const homeContent = {
   },
   en: {
     intro: {
-      eyebrow: 'Strategic SEO agency · Split',
-      text: 'We work with brands that live on inquiries and bookings — clinics, charters, real-estate agencies. With the L.I.C.K. framework we turn Google search into a steady stream of inquiries, not a cost that stops the moment you switch off the ads.',
+      eyebrow: 'Strategic SEO agency',
+      text: 'We work with brands that live on inquiries and bookings\nclinics, charters, real-estate agencies.\n\nThe L.I.C.K. framework turns Google search into a steady stream of inquiries, not a cost that stops the moment you switch off the ads.',
       cta: 'Get your FIRST LICK',
     },
     problem: {
@@ -201,7 +201,7 @@ export const homeContent = {
     faqTitle: 'Frequently asked questions',
     faq: [
       { q: 'How much do your SEO services cost?', a: 'Pricing depends on the service and the complexity of your project. After a short consultation we provide a clear quote tailored to your goals and budget.' },
-      { q: 'When can I expect the first results?', a: 'SEO is a long-term investment. We usually see the first movements within 3–6 months, depending on your starting position, competition and scope of work.' },
+      { q: 'When can I expect the first results?', a: 'SEO is a long-term investment. We usually see the first movements from 2 months onward, depending on your starting position, competition and scope of work.' },
       { q: 'Do you work with small and new businesses?', a: 'Yes. For new businesses especially, well-set SEO foundations save months of wandering and point them at the right market right away.' },
       { q: 'What kind of businesses do you do SEO for?', a: 'We see the best results for brands that live on inquiries and bookings — private clinics, charter, real-estate agencies, supplements, higher-basket online stores. We build the strategy on data and tailor it to your industry.' },
       { q: 'What tools do you use?', a: 'We use industry standards for keyword research, technical audits and tracking (e.g. Ahrefs, Google Search Console, GA4 and others).' },

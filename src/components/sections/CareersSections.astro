@@ -1,0 +1,51 @@
+---
+import { getLangFromUrl } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const c =
+  lang === 'hr'
+    ? {
+        eyebrow: 'Karijere',
+        title: 'Rasti s nama.',
+        lead: 'Gradimo malu, fokusiranu ekipu koja SEO shvaća ozbiljno — bez agencijskih buzzworda, uz stvarne rezultate. Kad otvorimo poziciju, objavit ćemo je ovdje.',
+        openLabel: 'Otvorene pozicije',
+        badge: '0 otvorenih pozicija',
+        emptyTitle: 'Trenutno nema otvorenih pozicija',
+        emptyBody:
+          'Trenutno ne zapošljavamo, ali to se brzo mijenja. Ako misliš da se uklapaš u L.I.C.K. priču, pošalji nam otvorenu prijavu — javljamo se čim se pojavi prava prilika.',
+        cta: 'Pošalji otvorenu prijavu',
+        mailto: 'mailto:info@seolick.me?subject=Otvorena%20prijava%20%E2%80%94%20SEO%20LICK',
+      }
+    : {
+        eyebrow: 'Careers',
+        title: 'Grow with us.',
+        lead: 'We build a small, focused team that takes SEO seriously — no agency buzzwords, just real results. When we open a role, we’ll post it right here.',
+        openLabel: 'Open positions',
+        badge: '0 open positions',
+        emptyTitle: 'No open positions right now',
+        emptyBody:
+          'We’re not hiring at the moment, but that changes fast. If you think you fit the L.I.C.K. story, send us an open application — we’ll reach out the moment the right role opens up.',
+        cta: 'Send an open application',
+        mailto: 'mailto:info@seolick.me?subject=Open%20application%20%E2%80%94%20SEO%20LICK',
+      };
+---
+
+<section class="section section-first pt-28 md:pt-32">
+  <div class="container-page max-w-3xl">
+    <div data-reveal>
+      <p class="eyebrow mb-3">{c.eyebrow}</p>
+      <h1 class="font-display text-4xl md:text-6xl font-black leading-[1.05] tracking-tight text-ink">{c.title}</h1>
+      <p class="mt-6 text-lg text-black/65 max-w-xl leading-relaxed">{c.lead}</p>
+    </div>
+
+    <div class="mt-14" data-reveal style="--d:120ms">
+      <p class="section-label">{c.openLabel}</p>
+      <div class="border border-black/[0.12] bg-white p-8 md:p-12 text-center mt-6">
+        <div class="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-red mb-4">{c.badge}</div>
+        <h2 class="font-display text-2xl md:text-3xl font-black tracking-tight text-ink">{c.emptyTitle}</h2>
+        <p class="mt-4 text-black/65 max-w-md mx-auto leading-relaxed">{c.emptyBody}</p>
+        <a href={c.mailto} class="btn btn-primary mt-8">{c.cta}</a>
+      </div>
+    </div>
+  </div>
+</section>
