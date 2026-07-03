@@ -1,5 +1,12 @@
-name = "seolick"
+name = "seolick-website"
 compatibility_date = "2026-05-29"
+
+# Custom domains — registered automatically on each CI deploy.
+# The seolick.me zone must live in the same Cloudflare account as this Worker.
+routes = [
+  { pattern = "seolick.me", custom_domain = true },
+  { pattern = "www.seolick.me", custom_domain = true },
+]
 
 # Static Astro site served as Worker assets (Cloudflare Workers Builds:
 # CI runs `npm run build` then `npx wrangler deploy` on every push to main).
