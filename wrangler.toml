@@ -1,5 +1,7 @@
 name = "seolick-website"
 compatibility_date = "2026-05-29"
+# Keep the workers.dev test URL alive even though custom domains exist.
+workers_dev = true
 
 # Custom domains — registered automatically on each CI deploy.
 # The seolick.me zone must live in the same Cloudflare account as this Worker.
