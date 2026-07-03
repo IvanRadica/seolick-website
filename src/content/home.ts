@@ -55,6 +55,7 @@ export const homeContent = {
           includes: ['Istraživanje KR', 'Mapiranje namjere', 'Gap analiza', 'KW-to-page mapiranje'],
         },
       ],
+      hint: '↑ Prijeđite mišem (ili dodirnite) preko slova za detalje svakog stupa.',
       cta: 'Saznaj kako L.I.C.K. funkcionira',
     },
     servicesTeaser: {
@@ -159,6 +160,7 @@ export const homeContent = {
           includes: ['Keyword research', 'Intent mapping', 'Gap analysis', 'KW-to-page mapping'],
         },
       ],
+      hint: '↑ Hover (or tap) a letter for each pillar’s details.',
       cta: 'See how L.I.C.K. works',
     },
     servicesTeaser: {

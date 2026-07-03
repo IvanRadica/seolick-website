@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#000;color:#fff;font-family:'Roboto',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;scroll-behavior:smooth}
+  ::selection{background:#e12c2c;color:#fff}
+  input::placeholder,textarea::placeholder{color:rgba(255,255,255,0.4)}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:40;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.06)">
+  <nav style="width:100%;max-width:1200px;margin:0 auto;padding-left:clamp(20px,5vw,80px);padding-right:clamp(20px,5vw,80px);height:64px;display:flex;align-items:center;justify-content:space-between">
+    <a href="Home.dc.html" aria-label="SEO LICK" style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;letter-spacing:0.18em;text-transform:uppercase;color:#fff;text-decoration:none">SEO<span style="color:#e12c2c">LICK</span></a>
+    <div style="display:flex;align-items:center;gap:32px">
+      <a href="Usluge.dc.html" style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none" style-hover="color:#fff">Usluge</a>
+      <a href="LICK.dc.html" style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none" style-hover="color:#fff">L.I.C.K.</a>
+      <a href="Home.dc.html#faq" style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none" style-hover="color:#fff">FAQ</a>
+      <a href="Kontakt.dc.html" style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#fff;text-decoration:none">Kontakt</a>
+      <a href="#forma" style="display:inline-flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:12px 20px;border-radius:2px;background:#e12c2c;color:#fff;border:1px solid #e12c2c;text-decoration:none" style-hover="background:#c41f1f;border-color:#c41f1f">Zatraži FIRST LICK</a>
+    </div>
+  </nav>
+</header>
+
+<section data-screen-label="Kontakt" style="padding:clamp(80px,12vh,140px) 0 clamp(72px,10vh,130px);min-height:calc(100svh - 64px)">
+  <div style="width:100%;max-width:1200px;margin:0 auto;padding-left:clamp(20px,5vw,80px);padding-right:clamp(20px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+    <div>
+      <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 12px">Kontakt</p>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:clamp(32px,4.5vw,52px);font-weight:900;line-height:1.08;letter-spacing:-0.025em;margin:0;text-wrap:balance">Konkurencija ne čeka, nemojte ni vi.</h1>
+      <p style="margin:24px 0 0;font-size:17px;color:rgba(255,255,255,0.6);max-width:420px;line-height:1.75">Ostavite nam svoje podatke i javljamo se u što kraćem roku. Rado ćemo se upoznati s vašim biznisom i predložiti najbolje rješenje.</p>
+      <div style="margin-top:40px;display:flex;flex-direction:column;gap:24px">
+        <div>
+          <div style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:4px">E-mail</div>
+          <a href="mailto:ivan@seolick.me" style="font-size:19px;font-weight:700;color:#fff;text-decoration:none" style-hover="color:#e12c2c">ivan@seolick.me</a>
+        </div>
+        <div>
+          <div style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:4px">Web</div>
+          <a href="https://seolick.me" style="font-size:19px;font-weight:700;color:#fff;text-decoration:none" style-hover="color:#e12c2c">seolick.me</a>
+        </div>
+        <div>
+          <div style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:4px">Lokacija</div>
+          <div style="font-size:19px;font-weight:700;color:#fff">Split, Hrvatska</div>
+        </div>
+      </div>
+      <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:48px 0 0">Links · Infrastructure · Content · Keywords</p>
+    </div>
+    <form id="forma" style="border:1px solid rgba(255,255,255,0.1);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.02);scroll-margin-top:80px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <input type="text" name="name" placeholder="Ime i prezime" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.15);border-radius:2px;font-size:15px;color:#fff;font-family:'Roboto',sans-serif" style-focus="border-color:#e12c2c;outline:none">
+        <input type="email" name="email" placeholder="E-mail adresa" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.15);border-radius:2px;font-size:15px;color:#fff;font-family:'Roboto',sans-serif" style-focus="border-color:#e12c2c;outline:none">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <input type="text" name="company" placeholder="Naziv ili URL vaše web stranice" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.15);border-radius:2px;font-size:15px;color:#fff;font-family:'Roboto',sans-serif" style-focus="border-color:#e12c2c;outline:none">
+        <input type="tel" name="phone" placeholder="Broj telefona" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.15);border-radius:2px;font-size:15px;color:#fff;font-family:'Roboto',sans-serif" style-focus="border-color:#e12c2c;outline:none">
+      </div>
+      <select name="service" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.15);border-radius:2px;font-size:15px;color:rgba(255,255,255,0.7);font-family:'Roboto',sans-serif" style-focus="border-color:#e12c2c;outline:none">
+        <option style="background:#000;color:#fff">Izaberite uslugu ili konzultacije</option>
+        <option style="background:#000;color:#fff">15-minutne konzultacije</option>
+        <option style="background:#000;color:#fff">SEO Audit</option>
+        <option style="background:#000;color:#fff">Postavljanje SEO temelja</option>
+        <option style="background:#000;color:#fff">SEO Retainer</option>
+        <option style="background:#000;color:#fff">Kombinacija više usluga</option>
+        <option style="background:#000;color:#fff">Nisam još siguran/na</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Ukratko opišite izazov vašeg biznisa (opcionalno)" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.15);border-radius:2px;font-size:15px;color:#fff;font-family:'Roboto',sans-serif;resize:vertical" style-focus="border-color:#e12c2c;outline:none"></textarea>
+      <button type="button" style="display:inline-flex;align-items:center;justify-content:center;font-family:'Roboto Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:16px 32px;border-radius:2px;background:#e12c2c;color:#fff;border:1px solid #e12c2c;cursor:pointer" style-hover="background:#c41f1f;border-color:#c41f1f">Pošalji upit</button>
+      <p style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(255,255,255,0.3);margin:0;line-height:1.6">Slanjem upita pristajete da vas kontaktiramo u vezi vaše poruke.</p>
+    </form>
+  </div>
+</section>
+
+<footer style="border-top:1px solid rgba(255,255,255,0.1);overflow:hidden;position:relative">
+  <div style="width:100%;max-width:1200px;margin:0 auto;padding:80px clamp(20px,5vw,80px) 40px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px">
+    <div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:16px">SEO<span style="color:#e12c2c">LICK</span></div>
+      <p style="color:rgba(255,255,255,0.45);font-size:14px;max-width:300px;line-height:1.7;margin:0">Strateška SEO agencija za brendove koji žive od upita i rezervacija.</p>
+      <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:20px 0 0">Links · Infrastructure · Content · Keywords</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.3);margin:0 0 20px;font-weight:600">Stranice</h3>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:15px">
+        <a href="Usluge.dc.html" style="color:rgba(255,255,255,0.7);text-decoration:none" style-hover="color:#fff">Usluge</a>
+        <a href="LICK.dc.html" style="color:rgba(255,255,255,0.7);text-decoration:none" style-hover="color:#fff">L.I.C.K.</a>
+        <a href="Home.dc.html#faq" style="color:rgba(255,255,255,0.7);text-decoration:none" style-hover="color:#fff">FAQ</a>
+        <a href="Kontakt.dc.html" style="color:rgba(255,255,255,0.7);text-decoration:none" style-hover="color:#fff">Kontakt</a>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.3);margin:0 0 20px;font-weight:600">Kontakt</h3>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:15px">
+        <a href="mailto:ivan@seolick.me" style="color:rgba(255,255,255,0.7);text-decoration:none" style-hover="color:#fff">ivan@seolick.me</a>
+        <a href="https://seolick.me" style="color:rgba(255,255,255,0.7);text-decoration:none" style-hover="color:#fff">seolick.me</a>
+      </div>
+      <p style="color:rgba(255,255,255,0.3);font-size:12px;font-family:'Roboto Mono',monospace;margin:24px 0 0">Split, Hrvatska</p>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.1)">
+    <div style="width:100%;max-width:1200px;margin:0 auto;padding:24px clamp(20px,5vw,80px);font-size:11px;font-family:'Roboto Mono',monospace;color:rgba(255,255,255,0.3);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap">
+      <span>© 2026 SEO LICK. Sva prava pridržana.</span>
+      <span>We LICK websites. For organic growth.</span>
+    </div>
+  </div>
+  <div aria-hidden="true" style="user-select:none;pointer-events:none;padding:0 16px">
+    <div style="font-family:'Montserrat',sans-serif;font-weight:900;letter-spacing:-0.02em;white-space:nowrap;text-align:center;line-height:0.78;color:rgba(255,255,255,0.04);font-size:clamp(52px,19vw,240px);margin-bottom:-0.12em">SEO LICK</div>
+  </div>
+</footer>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Roboto:wght@400;500;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#e9e7e2;color:#111;font-family:'Roboto',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#e12c2c;color:#fff}
+</style>
+<script src="image-slot.js"></script>
+</helmet>
+
+<section style="padding:48px">
+  <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px">
+    <span style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c">Turn 5</span>
+    <h1 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;margin:0">Zamjena za &quot;Iz ranijeg iskustva tima&quot; — logotipi (<a href="#5a" style="color:#e12c2c">5a</a>–<a href="#5c" style="color:#e12c2c">5c</a>)</h1>
+    <span style="font-size:13px;color:rgba(0,0,0,0.5)">slotovi za logotipe — jednom prevučeš logo, popuni se u sve tri opcije</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;margin-bottom:72px">
+
+    <!-- ═══════════ 5a — TRAKA (greyscale) ═══════════ -->
+    <div id="5a" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#5a" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">5a</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Traka — jedan red, greyscale</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">najtiša; logotipi u sivom, oboje se na hover</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:56px 72px">
+        <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 8px">Iskustvo tima</p>
+        <p style="font-size:16px;color:rgba(0,0,0,0.65);margin:0 0 40px;max-width:640px;line-height:1.6">Prije SEO LICK-a gradili smo rast u nekim od vodećih tvrtki regije.</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;filter:grayscale(1);opacity:0.75">
+          <image-slot id="logo-vecernji" shape="rect" placeholder="Večernji list" style="width:150px;height:44px;display:block"></image-slot>
+          <image-slot id="logo-degordian" shape="rect" placeholder="Degordian" style="width:150px;height:44px;display:block"></image-slot>
+          <image-slot id="logo-rinzol" shape="rect" placeholder="Rinzol" style="width:150px;height:44px;display:block"></image-slot>
+          <image-slot id="logo-cyc" shape="rect" placeholder="Croatia Yachting Charter" style="width:150px;height:44px;display:block"></image-slot>
+          <image-slot id="logo-readsy" shape="rect" placeholder="Readsy" style="width:150px;height:44px;display:block"></image-slot>
+          <image-slot id="logo-getbybus" shape="rect" placeholder="GetByBus" style="width:150px;height:44px;display:block"></image-slot>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ 5b — MREŽA ĆELIJA ═══════════ -->
+    <div id="5b" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#5b" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">5b</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Mreža ćelija — 3×2</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">strukturirano, poput sekcije klijenata; svaki logo u svojoj ćeliji</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:56px 72px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:40px">
+          <div>
+            <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 8px">Iskustvo tima</p>
+            <h3 style="font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;letter-spacing:-0.02em;margin:0;line-height:1.1">Gdje smo radili prije</h3>
+          </div>
+          <p style="font-size:15px;color:rgba(0,0,0,0.6);margin:0;line-height:1.7">Znanje smo brusili na projektima medija, agencija i tech brendova — a sada ga ulažemo u vaš rast.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.12)">
+          <div style="background:#fff;display:grid;place-items:center;padding:36px" style-hover="background:rgba(225,44,44,0.04)"><image-slot id="logo-vecernji" shape="rect" placeholder="Večernji list" style="width:160px;height:48px;display:block"></image-slot></div>
+          <div style="background:#fff;display:grid;place-items:center;padding:36px" style-hover="background:rgba(225,44,44,0.04)"><image-slot id="logo-degordian" shape="rect" placeholder="Degordian" style="width:160px;height:48px;display:block"></image-slot></div>
+          <div style="background:#fff;display:grid;place-items:center;padding:36px" style-hover="background:rgba(225,44,44,0.04)"><image-slot id="logo-rinzol" shape="rect" placeholder="Rinzol" style="width:160px;height:48px;display:block"></image-slot></div>
+          <div style="background:#fff;display:grid;place-items:center;padding:36px" style-hover="background:rgba(225,44,44,0.04)"><image-slot id="logo-cyc" shape="rect" placeholder="Croatia Yachting Charter" style="width:160px;height:48px;display:block"></image-slot></div>
+          <div style="background:#fff;display:grid;place-items:center;padding:36px" style-hover="background:rgba(225,44,44,0.04)"><image-slot id="logo-readsy" shape="rect" placeholder="Readsy" style="width:160px;height:48px;display:block"></image-slot></div>
+          <div style="background:#fff;display:grid;place-items:center;padding:36px" style-hover="background:rgba(225,44,44,0.04)"><image-slot id="logo-getbybus" shape="rect" placeholder="GetByBus" style="width:160px;height:48px;display:block"></image-slot></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ 5c — BEŽ BAND, centrirano ═══════════ -->
+    <div id="5c" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#5c" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">5c</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Bež band — centrirano</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">topli bež, jedna centrirana rečenica + logotipi u redu</span>
+      </div>
+      <div style="background:#f6f4ef;border:1px solid rgba(0,0,0,0.12);padding:64px 72px;text-align:center">
+        <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 16px">Iskustvo tima prije SEO LICK-a</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:clamp(28px,4vw,56px);flex-wrap:wrap;margin-top:8px">
+          <image-slot id="logo-vecernji" shape="rect" placeholder="Večernji list" style="width:150px;height:46px;display:block"></image-slot>
+          <image-slot id="logo-degordian" shape="rect" placeholder="Degordian" style="width:150px;height:46px;display:block"></image-slot>
+          <image-slot id="logo-rinzol" shape="rect" placeholder="Rinzol" style="width:150px;height:46px;display:block"></image-slot>
+          <image-slot id="logo-cyc" shape="rect" placeholder="Croatia Yachting Charter" style="width:150px;height:46px;display:block"></image-slot>
+          <image-slot id="logo-readsy" shape="rect" placeholder="Readsy" style="width:150px;height:46px;display:block"></image-slot>
+          <image-slot id="logo-getbybus" shape="rect" placeholder="GetByBus" style="width:150px;height:46px;display:block"></image-slot>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px">
+    <span style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c">Turn 4</span>
+    <h1 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;margin:0">Framework — hover reveal (<a href="#4a" style="color:#e12c2c">4a</a>)</h1>
+    <span style="font-size:13px;color:rgba(0,0,0,0.5)">samo slova; prijeđi mišem preko slova da se otvori pilar — proba hover na živom mocku ⤵</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;margin-bottom:72px">
+
+    <!-- ═══════════ 4a — FRAMEWORK: HOVER REVEAL ═══════════ -->
+    <div id="4a" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#4a" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">4a</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Hover reveal — čista slova, crveni panel na hover</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Framework</p>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:46px;font-weight:900;line-height:1.06;letter-spacing:-0.025em;margin:0;max-width:700px">Četiri stupa. Jedan sustav. Bez prečaca.</h2>
+        <p style="font-size:15px;color:rgba(0,0,0,0.55);max-width:620px;line-height:1.75;margin:16px 0 0">Većina SEO agencija radi taktike. Mi radimo sustav. L.I.C.K. pokriva svaku dimenziju organskog rasta — u točno onom redoslijedu koji funkcionira.</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.12);margin-top:48px">
+
+          <div style="position:relative;background:#fff;height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+            <div style="font-family:'Montserrat',sans-serif;font-size:150px;font-weight:900;line-height:1;color:#e12c2c;letter-spacing:-0.04em">L</div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5)">Linkovi i autoritet</div>
+            <div style="width:28px;height:2px;background:#e12c2c"></div>
+            <div style="position:absolute;inset:0;background:#e12c2c;color:#fff;opacity:0;transition:opacity 0.25s ease;padding:40px 32px;display:flex;flex-direction:column;gap:14px;cursor:default" style-hover="opacity:1">
+              <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;line-height:1;letter-spacing:-0.03em">L</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;opacity:0.7">01 / 04</span></div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;opacity:0.8">Linkovi i autoritet</div>
+              <p style="font-size:16px;font-weight:700;line-height:1.45;margin:0">Web glasuje za vas. Mi osiguravamo da pobjeđujete.</p>
+              <p style="font-size:13px;line-height:1.7;margin:0;opacity:0.85;flex:1">Digital PR, izgradnja linkova i strategija backlink profila. U Googleovom svijetu, linkovi su povjerenje — a povjerenje je pozicija.</p>
+              <div style="display:flex;flex-direction:column;gap:7px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.25)">
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Digital PR</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Link outreach</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Audit backlinkova</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Anchor strategija</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position:relative;background:#fff;height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+            <div style="font-family:'Montserrat',sans-serif;font-size:150px;font-weight:900;line-height:1;color:#e12c2c;letter-spacing:-0.04em">I</div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5)">Infrastruktura</div>
+            <div style="width:28px;height:2px;background:#e12c2c"></div>
+            <div style="position:absolute;inset:0;background:#e12c2c;color:#fff;opacity:0;transition:opacity 0.25s ease;padding:40px 32px;display:flex;flex-direction:column;gap:14px;cursor:default" style-hover="opacity:1">
+              <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;line-height:1;letter-spacing:-0.03em">I</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;opacity:0.7">02 / 04</span></div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;opacity:0.8">Infrastruktura</div>
+              <p style="font-size:16px;font-weight:700;line-height:1.45;margin:0">Nevidljivo ljudima. Jasno Googleu.</p>
+              <p style="font-size:13px;line-height:1.7;margin:0;opacity:0.85;flex:1">Tehnički SEO, arhitektura stranice, crawlabilnost. Prije nego što rangirate, Google vas mora razumjeti — u potpunosti.</p>
+              <div style="display:flex;flex-direction:column;gap:7px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.25)">
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Tehnički audit</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Core Web Vitals</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Arhitektura stranice</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Crawl optimizacija</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position:relative;background:#fff;height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+            <div style="font-family:'Montserrat',sans-serif;font-size:150px;font-weight:900;line-height:1;color:#e12c2c;letter-spacing:-0.04em">C</div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5)">Sadržaj</div>
+            <div style="width:28px;height:2px;background:#e12c2c"></div>
+            <div style="position:absolute;inset:0;background:#e12c2c;color:#fff;opacity:0;transition:opacity 0.25s ease;padding:40px 32px;display:flex;flex-direction:column;gap:14px;cursor:default" style-hover="opacity:1">
+              <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;line-height:1;letter-spacing:-0.03em">C</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;opacity:0.7">03 / 04</span></div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;opacity:0.8">Sadržaj</div>
+              <p style="font-size:16px;font-weight:700;line-height:1.45;margin:0">Prave riječi. Prava stranica. Pravi trenutak.</p>
+              <p style="font-size:13px;line-height:1.7;margin:0;opacity:0.85;flex:1">Landing stranice, blog sadržaj, CRO copy. Sadržaj koji rangira odgovara točno na ono što vaš kupac traži.</p>
+              <div style="display:flex;flex-direction:column;gap:7px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.25)">
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Sadržaj mapiran na KW</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Landing stranice</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ CRO copywriting</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Blog strategija</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position:relative;background:#fff;height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+            <div style="font-family:'Montserrat',sans-serif;font-size:150px;font-weight:900;line-height:1;color:#e12c2c;letter-spacing:-0.04em">K</div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5)">Ključne riječi</div>
+            <div style="width:28px;height:2px;background:#e12c2c"></div>
+            <div style="position:absolute;inset:0;background:#e12c2c;color:#fff;opacity:0;transition:opacity 0.25s ease;padding:40px 32px;display:flex;flex-direction:column;gap:14px;cursor:default" style-hover="opacity:1">
+              <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;line-height:1;letter-spacing:-0.03em">K</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;opacity:0.7">04 / 04</span></div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;opacity:0.8">Ključne riječi</div>
+              <p style="font-size:16px;font-weight:700;line-height:1.45;margin:0">Znajte što kupci traže — prije nego što znaju da vas trebaju.</p>
+              <p style="font-size:13px;line-height:1.7;margin:0;opacity:0.85;flex:1">Istraživanje, mapiranje namjere, konkurentska analiza. Ključne riječi su temelj — sve ostalo gradi se na tome.</p>
+              <div style="display:flex;flex-direction:column;gap:7px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.25)">
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Istraživanje KR</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Mapiranje namjere</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ Gap analiza</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.06em;opacity:0.85">→ KW-to-page mapiranje</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px">
+          <p style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);margin:0;letter-spacing:0.06em">↑ Prijeđi mišem preko slova. Na dodirnim ekranima panel se otvara na dodir.</p>
+          <span style="display:inline-flex;align-items:center;gap:10px;font-family:'Roboto Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:14px 28px;border-radius:2px;color:#111;border:1px solid rgba(0,0,0,0.18)">Saznaj kako L.I.C.K. funkcionira →</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px">
+    <span style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c">Turn 3</span>
+    <h1 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;margin:0">Rezultati — poboljšane alternative (<a href="#3a" style="color:#e12c2c">3a</a>–<a href="#3c" style="color:#e12c2c">3c</a>)</h1>
+    <span style="font-size:13px;color:rgba(0,0,0,0.5)">bez HR/RS oznaka · iskustvo umjesto random brojki · piktogrami branši · Alpha Air bez retainer priče</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;margin-bottom:72px">
+
+    <!-- ═══════════ 3a — REZULTATI: LEDGER v2 ═══════════ -->
+    <div id="3a" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#3a" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">3a</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Ledger v2</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">redovi s piktogramom branše; gornja traka = iskustvo</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Rezultati</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end">
+          <h2 style="font-family:'Montserrat',sans-serif;font-size:46px;font-weight:900;line-height:1.06;letter-spacing:-0.025em;margin:0">Brojke iz stvarnih projekata</h2>
+          <p style="font-size:15px;color:rgba(0,0,0,0.55);line-height:1.75;margin:0">Anonimizirano na zahtjev klijenata — nazivi dostupni na upit. Brojke su procjene organskog prometa (Ahrefs), ne uljepšane.</p>
+        </div>
+        <div style="display:flex;gap:64px;margin-top:48px;padding:32px 0;border-top:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(0,0,0,0.12)">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;letter-spacing:-0.03em">5<span style="color:#e12c2c">+</span></span><span style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55)">godina iskustva</span></div>
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;letter-spacing:-0.03em">10<span style="color:#e12c2c">+</span></span><span style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55)">branši</span></div>
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;letter-spacing:-0.03em">30<span style="color:#e12c2c">+</span></span><span style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55)">projekata</span></div>
+        </div>
+        <div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr 300px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px"><path d="M22 18H2a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4Z"></path><path d="M21 14 10 2 3 14h18Z"></path><path d="M10 2v16"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Yacht charter</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Nova domena, gotovo bez organske vidljivosti. <span style="color:rgba(0,0,0,0.4)">→</span> Strukturni i programatski SEO, arhitektura, audit.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">0 → 2.187 / mj</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">258 kw u top 3 · DR 0,6 → 3,4</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr 300px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Fashion e-commerce</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Zadržati autoritet i organski promet uz rast. <span style="color:rgba(0,0,0,0.4)">→</span> Email automatizacija i off-page SEO.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">12–16k / mj</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">351 kw u top 3 · DR 14 → 30</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr 300px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Quad e-commerce</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Slaba vidljivost u komercijalnim kategorijama. <span style="color:rgba(0,0,0,0.4)">→</span> SEO, Google Ads i tracking.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">+315%</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">644 → 2.822 / mj · DR 7 → 11</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr 300px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px"><circle cx="12" cy="5" r="3"></circle><line x1="12" y1="22" x2="12" y2="8"></line><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Najam plovila</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Sezonski vrhunci ovisni o plaćenim oglasima. <span style="color:rgba(0,0,0,0.4)">→</span> Lokalni SEO i OTA profili.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">201 → 1.613 / mj</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">vrhunac sezone, bez oglasa</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr 300px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px"><path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h5v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Poliklinika</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Migracija weba bez gubitka pozicija. <span style="color:rgba(0,0,0,0.4)">→</span> SEO-sigurna migracija i tehnički SEO.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">370–460 / mj</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">21 kw u top 3 · ranking očuvan</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:56px 200px 1fr 300px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Hitni zračni prijevoz</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Globalna niša — pacijenti traže po destinacijama. <span style="color:rgba(0,0,0,0.4)">→</span> Programatske odredišne stranice i Google Ads.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">~100 odredišnih stranica</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">prvi rezultati unutar 6 mjeseci</div></div>
+          </div>
+        </div>
+        <p style="margin:24px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);line-height:1.7">Procjene organskog prometa (Ahrefs, 2026). Nazivi klijenata i detaljni izvještaji dostupni na upit.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════ 3b — REZULTATI: FEATURED CASE v2 ═══════════ -->
+    <div id="3b" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#3b" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">3b</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Featured case v2</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">iskustvo u lijevoj traci; popis ostalih s piktogramima</span>
+      </div>
+      <div style="background:#f6f4ef;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <div style="display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:start">
+          <div>
+            <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Rezultati</p>
+            <h2 style="font-family:'Montserrat',sans-serif;font-size:40px;font-weight:900;line-height:1.08;letter-spacing:-0.025em;margin:0">Brojke iz stvarnih projekata</h2>
+            <p style="font-size:14px;color:rgba(0,0,0,0.55);line-height:1.75;margin:20px 0 0">Anonimizirano na zahtjev klijenata — nazivi dostupni na upit. Brojke su procjene organskog prometa (Ahrefs), ne uljepšane.</p>
+            <div style="margin-top:40px;display:flex;flex-direction:column;gap:24px;border-left:2px solid #e12c2c;padding-left:24px">
+              <div><div style="font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;letter-spacing:-0.03em">5<span style="color:#e12c2c">+</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55);margin-top:2px">godina iskustva</div></div>
+              <div><div style="font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;letter-spacing:-0.03em">10<span style="color:#e12c2c">+</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55);margin-top:2px">branši</div></div>
+              <div><div style="font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;letter-spacing:-0.03em">30<span style="color:#e12c2c">+</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55);margin-top:2px">projekata</div></div>
+            </div>
+          </div>
+          <div>
+            <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:48px">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:24px">
+                <div style="display:flex;align-items:center;gap:14px">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:30px;height:30px"><path d="M22 18H2a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4Z"></path><path d="M21 14 10 2 3 14h18Z"></path><path d="M10 2v16"></path></svg>
+                  <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c">Yacht charter</div>
+                </div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.4)">~10 mjeseci</div>
+              </div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:72px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:1;margin-top:24px">0 → 2.187<span style="font-size:28px;color:rgba(0,0,0,0.4);font-weight:800"> / mj</span></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px;padding-top:28px;border-top:1px solid rgba(0,0,0,0.1)">
+                <div><div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:6px">Izazov</div><div style="font-size:15px;font-weight:700;line-height:1.5">Nova domena, gotovo bez organske vidljivosti.</div></div>
+                <div><div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:6px">Rješenje</div><div style="font-size:15px;font-weight:700;line-height:1.5">Strukturni i programatski SEO, arhitektura, audit.</div></div>
+              </div>
+              <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+                <span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;border:1px solid rgba(0,0,0,0.15);padding:5px 10px">258 kw u Google top 3</span>
+                <span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;border:1px solid rgba(0,0,0,0.15);padding:5px 10px">DR 0,6 → 3,4</span>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr;margin-top:24px;border-top:1px solid rgba(0,0,0,0.12)">
+              <div style="display:grid;grid-template-columns:36px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path></svg>
+                <span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Fashion e-commerce</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">12–16k / mj <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· 351 kw top 3</span></span>
+              </div>
+              <div style="display:grid;grid-template-columns:36px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg>
+                <span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Quad e-commerce</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">+315% <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· 644 → 2.822 / mj</span></span>
+              </div>
+              <div style="display:grid;grid-template-columns:36px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><circle cx="12" cy="5" r="3"></circle><line x1="12" y1="22" x2="12" y2="8"></line><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path></svg>
+                <span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Najam plovila</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">201 → 1.613 / mj <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· bez oglasa</span></span>
+              </div>
+              <div style="display:grid;grid-template-columns:36px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h5v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z"></path></svg>
+                <span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Poliklinika</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">370–460 / mj <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· ranking očuvan</span></span>
+              </div>
+              <div style="display:grid;grid-template-columns:36px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+                <span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Hitni zračni prijevoz</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">~100 odredišnih stranica <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· rezultati u 6 mj</span></span>
+              </div>
+            </div>
+            <p style="margin:20px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);line-height:1.7">Procjene organskog prometa (Ahrefs, 2026). Nazivi klijenata dostupni na upit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ 3c — REZULTATI: BROJKA PRVA v2 ═══════════ -->
+    <div id="3c" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#3c" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">3c</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Brojka prva v2</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">iskustvo uz naslov; kartice s piktogramom u kutu</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end">
+          <div>
+            <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Rezultati</p>
+            <h2 style="font-family:'Montserrat',sans-serif;font-size:46px;font-weight:900;line-height:1.06;letter-spacing:-0.025em;margin:0;max-width:640px">Brojke iz stvarnih projekata</h2>
+            <p style="font-size:15px;color:rgba(0,0,0,0.55);max-width:560px;line-height:1.75;margin:16px 0 0">Anonimizirano na zahtjev klijenata — nazivi dostupni na upit. Brojke su procjene organskog prometa (Ahrefs), ne uljepšane.</p>
+          </div>
+          <div style="display:flex;gap:40px;padding-bottom:4px">
+            <div style="text-align:center"><div style="font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;letter-spacing:-0.03em">5<span style="color:#e12c2c">+</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:rgba(0,0,0,0.55);margin-top:4px">god. iskustva</div></div>
+            <div style="text-align:center"><div style="font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;letter-spacing:-0.03em">10<span style="color:#e12c2c">+</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:rgba(0,0,0,0.55);margin-top:4px">branši</div></div>
+            <div style="text-align:center"><div style="font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;letter-spacing:-0.03em">30<span style="color:#e12c2c">+</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:rgba(0,0,0,0.55);margin-top:4px">projekata</div></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.12);margin-top:48px">
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px;position:relative" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;position:absolute;top:32px;right:32px"><path d="M22 18H2a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4Z"></path><path d="M21 14 10 2 3 14h18Z"></path><path d="M10 2v16"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Yacht charter</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95;margin-top:4px">0 → 2.187<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">posjeta / mj · ~10 mj</div></div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Nova domena bez vidljivosti → strukturni i programatski SEO. 258 kw u Google top 3, DR 0,6 → 3,4.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px;position:relative" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;position:absolute;top:32px;right:32px"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Fashion e-commerce</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95;margin-top:4px">12–16k<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">posjeta / mj održano</div></div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Autoritet i promet zadržani uz rast → email automatizacija i off-page SEO. 351 kw u top 3, DR 14 → 30.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px;position:relative" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;position:absolute;top:32px;right:32px"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Quad e-commerce</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95;margin-top:4px">+315%<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">rast organskog prometa</div></div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Slaba vidljivost u komercijalnim kategorijama → SEO, Google Ads i tracking. 644 → 2.822 / mj, DR 7 → 11.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px;position:relative" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;position:absolute;top:32px;right:32px"><circle cx="12" cy="5" r="3"></circle><line x1="12" y1="22" x2="12" y2="8"></line><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Najam plovila</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95;margin-top:4px">201 → 1.613<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">posjeta / mj u sezoni</div></div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Sezona ovisna o oglasima → lokalni SEO i OTA profili. Vrhunac sezone bez ulaganja u oglase.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px;position:relative" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;position:absolute;top:32px;right:32px"><path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h5v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Poliklinika</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95;margin-top:4px">370–460<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">posjeta / mj · ranking očuvan</div></div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Migracija weba bez gubitka pozicija → SEO-sigurna migracija i tehnički SEO. 21 kw u top 3.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px;position:relative" style-hover="background:rgba(225,44,44,0.04)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e12c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;position:absolute;top:32px;right:32px"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Hitni zračni prijevoz</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95;margin-top:4px">~100<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">odredišnih stranica</div></div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Globalna niša — pacijenti traže po destinacijama → programatske odredišne stranice. Prvi rezultati unutar 6 mjeseci.</p>
+          </div>
+        </div>
+        <p style="margin:24px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);line-height:1.7">Procjene organskog prometa (Ahrefs, 2026). Nazivi klijenata i detaljni izvještaji dostupni na upit.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px">
+    <span style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c">Turn 2</span>
+    <h1 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;margin:0">Alternative — L.I.C.K. stranica (<a href="#2a" style="color:#e12c2c">2a</a>–<a href="#2c" style="color:#e12c2c">2c</a>)</h1>
+    <span style="font-size:13px;color:rgba(0,0,0,0.5)">mapa puta i CTA ostaju isti — mijenja se header + prikaz pilara</span>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;margin-bottom:72px">
+
+    <!-- ═══════════ 2a — LICK: KAZALO (sticky rail) ═══════════ -->
+    <div id="2a" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#2a" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">2a</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Kazalo — lijeva sticky traka</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">divovska slova kao navigacija poglavlja; slovo aktivnog pilara pocrveni dok skrolaš</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12)">
+        <div style="padding:72px 72px 48px;border-bottom:1px solid rgba(0,0,0,0.1)">
+          <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 16px">L.I.C.K. framework</p>
+          <h2 style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;line-height:1.04;letter-spacing:-0.025em;margin:0;max-width:800px">L.I.C.K. — Strategija za web koji prodaje</h2>
+          <p style="margin:14px 0 0;font-size:19px;color:#e12c2c;font-weight:700">Ispolirajte svoj web i povećajte prodaju.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:280px 1fr">
+          <div style="border-right:1px solid rgba(0,0,0,0.1);padding:56px 0;display:flex;flex-direction:column;gap:40px;align-items:center">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+              <div style="font-family:'Montserrat',sans-serif;font-size:96px;font-weight:900;line-height:0.9;color:#e12c2c;letter-spacing:-0.04em">L</div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c">Linkovi</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+              <div style="font-family:'Montserrat',sans-serif;font-size:96px;font-weight:900;line-height:0.9;color:rgba(0,0,0,0.15);letter-spacing:-0.04em">I</div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.35)">Infrastruktura</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+              <div style="font-family:'Montserrat',sans-serif;font-size:96px;font-weight:900;line-height:0.9;color:rgba(0,0,0,0.15);letter-spacing:-0.04em">C</div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.35)">Content</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+              <div style="font-family:'Montserrat',sans-serif;font-size:96px;font-weight:900;line-height:0.9;color:rgba(0,0,0,0.15);letter-spacing:-0.04em">K</div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.35)">Ključne riječi</div>
+            </div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;color:rgba(0,0,0,0.35);letter-spacing:0.1em;margin-top:8px">↕ sticky uz skrol</div>
+          </div>
+          <div>
+            <div style="padding:56px 64px;border-bottom:1px solid rgba(0,0,0,0.1)">
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c;margin-bottom:10px">Poglavlje 01 — Linkovi</div>
+              <div style="font-size:20px;font-weight:700;line-height:1.4;max-width:520px">Zamislite da idete na put bez mape i GPS-a — jedino što imate su prometni znakovi.</div>
+              <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.75;margin:14px 0 0;max-width:560px">Isto je i s Googleom dok prolazi vašom stranicom. Linkovi voze Google kroz vaš web i pokazuju koliko ozbiljno shvaćate korisnike. Bitno je tko te linka i koga linkaš.</p>
+              <div style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);margin-top:18px;letter-spacing:0.04em">→ Bolje rangiranje · Posjetitelji s relevantnih stranica · Autoritet brenda</div>
+            </div>
+            <div style="padding:40px 64px;border-bottom:1px solid rgba(0,0,0,0.1);opacity:0.45">
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:10px">Poglavlje 02 — Infrastruktura</div>
+              <div style="font-size:17px;font-weight:700;line-height:1.4;max-width:520px">Zamislite da je web vaša kuća. Bi li je netko pronašao da mu date krivu adresu?</div>
+            </div>
+            <div style="padding:40px 64px;opacity:0.45">
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:10px">Poglavlje 03 — Content &nbsp;·&nbsp; 04 — Ključne riječi …</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ 2b — LICK: KOTAČI (tabovi) ═══════════ -->
+    <div id="2b" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#2b" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">2b</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Kotači — interaktivni tabovi</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">jedan pilar u fokusu; klik na slovo mijenja panel — stranica ostaje kratka</span>
+      </div>
+      <div style="background:#f6f4ef;border:1px solid rgba(0,0,0,0.12);padding:72px">
+        <div style="text-align:center">
+          <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 16px">L.I.C.K. framework</p>
+          <h2 style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;line-height:1.04;letter-spacing:-0.025em;margin:0">Strategija za web koji prodaje</h2>
+          <p style="margin:16px auto 0;font-size:15px;color:rgba(0,0,0,0.55);max-width:600px;line-height:1.75">Četiri ključna SEO kotača koja vaš web voze od početne ideje pa sve do tržišta. Odaberite kotač.</p>
+        </div>
+        <div style="display:flex;justify-content:center;gap:12px;margin-top:48px">
+          <div style="width:88px;height:88px;background:#e12c2c;color:#fff;display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-size:44px;font-weight:900;cursor:pointer">L</div>
+          <div style="width:88px;height:88px;background:#fff;border:1px solid rgba(0,0,0,0.15);color:#111;display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-size:44px;font-weight:900;cursor:pointer" style-hover="border-color:#e12c2c;color:#e12c2c">I</div>
+          <div style="width:88px;height:88px;background:#fff;border:1px solid rgba(0,0,0,0.15);color:#111;display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-size:44px;font-weight:900;cursor:pointer" style-hover="border-color:#e12c2c;color:#e12c2c">C</div>
+          <div style="width:88px;height:88px;background:#fff;border:1px solid rgba(0,0,0,0.15);color:#111;display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-size:44px;font-weight:900;cursor:pointer" style-hover="border-color:#e12c2c;color:#e12c2c">K</div>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);margin-top:32px;padding:56px 64px;display:grid;grid-template-columns:1.5fr 1fr;gap:56px">
+          <div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c;margin-bottom:12px">01 / 04 — Linkovi</div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;letter-spacing:-0.02em;margin:0;line-height:1.15">Koja je uloga linkova u SEO-u?</h3>
+            <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.75;margin:18px 0 0">Zamislite da idete na put bez mape i GPS-a — jedino što imate su prometni znakovi. Isto je i s Googleom dok prolazi vašom stranicom kako bi je indeksirao. On nema GPS, nego ima znakove (linkove) koje mu ostavljate.</p>
+            <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.75;margin:14px 0 0">Ako vas linkaju relevantne i autoritativne stranice, Google će vas smatrati vrijednim izvorom. Bitno je tko te linka i koga linkaš.</p>
+          </div>
+          <div style="border-left:1px solid rgba(0,0,0,0.1);padding-left:40px">
+            <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 16px">Što vam ovo donosi?</p>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;gap:12px;font-size:14px;color:rgba(0,0,0,0.75);line-height:1.5"><span style="color:#e12c2c;font-weight:700">→</span>Google vas vidi kao pouzdan izvor</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:rgba(0,0,0,0.75);line-height:1.5"><span style="color:#e12c2c;font-weight:700">→</span>Bolje rangiranje u pretragama</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:rgba(0,0,0,0.75);line-height:1.5"><span style="color:#e12c2c;font-weight:700">→</span>Posjetitelji s relevantnih stranica</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:rgba(0,0,0,0.75);line-height:1.5"><span style="color:#e12c2c;font-weight:700">→</span>Vidljivost i autoritet brenda</div>
+              <div style="display:flex;gap:12px;font-size:14px;color:rgba(0,0,0,0.75);line-height:1.5"><span style="color:#e12c2c;font-weight:700">→</span>Dugoročno veći promet</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;gap:8px;margin-top:24px">
+          <span style="width:24px;height:3px;background:#e12c2c"></span>
+          <span style="width:24px;height:3px;background:rgba(0,0,0,0.15)"></span>
+          <span style="width:24px;height:3px;background:rgba(0,0,0,0.15)"></span>
+          <span style="width:24px;height:3px;background:rgba(0,0,0,0.15)"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ 2c — LICK: IZMJENIČNE TRAKE ═══════════ -->
+    <div id="2c" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#2c" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">2c</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Izmjenične trake — cik-cak</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">svaki pilar puna traka (bijelo/bež naizmjence), sadržaj mijenja stranu, slovo kao vodeni žig</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12)">
+        <div style="padding:72px 72px 56px;text-align:center">
+          <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 16px">L.I.C.K. framework</p>
+          <h2 style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;line-height:1.04;letter-spacing:-0.025em;margin:0">L.I.C.K. — Strategija za web koji prodaje</h2>
+          <p style="margin:14px 0 0;font-size:19px;color:#e12c2c;font-weight:700">Ispolirajte svoj web i povećajte prodaju.</p>
+        </div>
+        <div style="position:relative;overflow:hidden;background:#f6f4ef;border-top:1px solid rgba(0,0,0,0.1);padding:64px 72px">
+          <div aria-hidden="true" style="position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:'Montserrat',sans-serif;font-size:340px;font-weight:900;color:rgba(225,44,44,0.07);letter-spacing:-0.05em;pointer-events:none;line-height:1">L</div>
+          <div style="position:relative;max-width:640px">
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c;margin-bottom:12px">01 — Linkovi</div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-size:30px;font-weight:900;letter-spacing:-0.02em;margin:0;line-height:1.15">Koja je uloga linkova u SEO-u?</h3>
+            <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.75;margin:16px 0 0">Zamislite da idete na put bez mape i GPS-a — jedino što imate su prometni znakovi. Linkovi voze Google kroz vaš web i pokazuju koliko ozbiljno shvaćate korisnike.</p>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.5);margin-top:20px;letter-spacing:0.04em">→ Bolje rangiranje · Relevantni posjetitelji · Autoritet brenda · Dugoročni promet</div>
+          </div>
+        </div>
+        <div style="position:relative;overflow:hidden;background:#fff;border-top:1px solid rgba(0,0,0,0.1);padding:64px 72px;display:flex;justify-content:flex-end">
+          <div aria-hidden="true" style="position:absolute;left:-10px;top:50%;transform:translateY(-50%);font-family:'Montserrat',sans-serif;font-size:340px;font-weight:900;color:rgba(225,44,44,0.07);letter-spacing:-0.05em;pointer-events:none;line-height:1">I</div>
+          <div style="position:relative;max-width:640px;text-align:right">
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c;margin-bottom:12px">02 — Infrastruktura</div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-size:30px;font-weight:900;letter-spacing:-0.02em;margin:0;line-height:1.15">Koja je uloga infrastrukture u SEO-u?</h3>
+            <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.75;margin:16px 0 0">Zamislite da je web vaša kuća. Bi li je netko pronašao da mu date krivu adresu? URL adrese, hijerarhija naslova i tehnička ispravnost vode i Google i kupce do cilja.</p>
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.5);margin-top:20px;letter-spacing:0.04em">Brži web · Brža indeksacija · Pravi ljudi na pravim stranicama ←</div>
+          </div>
+        </div>
+        <div style="position:relative;overflow:hidden;background:#f6f4ef;border-top:1px solid rgba(0,0,0,0.1);padding:40px 72px">
+          <div style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.4);letter-spacing:0.1em;text-align:center">… 03 — Content (bijela traka, sadržaj lijevo) · 04 — Ključne riječi (bež traka, sadržaj desno) …</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:32px">
+    <span style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c">Turn 1</span>
+    <h1 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;margin:0">Alternative — Rezultati (<a href="#1a" style="color:#e12c2c">1a</a>–<a href="#1c" style="color:#e12c2c">1c</a>) i Framework (<a href="#1d" style="color:#e12c2c">1d</a>–<a href="#1f" style="color:#e12c2c">1f</a>)</h1>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start">
+
+    <!-- ═══════════ 1a — REZULTATI: LEDGER ═══════════ -->
+    <div id="1a" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#1a" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">1a</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Rezultati — Ledger</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">redakcijski redovi, sve brojke u jednoj koloni — maksimalna skenabilnost</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Rezultati</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end">
+          <h2 style="font-family:'Montserrat',sans-serif;font-size:46px;font-weight:900;line-height:1.06;letter-spacing:-0.025em;margin:0">Brojke iz stvarnih projekata</h2>
+          <p style="font-size:15px;color:rgba(0,0,0,0.55);line-height:1.75;margin:0">Anonimizirano na zahtjev klijenata — nazivi dostupni na upit. Brojke su procjene organskog prometa (Ahrefs), ne uljepšane.</p>
+        </div>
+        <div style="display:flex;gap:64px;margin-top:48px;padding:32px 0;border-top:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(0,0,0,0.12)">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;letter-spacing:-0.03em">2.187</span><span style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55)">posjeta / mj iz nule</span></div>
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;letter-spacing:-0.03em">+315<span style="color:#e12c2c">%</span></span><span style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55)">rast prometa</span></div>
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'Montserrat',sans-serif;font-size:52px;font-weight:900;letter-spacing:-0.03em">12–16<span style="color:#e12c2c">k</span></span><span style="font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55)">posjeta / mj održano</span></div>
+        </div>
+        <div>
+          <div style="display:grid;grid-template-columns:220px 1fr 300px;gap:32px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Yacht charter · HR</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Nova domena, gotovo bez organske vidljivosti. <span style="color:rgba(0,0,0,0.4)">→</span> Strukturni i programatski SEO, arhitektura, audit.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">0 → 2.187 / mj</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">258 kw u top 3 · DR 0,6 → 3,4</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:220px 1fr 300px;gap:32px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Fashion e-commerce · RS</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Zadržati autoritet i organski promet uz rast. <span style="color:rgba(0,0,0,0.4)">→</span> Email automatizacija i off-page SEO.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">12–16k / mj</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">351 kw u top 3 · DR 14 → 30</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:220px 1fr 300px;gap:32px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Quad e-commerce · HR</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Slaba vidljivost u komercijalnim kategorijama. <span style="color:rgba(0,0,0,0.4)">→</span> SEO, Google Ads i tracking.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">+315%</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">644 → 2.822 / mj · DR 7 → 11</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:220px 1fr 300px;gap:32px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Najam plovila · HR</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Sezonski vrhunci ovisni o plaćenim oglasima. <span style="color:rgba(0,0,0,0.4)">→</span> Lokalni SEO i OTA profili.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">201 → 1.613 / mj</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">vrhunac sezone, bez oglasa</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:220px 1fr 300px;gap:32px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Poliklinika · HR</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Migracija weba bez gubitka pozicija. <span style="color:rgba(0,0,0,0.4)">→</span> SEO-sigurna migracija i tehnički SEO.</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">370–460 / mj</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">21 kw u top 3 · ranking očuvan</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:220px 1fr 300px;gap:32px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(0,0,0,0.1)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#e12c2c">Hitni zračni prijevoz · global</div>
+            <div style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.6">Rast računa i dugoročno partnerstvo. <span style="color:rgba(0,0,0,0.4)">→</span> Google Ads, web i retainer.*</div>
+            <div style="text-align:right"><div style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#e12c2c;letter-spacing:-0.02em">€500 → €2.000 / mj</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(0,0,0,0.5);margin-top:4px">4× rast kroz ~2,5 godine</div></div>
+          </div>
+        </div>
+        <p style="margin:24px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);line-height:1.7">Procjene organskog prometa (Ahrefs, 2026). * Partnerstvo i rast računa — nije priča o organskom prometu.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════ 1b — REZULTATI: FEATURED CASE ═══════════ -->
+    <div id="1b" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#1b" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">1b</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Rezultati — Featured case</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">jedna velika priča + kompaktan popis ostalih — jaka hijerarhija</span>
+      </div>
+      <div style="background:#f6f4ef;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <div style="display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:start">
+          <div>
+            <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Rezultati</p>
+            <h2 style="font-family:'Montserrat',sans-serif;font-size:40px;font-weight:900;line-height:1.08;letter-spacing:-0.025em;margin:0">Brojke iz stvarnih projekata</h2>
+            <p style="font-size:14px;color:rgba(0,0,0,0.55);line-height:1.75;margin:20px 0 0">Anonimizirano na zahtjev klijenata — nazivi dostupni na upit. Brojke su procjene organskog prometa (Ahrefs), ne uljepšane.</p>
+            <div style="margin-top:40px;display:flex;flex-direction:column;gap:24px;border-left:2px solid #e12c2c;padding-left:24px">
+              <div><div style="font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;letter-spacing:-0.03em">2.187</div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55);margin-top:2px">organskih posjeta / mj iz blizu nule</div></div>
+              <div><div style="font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;letter-spacing:-0.03em">+315<span style="color:#e12c2c">%</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55);margin-top:2px">rast organskog prometa</div></div>
+              <div><div style="font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;letter-spacing:-0.03em">12–16<span style="color:#e12c2c">k</span></div><div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.55);margin-top:2px">organskih posjeta / mj održano</div></div>
+            </div>
+          </div>
+          <div>
+            <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:48px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px">
+                <div style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c">Yacht charter · HR</div>
+                <div style="font-family:'Roboto Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(0,0,0,0.4)">~10 mjeseci</div>
+              </div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:72px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:1;margin-top:24px">0 → 2.187<span style="font-size:28px;color:rgba(0,0,0,0.4);font-weight:800"> / mj</span></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px;padding-top:28px;border-top:1px solid rgba(0,0,0,0.1)">
+                <div><div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:6px">Izazov</div><div style="font-size:15px;font-weight:700;line-height:1.5">Nova domena, gotovo bez organske vidljivosti.</div></div>
+                <div><div style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:6px">Rješenje</div><div style="font-size:15px;font-weight:700;line-height:1.5">Strukturni i programatski SEO, arhitektura, audit.</div></div>
+              </div>
+              <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+                <span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;border:1px solid rgba(0,0,0,0.15);padding:5px 10px">258 kw u Google top 3</span>
+                <span style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.08em;border:1px solid rgba(0,0,0,0.15);padding:5px 10px">DR 0,6 → 3,4</span>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr;margin-top:24px;border-top:1px solid rgba(0,0,0,0.12)">
+              <div style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)"><span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Fashion e-commerce · RS</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">12–16k / mj <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· 351 kw top 3</span></span></div>
+              <div style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)"><span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Quad e-commerce · HR</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">+315% <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· 644 → 2.822 / mj</span></span></div>
+              <div style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)"><span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Najam plovila · HR</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">201 → 1.613 / mj <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· bez oglasa</span></span></div>
+              <div style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)"><span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Poliklinika · HR</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">370–460 / mj <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· ranking očuvan</span></span></div>
+              <div style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.12)"><span style="font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(0,0,0,0.55)">Hitni zračni prijevoz · global</span><span style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#e12c2c">€500 → €2.000 / mj <span style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:400;color:rgba(0,0,0,0.45);text-transform:uppercase">· 4× rast računa</span></span></div>
+            </div>
+            <p style="margin:20px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);line-height:1.7">Procjene organskog prometa (Ahrefs, 2026). Nazivi klijenata dostupni na upit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ 1c — REZULTATI: RESULT-FIRST GRID ═══════════ -->
+    <div id="1c" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#1c" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">1c</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Rezultati — Brojka prva</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">rezultat je naslov kartice; stats-strip nestaje jer su brojke same kartice</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Rezultati</p>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:46px;font-weight:900;line-height:1.06;letter-spacing:-0.025em;margin:0;max-width:700px">Brojke iz stvarnih projekata</h2>
+        <p style="font-size:15px;color:rgba(0,0,0,0.55);max-width:620px;line-height:1.75;margin:16px 0 0">Anonimizirano na zahtjev klijenata — nazivi dostupni na upit. Brojke su procjene organskog prometa (Ahrefs), ne uljepšane.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.12);margin-top:48px">
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:40px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95">0 → 2.187<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">posjeta / mj · ~10 mj</div></div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55);margin-top:8px">Yacht charter · HR</div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Nova domena bez vidljivosti → strukturni i programatski SEO. 258 kw u Google top 3, DR 0,6 → 3,4.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:40px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95">12–16k<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">posjeta / mj održano</div></div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55);margin-top:8px">Fashion e-commerce · RS</div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Autoritet i promet zadržani uz rast → email automatizacija i off-page SEO. 351 kw u top 3, DR 14 → 30.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:40px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95">+315%<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">rast organskog prometa</div></div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55);margin-top:8px">Quad e-commerce · HR</div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Slaba vidljivost u komercijalnim kategorijama → SEO, Google Ads i tracking. 644 → 2.822 / mj, DR 7 → 11.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:40px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95">201 → 1.613<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">posjeta / mj u sezoni</div></div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55);margin-top:8px">Najam plovila · HR</div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Sezona ovisna o oglasima → lokalni SEO i OTA profili. Vrhunac sezone bez ulaganja u oglase.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:40px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95">370–460<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">posjeta / mj · ranking očuvan</div></div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55);margin-top:8px">Poliklinika · HR</div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Migracija weba bez gubitka pozicija → SEO-sigurna migracija i tehnički SEO. 21 kw u top 3.</p>
+          </div>
+          <div style="background:#fff;padding:36px;display:flex;flex-direction:column;gap:12px" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:40px;font-weight:900;letter-spacing:-0.03em;color:#e12c2c;line-height:0.95">€500 → €2.000<div style="font-size:15px;color:rgba(0,0,0,0.45);font-weight:800;margin-top:6px">/ mj · 4× rast računa</div></div>
+            <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.55);margin-top:8px">Hitni zračni prijevoz · global</div>
+            <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:0">Dugoročno partnerstvo → Google Ads, web i retainer kroz ~2,5 godine.* Nije priča o organskom prometu.</p>
+          </div>
+        </div>
+        <p style="margin:24px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);line-height:1.7">Procjene organskog prometa (Ahrefs, 2026). Nazivi klijenata i detaljni izvještaji dostupni na upit.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════ 1d — FRAMEWORK: STRIPES ═══════════ -->
+    <div id="1d" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#1d" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">1d</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Framework — Trake</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">četiri pune trake, slova okomito ispisuju L·I·C·K niz stranicu</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Framework</p>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:46px;font-weight:900;line-height:1.06;letter-spacing:-0.025em;margin:0">Četiri stupa. Jedan sustav. Bez prečaca.</h2>
+        <p style="font-size:15px;color:rgba(0,0,0,0.55);max-width:620px;line-height:1.75;margin:16px 0 0">Većina SEO agencija radi taktike. Mi radimo sustav. L.I.C.K. pokriva svaku dimenziju organskog rasta — u točno onom redoslijedu koji funkcionira.</p>
+        <div style="margin-top:48px;border-top:1px solid rgba(0,0,0,0.12)">
+          <div style="display:grid;grid-template-columns:140px 300px 1fr 280px;gap:40px;align-items:center;padding:36px 0;border-bottom:1px solid rgba(0,0,0,0.12)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:110px;font-weight:900;line-height:0.85;color:#e12c2c;letter-spacing:-0.04em">L</div>
+            <div><div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:8px">Linkovi i autoritet</div><div style="font-size:17px;font-weight:700;line-height:1.4">Web glasuje za vas. Mi osiguravamo da pobjeđujete.</div></div>
+            <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.7;margin:0">Digital PR, izgradnja linkova i strategija backlink profila. U Googleovom svijetu, linkovi su povjerenje — a povjerenje je pozicija.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Digital PR</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Link outreach</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Audit backlinkova</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Anchor strategija</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:140px 300px 1fr 280px;gap:40px;align-items:center;padding:36px 0;border-bottom:1px solid rgba(0,0,0,0.12)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:110px;font-weight:900;line-height:0.85;color:#e12c2c;letter-spacing:-0.04em">I</div>
+            <div><div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:8px">Infrastruktura</div><div style="font-size:17px;font-weight:700;line-height:1.4">Nevidljivo ljudima. Jasno Googleu.</div></div>
+            <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.7;margin:0">Tehnički SEO, arhitektura stranice, crawlabilnost. Prije nego što rangirate, Google vas mora razumjeti — u potpunosti.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Tehnički audit</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Core Web Vitals</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Arhitektura</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Crawl optimizacija</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:140px 300px 1fr 280px;gap:40px;align-items:center;padding:36px 0;border-bottom:1px solid rgba(0,0,0,0.12)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:110px;font-weight:900;line-height:0.85;color:#e12c2c;letter-spacing:-0.04em">C</div>
+            <div><div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:8px">Sadržaj</div><div style="font-size:17px;font-weight:700;line-height:1.4">Prave riječi. Prava stranica. Pravi trenutak.</div></div>
+            <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.7;margin:0">Landing stranice, blog sadržaj, CRO copy. Sadržaj koji rangira odgovara točno na ono što vaš kupac traži.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">KW sadržaj</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Landing stranice</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">CRO copywriting</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Blog strategija</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:140px 300px 1fr 280px;gap:40px;align-items:center;padding:36px 0;border-bottom:1px solid rgba(0,0,0,0.12)" style-hover="background:rgba(225,44,44,0.04)">
+            <div style="font-family:'Montserrat',sans-serif;font-size:110px;font-weight:900;line-height:0.85;color:#e12c2c;letter-spacing:-0.04em">K</div>
+            <div><div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:8px">Ključne riječi</div><div style="font-size:17px;font-weight:700;line-height:1.4">Znajte što kupci traže — prije nego što znaju da vas trebaju.</div></div>
+            <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.7;margin:0">Istraživanje, mapiranje namjere, konkurentska analiza. Ključne riječi su temelj — sve ostalo gradi se na tome.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Istraživanje KR</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Mapiranje namjere</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">Gap analiza</span><span style="font-family:'Roboto Mono',monospace;font-size:10px;border:1px solid rgba(0,0,0,0.15);padding:4px 9px">KW-to-page</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ 1e — FRAMEWORK: REDOSLIJED / STEPPER ═══════════ -->
+    <div id="1e" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#1e" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">1e</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Framework — Redoslijed</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">naglašava &quot;u točno onom redoslijedu&quot; — koraci 01–04 spojeni crvenom linijom</span>
+      </div>
+      <div style="background:#f6f4ef;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <div style="text-align:center">
+          <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Framework</p>
+          <h2 style="font-family:'Montserrat',sans-serif;font-size:46px;font-weight:900;line-height:1.06;letter-spacing:-0.025em;margin:0">Četiri stupa. Jedan sustav. Bez prečaca.</h2>
+          <p style="font-size:15px;color:rgba(0,0,0,0.55);max-width:620px;line-height:1.75;margin:16px auto 0">Većina SEO agencija radi taktike. Mi radimo sustav. L.I.C.K. pokriva svaku dimenziju organskog rasta — u točno onom redoslijedu koji funkcionira.</p>
+        </div>
+        <div style="position:relative;margin-top:72px">
+          <div style="position:absolute;top:32px;left:8%;right:8%;height:2px;background:#e12c2c"></div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px">
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative">
+              <div style="width:64px;height:64px;background:#e12c2c;color:#fff;display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;position:relative;z-index:1">L</div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;color:rgba(0,0,0,0.45);margin-top:16px">KORAK 01</div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:900;margin-top:8px">Linkovi i autoritet</div>
+              <div style="font-size:14px;font-weight:700;line-height:1.5;margin-top:10px">Web glasuje za vas. Mi osiguravamo da pobjeđujete.</div>
+              <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:10px 0 0">Digital PR, izgradnja linkova i strategija backlink profila.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative">
+              <div style="width:64px;height:64px;background:#e12c2c;color:#fff;display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;position:relative;z-index:1">I</div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;color:rgba(0,0,0,0.45);margin-top:16px">KORAK 02</div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:900;margin-top:8px">Infrastruktura</div>
+              <div style="font-size:14px;font-weight:700;line-height:1.5;margin-top:10px">Nevidljivo ljudima. Jasno Googleu.</div>
+              <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:10px 0 0">Tehnički SEO, arhitektura stranice, crawlabilnost.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative">
+              <div style="width:64px;height:64px;background:#e12c2c;color:#fff;display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;position:relative;z-index:1">C</div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;color:rgba(0,0,0,0.45);margin-top:16px">KORAK 03</div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:900;margin-top:8px">Sadržaj</div>
+              <div style="font-size:14px;font-weight:700;line-height:1.5;margin-top:10px">Prave riječi. Prava stranica. Pravi trenutak.</div>
+              <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:10px 0 0">Landing stranice, blog sadržaj, CRO copy.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative">
+              <div style="width:64px;height:64px;background:#e12c2c;color:#fff;display:grid;place-items:center;font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;position:relative;z-index:1">K</div>
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;color:rgba(0,0,0,0.45);margin-top:16px">KORAK 04</div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:900;margin-top:8px">Ključne riječi</div>
+              <div style="font-size:14px;font-weight:700;line-height:1.5;margin-top:10px">Znajte što kupci traže — prije nego što znaju da vas trebaju.</div>
+              <p style="font-size:13px;color:rgba(0,0,0,0.6);line-height:1.65;margin:10px 0 0">Istraživanje, mapiranje namjere, konkurentska analiza.</p>
+            </div>
+          </div>
+        </div>
+        <p style="text-align:center;margin:56px 0 0;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;color:rgba(0,0,0,0.45)">Svaki korak gradi na prethodnom — zato nema prečaca.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════ 1f — FRAMEWORK: VODENI ŽIG 2×2 ═══════════ -->
+    <div id="1f" style="width:1240px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <a href="#1f" style="font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;background:#111;color:#fff;padding:4px 10px;text-decoration:none">1f</a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px">Framework — Vodeni žig</span>
+        <span style="font-size:13px;color:rgba(0,0,0,0.5)">2×2 šahovnica, divovska slova kao pozadinski žig iza sadržaja</span>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.12);padding:clamp(56px,6vw,90px) 72px">
+        <p style="font-family:'Roboto Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.22em;color:#e12c2c;text-transform:uppercase;margin:0 0 24px">Framework</p>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:46px;font-weight:900;line-height:1.06;letter-spacing:-0.025em;margin:0;max-width:700px">Četiri stupa. Jedan sustav. Bez prečaca.</h2>
+        <p style="font-size:15px;color:rgba(0,0,0,0.55);max-width:620px;line-height:1.75;margin:16px 0 0">Većina SEO agencija radi taktike. Mi radimo sustav. L.I.C.K. pokriva svaku dimenziju organskog rasta — u točno onom redoslijedu koji funkcionira.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(0,0,0,0.12);margin-top:48px">
+          <div style="position:relative;overflow:hidden;padding:56px 48px;background:#fff;border-right:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(0,0,0,0.12)">
+            <div aria-hidden="true" style="position:absolute;right:-24px;bottom:-70px;font-family:'Montserrat',sans-serif;font-size:280px;font-weight:900;line-height:1;color:rgba(225,44,44,0.08);letter-spacing:-0.05em;pointer-events:none">L</div>
+            <div style="position:relative">
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c;margin-bottom:12px">Linkovi i autoritet</div>
+              <div style="font-size:19px;font-weight:700;line-height:1.4;max-width:340px">Web glasuje za vas. Mi osiguravamo da pobjeđujete.</div>
+              <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.7;margin:14px 0 0;max-width:360px">Digital PR, izgradnja linkova i strategija backlink profila. Linkovi su povjerenje — a povjerenje je pozicija.</p>
+              <div style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);margin-top:20px;letter-spacing:0.04em">Digital PR · Link outreach · Audit backlinkova · Anchor strategija</div>
+            </div>
+          </div>
+          <div style="position:relative;overflow:hidden;padding:56px 48px;background:#f6f4ef;border-bottom:1px solid rgba(0,0,0,0.12)">
+            <div aria-hidden="true" style="position:absolute;right:-16px;bottom:-70px;font-family:'Montserrat',sans-serif;font-size:280px;font-weight:900;line-height:1;color:rgba(225,44,44,0.08);letter-spacing:-0.05em;pointer-events:none">I</div>
+            <div style="position:relative">
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c;margin-bottom:12px">Infrastruktura</div>
+              <div style="font-size:19px;font-weight:700;line-height:1.4;max-width:340px">Nevidljivo ljudima. Jasno Googleu.</div>
+              <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.7;margin:14px 0 0;max-width:360px">Tehnički SEO, arhitektura stranice, crawlabilnost. Prije nego što rangirate, Google vas mora razumjeti — u potpunosti.</p>
+              <div style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);margin-top:20px;letter-spacing:0.04em">Tehnički audit · Core Web Vitals · Arhitektura · Crawl optimizacija</div>
+            </div>
+          </div>
+          <div style="position:relative;overflow:hidden;padding:56px 48px;background:#f6f4ef;border-right:1px solid rgba(0,0,0,0.12)">
+            <div aria-hidden="true" style="position:absolute;right:-24px;bottom:-70px;font-family:'Montserrat',sans-serif;font-size:280px;font-weight:900;line-height:1;color:rgba(225,44,44,0.08);letter-spacing:-0.05em;pointer-events:none">C</div>
+            <div style="position:relative">
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c;margin-bottom:12px">Sadržaj</div>
+              <div style="font-size:19px;font-weight:700;line-height:1.4;max-width:340px">Prave riječi. Prava stranica. Pravi trenutak.</div>
+              <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.7;margin:14px 0 0;max-width:360px">Landing stranice, blog sadržaj, CRO copy. Sadržaj koji rangira odgovara točno na ono što vaš kupac traži.</p>
+              <div style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);margin-top:20px;letter-spacing:0.04em">KW sadržaj · Landing stranice · CRO copywriting · Blog strategija</div>
+            </div>
+          </div>
+          <div style="position:relative;overflow:hidden;padding:56px 48px;background:#fff">
+            <div aria-hidden="true" style="position:absolute;right:-24px;bottom:-70px;font-family:'Montserrat',sans-serif;font-size:280px;font-weight:900;line-height:1;color:rgba(225,44,44,0.08);letter-spacing:-0.05em;pointer-events:none">K</div>
+            <div style="position:relative">
+              <div style="font-family:'Roboto Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e12c2c;margin-bottom:12px">Ključne riječi</div>
+              <div style="font-size:19px;font-weight:700;line-height:1.4;max-width:340px">Znajte što kupci traže — prije nego što znaju da vas trebaju.</div>
+              <p style="font-size:14px;color:rgba(0,0,0,0.6);line-height:1.7;margin:14px 0 0;max-width:360px">Istraživanje, mapiranje namjere, konkurentska analiza. Ključne riječi su temelj — sve ostalo gradi se na tome.</p>
+              <div style="font-family:'Roboto Mono',monospace;font-size:11px;color:rgba(0,0,0,0.45);margin-top:20px;letter-spacing:0.04em">Istraživanje KR · Mapiranje namjere · Gap analiza · KW-to-page</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+</body>
+</html>

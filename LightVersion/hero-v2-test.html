@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO LICK — Hero v2 (SEOLICK reveal) — TEST</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─────────────────────────────────────────────────────────────
+     SEO LICK — HERO v2 (TEST ONLY)
+     Base: current light hero (src/components/HeroLick.astro).
+     Changes vs current:
+       1. Letter reveal now spells the full brand: S · E · O · L · I · C · K
+       2. Descriptors removed (no "Links & Authority / Infrastructure /
+          Content / Keywords" under the letters)
+       3. Per-letter step 750ms -> 375ms so all 7 letters land inside the
+          SAME window as the old 4-letter version. Everything AFTER the
+          letters (turnRed, divider, tagline, logo, scroll) fires at the
+          EXACT same absolute times as the current locked timeline.
+       4. Brand split: S-E-O stay #111, only L-I-C-K flip to red — matching
+          the SEOLICK wordmark. (Flip all 7 = add s/e/o ids to redIds below.)
+     This file changes nothing in the live site. Open it directly to test.
+     ───────────────────────────────────────────────────────────── */
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#fff;color:#111;font-family:'Roboto',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:#e12c2c;color:#fff}
+
+  .hero-lick{
+    --red:#e12c2c;
+    min-height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    overflow:hidden;position:relative;
+    padding:3rem 1.25rem 4rem;
+    background:#fff;
+  }
+  .hero-lick .letters{
+    display:flex;
+    gap:clamp(8px,1.8vw,36px);
+    align-items:center;
+  }
+  .hero-lick .letter-group{opacity:0}
+  .hero-lick .letter{
+    font-family:'Montserrat',sans-serif;
+    font-size:clamp(40px,8.8vw,128px);
+    font-weight:900;line-height:1;
+    letter-spacing:-0.02em;
+    color:#111;
+  }
+  .hero-lick .divider-wrap{
+    width:clamp(300px,70vw,900px);
+    margin:48px 0 40px;height:1px;overflow:hidden;
+  }
+  .hero-lick .divider-line{
+    width:0%;height:100%;background:var(--red);
+    transition:width .8s cubic-bezier(.4,0,.2,1);
+  }
+  .hero-lick .tagline{
+    font-family:'Montserrat',sans-serif;
+    font-size:clamp(14px,2vw,22px);font-weight:700;letter-spacing:.04em;
+    color:#111;opacity:0;transform:translateY(14px);text-align:center;
+  }
+  .hero-lick .tagline em{color:var(--red);font-style:normal}
+  .hero-lick .hero-logo{
+    margin-top:72px;
+    font-family:'Montserrat',sans-serif;
+    font-size:clamp(13px,1.4vw,17px);font-weight:700;letter-spacing:.25em;
+    text-transform:uppercase;opacity:0;color:rgba(0,0,0,.5);
+  }
+  .hero-lick .scroll-hint{
+    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    opacity:0;transition:opacity .6s ease;
+  }
+  .hero-lick .scroll-hint.show{opacity:1}
+  .hero-lick .scroll-hint-label{
+    font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:rgba(0,0,0,.35);
+  }
+  .hero-lick .scroll-line{
+    width:1px;height:36px;
+    background:linear-gradient(to bottom,rgba(225,44,44,.7),transparent);
+    animation:hl-scrollPulse 1.6s ease-in-out infinite;
+  }
+  .hero-lick .hero-replay{
+    position:absolute;bottom:28px;right:clamp(20px,5vw,80px);
+    background:none;border:none;cursor:pointer;
+    font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:rgba(0,0,0,.35);padding:8px;
+    transition:color .2s ease;
+  }
+  .hero-lick .hero-replay:hover{color:var(--red)}
+
+  /* tiny "v2 TEST" badge so you never confuse it with the live hero */
+  .v2-badge{
+    position:absolute;top:20px;left:clamp(20px,5vw,80px);
+    font-family:'Roboto Mono',monospace;font-size:10px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;
+    color:#fff;background:#e12c2c;padding:5px 10px;border-radius:2px;
+  }
+
+  @media (max-width:520px){
+    .hero-lick .letters{gap:6px}
+    .hero-lick .letter{font-size:clamp(30px,10.5vw,52px)}
+    .hero-lick .tagline{font-size:14px;padding:0 10px}
+    .hero-lick .hero-logo{margin-top:48px}
+  }
+
+  @keyframes hl-scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+  @keyframes letterIn{
+    0%{opacity:0;transform:scale(1.5) translateY(-16px);filter:blur(8px)}
+    60%{filter:blur(0px)}
+    100%{opacity:1;transform:scale(1) translateY(0)}
+  }
+  @keyframes turnRed{from{color:#111}to{color:var(--red)}}
+  @keyframes taglineIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+  @media (prefers-reduced-motion:reduce){
+    .hero-lick .letter-group{opacity:1}
+    .hero-lick .letter{color:#111}
+    #lt-l,#lt-i,#lt-c,#lt-k{color:var(--red)}
+    .hero-lick .divider-line{width:100%;transition:none}
+    .hero-lick .tagline{opacity:1;transform:none}
+    .hero-lick .hero-logo{opacity:1}
+    .hero-lick .scroll-hint{opacity:1}
+    .hero-lick .scroll-line{animation:none}
+    .hero-lick .hero-replay{display:none}
+  }
+</style>
+</head>
+<body>
+<section class="hero-lick" id="hero" aria-label="SEO LICK">
+  <span class="v2-badge">Hero v2 · test</span>
+
+  <div class="letters" id="letters">
+    <div class="letter-group" id="lg-s"><div class="letter" id="lt-s">S</div></div>
+    <div class="letter-group" id="lg-e"><div class="letter" id="lt-e">E</div></div>
+    <div class="letter-group" id="lg-o"><div class="letter" id="lt-o">O</div></div>
+    <div class="letter-group" id="lg-l"><div class="letter" id="lt-l">L</div></div>
+    <div class="letter-group" id="lg-i"><div class="letter" id="lt-i">I</div></div>
+    <div class="letter-group" id="lg-c"><div class="letter" id="lt-c">C</div></div>
+    <div class="letter-group" id="lg-k"><div class="letter" id="lt-k">K</div></div>
+  </div>
+
+  <div class="divider-wrap"><div class="divider-line" id="divider"></div></div>
+
+  <div class="tagline" id="tagline">We <em>LICK</em> websites. For organic growth.</div>
+
+  <div class="hero-logo" id="hero-logo">SEOLICK</div>
+
+  <div class="scroll-hint" id="scroll-hint">
+    <span class="scroll-hint-label">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+
+  <button class="hero-replay" id="hero-replay" type="button" aria-label="Replay animation">&#8635; Replay</button>
+</section>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var replayBtn = document.getElementById('hero-replay');
+  if (reduce) return; // resting state handled by CSS
+
+  // 375ms step lands the 7th letter (K) at 2650ms — identical to the old
+  // 4-letter version — so every downstream beat below stays locked.
+  var STEP = 375;
+  var order = ['s', 'e', 'o', 'l', 'i', 'c', 'k'];
+  var steps = order.map(function (ch, i) {
+    return { group: 'lg-' + ch, letter: 'lt-' + ch, t: 400 + STEP * i };
+  });
+
+  // Only L-I-C-K flip to red (brand wordmark). Want all 7? -> add s,e,o here.
+  var redIds = ['lt-l', 'lt-i', 'lt-c', 'lt-k'];
+
+  var timers = [];
+
+  function runHero() {
+    steps.forEach(function (s) {
+      timers.push(setTimeout(function () {
+        var g = document.getElementById(s.group);
+        if (!g) return;
+        void g.offsetWidth;
+        g.style.animation = 'letterIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards';
+      }, s.t));
+    });
+
+    var redAt = steps[steps.length - 1].t + 480; // 3130ms, same as current
+
+    timers.push(setTimeout(function () {
+      redIds.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        void el.offsetWidth;
+        el.style.animation = 'turnRed 0.35s ease forwards';
+      });
+    }, redAt));
+
+    timers.push(setTimeout(function () {
+      var d = document.getElementById('divider');
+      if (!d) return;
+      void d.offsetWidth;
+      d.style.transition = 'width 0.9s cubic-bezier(0.4,0,0.2,1)';
+      d.style.width = '100%';
+    }, redAt + 300));
+
+    timers.push(setTimeout(function () {
+      var t = document.getElementById('tagline');
+      if (!t) return;
+      void t.offsetWidth;
+      t.style.animation = 'taglineIn 0.7s ease forwards';
+    }, redAt + 900));
+
+    timers.push(setTimeout(function () {
+      var l = document.getElementById('hero-logo');
+      if (!l) return;
+      void l.offsetWidth;
+      l.style.animation = 'fadeIn 0.8s ease forwards';
+    }, redAt + 1600));
+
+    timers.push(setTimeout(function () {
+      var s = document.getElementById('scroll-hint');
+      if (s) s.classList.add('show');
+    }, redAt + 2400));
+  }
+
+  function replayHero() {
+    timers.forEach(clearTimeout);
+    timers = [];
+    steps.forEach(function (s) {
+      var g = document.getElementById(s.group);
+      var l = document.getElementById(s.letter);
+      if (g) g.style.animation = '';
+      if (l) l.style.animation = '';
+    });
+    var divider = document.getElementById('divider');
+    if (divider) {
+      divider.style.transition = 'none';
+      divider.style.width = '0%';
+      void divider.offsetWidth;
+    }
+    var tagline = document.getElementById('tagline');
+    if (tagline) tagline.style.animation = '';
+    var logo = document.getElementById('hero-logo');
+    if (logo) logo.style.animation = '';
+    var hint = document.getElementById('scroll-hint');
+    if (hint) hint.classList.remove('show');
+    requestAnimationFrame(function () { runHero(); });
+  }
+
+  if (replayBtn) replayBtn.addEventListener('click', replayHero);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runHero);
+  } else {
+    runHero();
+  }
+})();
+</script>
+</body>
+</html>

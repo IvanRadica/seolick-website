@@ -226,88 +226,164 @@
     opacity: 0.7;
   }
 
-  /* --- Stats strip --- */
-  .stats-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border: 1px solid var(--border-strong);
+  /* --- L.I.C.K. pillar cards (tall, centered letter + red hover overlay) --- */
+  .pillar-card {
+    position: relative;
     background: var(--white);
-  }
-  .stat-item {
-    padding: clamp(1.5rem, 3vw, 2.5rem);
-    border-right: 1px solid var(--border-strong);
+    min-height: 420px;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    cursor: pointer;
   }
-  .stat-item:last-child { border-right: none; }
-  .stat-number {
+  .pillar-letter {
     font-family: var(--font-display);
-    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-size: clamp(96px, 11vw, 150px);
     font-weight: 900;
     line-height: 1;
-    letter-spacing: -0.03em;
-    color: var(--ink);
+    color: var(--red);
+    letter-spacing: -0.04em;
   }
-  .stat-number em { color: var(--red); font-style: normal; }
-  .stat-label {
+  .pillar-kicker {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--dim);
-    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
   }
-
-  /* --- Case card result --- */
-  .case-industry {
+  .pillar-rule { width: 28px; height: 2px; background: var(--red); }
+  .pillar-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--red);
+    color: var(--white);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    padding: 2.25rem 1.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    overflow: hidden;
+  }
+  .pillar-card:hover .pillar-overlay,
+  .pillar-card.is-open .pillar-overlay { opacity: 1; }
+  .ov-letter {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .ov-count { font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.2em; opacity: 0.7; }
+  .ov-kicker {
     font-family: var(--font-mono);
     font-size: 0.625rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--red);
+    opacity: 0.8;
   }
-  .case-row-label {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--dimmer);
-    margin-bottom: 0.25rem;
-  }
-  .case-row-text {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.4;
-  }
-  .case-result {
-    margin-top: auto;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--faint);
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: var(--red);
-    line-height: 1;
-  }
-  .case-result-sub {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--dim);
-    margin-top: 0.4rem;
-  }
-  .case-note {
+  .ov-lead { font-size: 0.9375rem; font-weight: 700; line-height: 1.45; margin: 0; }
+  .ov-desc { font-size: 0.8125rem; line-height: 1.7; margin: 0; opacity: 0.85; flex: 1; }
+  .ov-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
     font-family: var(--font-mono);
     font-size: 0.625rem;
     letter-spacing: 0.06em;
-    color: var(--dimmer);
-    margin-top: 0.5rem;
+  }
+  .ov-list > div { opacity: 0.85; }
+  .pillar-hint {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: rgba(0, 0, 0, 0.45);
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 640px) {
+    .pillar-card { min-height: 340px; }
+  }
+
+  /* --- Experience counters (results header strip) --- */
+  .counter-row {
+    display: flex;
+    gap: clamp(2rem, 5vw, 4rem);
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border-strong);
+    flex-wrap: wrap;
+  }
+  .counter { display: flex; align-items: baseline; gap: 0.75rem; }
+  .counter-number {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .counter-number em { color: var(--red); font-style: normal; }
+  .counter-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dim);
+  }
+
+  /* --- Case study rows (results table) --- */
+  .case-industry {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .result-row {
+    display: grid;
+    grid-template-columns: 52px 200px 1fr 290px;
+    gap: 1.75rem;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.25s ease;
+  }
+  .result-row:hover { background: rgba(225, 44, 44, 0.04); }
+  .rr-icon { width: 30px; height: 30px; }
+  .rr-text { font-size: 0.875rem; color: rgba(0, 0, 0, 0.65); line-height: 1.6; }
+  .rr-text .arrow { color: rgba(0, 0, 0, 0.4); }
+  .rr-result { text-align: right; }
+  .rr-number {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 900;
+    color: var(--red);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .rr-sub {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 4px;
+  }
+  @media (max-width: 960px) {
+    .result-row {
+      grid-template-columns: 40px 1fr;
+      row-gap: 0.5rem;
+    }
+    .result-row .rr-text,
+    .result-row .rr-result { grid-column: 2; }
+    .rr-result { text-align: left; margin-top: 0.25rem; }
   }
 
   /* --- Scroll progress (red thread, top of viewport) --- */
