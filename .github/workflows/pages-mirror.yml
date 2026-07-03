@@ -1,0 +1,34 @@
+# Temporary mirror: deploys every push on main to seolick.pages.dev
+# (Cloudflare Pages, "Ivan@seolick.me's Account") alongside the primary
+# Workers Builds deploy (seolick-website.marko-f93.workers.dev).
+# Requires ONE repo secret: CLOUDFLARE_API_TOKEN
+#   dash.cloudflare.com → My Profile → API Tokens → Create Token →
+#   Custom token → Permissions: Account · Cloudflare Pages · Edit
+# Remove this file once the domain/account question is settled.
+name: Pages mirror (seolick.pages.dev)
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: pages-mirror
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: db176bd5bb008502b00d9f6ee41c6e97
+          command: pages deploy dist --project-name=seolick --branch=main
