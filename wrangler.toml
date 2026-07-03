@@ -1,3 +1,9 @@
 name = "seolick"
 compatibility_date = "2026-05-29"
-pages_build_output_dir = "dist"
+
+# Static Astro site served as Worker assets (Cloudflare Workers Builds:
+# CI runs `npm run build` then `npx wrangler deploy` on every push to main).
+[assets]
+directory = "./dist"
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"

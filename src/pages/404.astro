@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — stranica nije pronađena | SEO LICK" description="Stranica koju tražite ne postoji." noindex>
+  <section class="section section-first min-h-[70svh] flex items-center">
+    <div class="container-page text-center">
+      <p class="eyebrow mb-5">404</p>
+      <h1 class="font-display text-4xl md:text-6xl font-black tracking-tight text-ink">
+        Ova stranica ne postoji.<br />
+        <span class="text-red">Ali vaše tržište postoji.</span>
+      </h1>
+      <p class="mt-6 text-black/60 max-w-md mx-auto">
+        Stranica je premještena ili nikad nije postojala — baš kao vaš biznis u Google pretrazi bez SEO-a.
+      </p>
+      <div class="mt-9 flex gap-3 justify-center flex-wrap">
+        <a href="/" class="btn btn-primary">Natrag na početnu</a>
+        <a href="/kontakt" class="btn btn-ghost">Kontakt</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
