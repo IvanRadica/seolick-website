@@ -1,4 +1,4 @@
-name = "seolick"
+name = "seolick-website"
 compatibility_date = "2026-05-29"
 
 # Static Astro site served as Worker assets (Cloudflare Workers Builds:
