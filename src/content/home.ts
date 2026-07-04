@@ -24,11 +24,11 @@ export const homeContent = {
     framework: {
       eyebrow: 'Framework',
       title: 'Četiri stupa. Jedan sustav. Bez prečaca.',
-      intro: 'Većina SEO agencija radi taktike. Mi radimo sustav. L.I.C.K. pokriva svaku dimenziju organskog rasta — u točno onom redoslijedu koji funkcionira.',
+      intro: 'Većina agencija ima taktike. Mi imamo sustav.\nLICK pokriva svaku dimenziju organskog rasta — u jedinom redoslijedu koji funkcionira.',
       pillars: [
         {
           letter: 'L',
-          name: 'Linkovi i autoritet',
+          name: 'Linkovi',
           lead: 'Web glasuje za vas. Mi osiguravamo da pobjeđujete.',
           desc: 'Digital PR, izgradnja linkova i strategija backlink profila. U Googleovom svijetu, linkovi su povjerenje — a povjerenje je pozicija.',
           includes: ['Digital PR', 'Link outreach', 'Audit backlinkova', 'Anchor strategija'],
@@ -42,7 +42,7 @@ export const homeContent = {
         },
         {
           letter: 'C',
-          name: 'Sadržaj',
+          name: 'Content',
           lead: 'Prave riječi. Prava stranica. Pravi trenutak.',
           desc: 'Landing stranice, blog sadržaj, CRO copy. Sadržaj koji rangira odgovara točno na ono što vaš kupac traži.',
           includes: ['Sadržaj mapiran na KW', 'Landing stranice', 'CRO copywriting', 'Blog strategija'],
@@ -129,11 +129,11 @@ export const homeContent = {
     framework: {
       eyebrow: 'Framework',
       title: 'Four pillars. One system. No shortcuts.',
-      intro: 'Most SEO agencies run tactics. We run a system. L.I.C.K. covers every dimension of organic growth — in the exact order that works.',
+      intro: 'Most agencies have tactics. We have a system.\nLICK covers every dimension of organic growth — in the only order that works.',
       pillars: [
         {
           letter: 'L',
-          name: 'Links & Authority',
+          name: 'Links',
           lead: 'The web votes for you. We make sure you’re winning.',
           desc: 'Digital PR, link building and backlink strategy. In Google’s world, links are trust — and trust is position.',
           includes: ['Digital PR', 'Link outreach', 'Backlink audit', 'Anchor strategy'],
