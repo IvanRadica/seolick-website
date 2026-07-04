@@ -47,12 +47,17 @@
   /* O + nested tongue */
   .hero-lick .o-wrap{position:relative;display:inline-block}
   .hero-lick .o-tongue{
-    --tw:82%;   /* tongue width, % of the O box */
-    --ty:52%;   /* tongue vertical center, % from top of the O box */
+    /* Measured from the logo vector (getBBox): tongue center 69%/77% of the
+       O, width 65% of O, right edge ~102% (spills just past O), bottom flush,
+       zero rotation. Values below are in wrap-box terms and map to that. */
+    --tw:65%;   /* tongue width, % of the O box */
+    --tx:70%;   /* tongue horizontal center, % (lower-RIGHT of O, like the logo) */
+    --ty:71%;   /* tongue vertical center, % (low, like the logo) */
+    --tr:0deg;  /* logo tongue is not rotated */
     position:absolute;
-    left:50%;top:var(--ty);
+    left:var(--tx);top:var(--ty);
     width:var(--tw);height:auto;
-    transform:translate(-50%,-50%) scale(0.25) rotate(-8deg);
+    transform:translate(-50%,-50%) scale(0.25) rotate(calc(var(--tr) - 10deg));
     opacity:0;
     pointer-events:none;
     will-change:transform,opacity;
@@ -126,16 +131,16 @@
   @keyframes taglineIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}
   @keyframes tongueIn{
-    0%{opacity:0;transform:translate(-50%,-50%) scale(0.25) rotate(-8deg)}
+    0%{opacity:0;transform:translate(-50%,-50%) scale(0.25) rotate(calc(var(--tr) - 10deg))}
     55%{opacity:1}
-    100%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0deg)}
+    100%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(var(--tr))}
   }
 
   @media (prefers-reduced-motion:reduce){
     .hero-lick .letter-group{opacity:1}
     .hero-lick .letter{color:#111}
     #lt-l,#lt-i,#lt-c,#lt-k{color:var(--red)}
-    .hero-lick .o-tongue{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0deg)}
+    .hero-lick .o-tongue{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(var(--tr))}
     .hero-lick .divider-line{width:100%;transition:none}
     .hero-lick .tagline{opacity:1;transform:none}
     .hero-lick .hero-logo{opacity:1}

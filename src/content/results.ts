@@ -25,7 +25,7 @@ export const resultsContent = {
         challenge: 'Nova domena, gotovo bez organske vidljivosti.',
         solution: 'Strukturni i programatski SEO, arhitektura, audit.',
         result: '0 → 2.187 / mj',
-        resultSub: '258 kw u top 3 · DR 0,6 → 3,4 · ~10 mj',
+        resultSub: 'rast organskog prometa u 10 mjeseci',
       },
       {
         name: null,
@@ -34,7 +34,7 @@ export const resultsContent = {
         challenge: 'Zadržati autoritet i organski promet uz rast.',
         solution: 'Email automatizacija i off-page SEO.',
         result: '12–16k / mj',
-        resultSub: '351 kw u top 3 · DR 14 → 30',
+        resultSub: 'organskih posjeta, održano uz rast autoriteta',
       },
       {
         name: null,
@@ -43,7 +43,7 @@ export const resultsContent = {
         challenge: 'Slaba vidljivost u komercijalnim kategorijama.',
         solution: 'SEO, Google Ads i tracking.',
         result: '+315%',
-        resultSub: '644 → 2.822 / mj · DR 7 → 11',
+        resultSub: 'rast mjesečnog organskog prometa',
       },
       {
         name: null,
@@ -52,7 +52,7 @@ export const resultsContent = {
         challenge: 'Sezonski vrhunci ovisni o plaćenim oglasima.',
         solution: 'Lokalni SEO i OTA profili.',
         result: '201 → 1.613 / mj',
-        resultSub: 'vrhunac sezone, bez oglasa',
+        resultSub: 'rast organskih posjeta, bez ulaganja u oglase',
       },
       {
         name: null,
@@ -61,7 +61,7 @@ export const resultsContent = {
         challenge: 'Migracija weba bez gubitka pozicija.',
         solution: 'SEO-sigurna migracija i tehnički SEO.',
         result: '370–460 / mj',
-        resultSub: '21 kw u top 3 · ranking očuvan',
+        resultSub: 'pozicije očuvane nakon migracije weba',
       },
       {
         name: null,
@@ -70,7 +70,7 @@ export const resultsContent = {
         challenge: 'Globalna niša — pacijenti traže po destinacijama.',
         solution: 'Programatske odredišne stranice i Google Ads.',
         result: '50+ high-ticket leadova',
-        resultSub: 'Google Ads + pSEO · ~100 odredišnih stranica',
+        resultSub: 'kroz Google Ads i programatski SEO',
       },
     ],
     priorTitle: 'Iz ranijeg iskustva tima',
@@ -99,7 +99,7 @@ export const resultsContent = {
         challenge: 'New domain with almost no organic visibility.',
         solution: 'Structural and programmatic SEO, architecture, audit.',
         result: '0 → 2,187 / mo',
-        resultSub: '258 kw in top 3 · DR 0.6 → 3.4 · ~10 mo',
+        resultSub: 'organic traffic growth in 10 months',
       },
       {
         name: null,
@@ -108,7 +108,7 @@ export const resultsContent = {
         challenge: 'Hold authority and organic traffic while growing.',
         solution: 'Email automation and off-page SEO.',
         result: '12–16k / mo',
-        resultSub: '351 kw in top 3 · DR 14 → 30',
+        resultSub: 'organic visits, sustained while authority grew',
       },
       {
         name: null,
@@ -117,7 +117,7 @@ export const resultsContent = {
         challenge: 'Weak visibility across commercial categories.',
         solution: 'SEO, Google Ads and tracking.',
         result: '+315%',
-        resultSub: '644 → 2,822 / mo · DR 7 → 11',
+        resultSub: 'growth in monthly organic traffic',
       },
       {
         name: null,
@@ -126,7 +126,7 @@ export const resultsContent = {
         challenge: 'Seasonal peaks dependent on paid ads.',
         solution: 'Local SEO and OTA profiles.',
         result: '201 → 1,613 / mo',
-        resultSub: 'peak season, zero ad spend',
+        resultSub: 'organic growth, zero ad spend',
       },
       {
         name: null,
@@ -135,7 +135,7 @@ export const resultsContent = {
         challenge: 'Website migration without losing rankings.',
         solution: 'SEO-safe migration and technical SEO.',
         result: '370–460 / mo',
-        resultSub: '21 kw in top 3 · rankings preserved',
+        resultSub: 'rankings preserved after the website migration',
       },
       {
         name: null,
@@ -144,7 +144,7 @@ export const resultsContent = {
         challenge: 'A global niche — patients search by destination.',
         solution: 'Programmatic destination pages and Google Ads.',
         result: '50+ high-ticket leads',
-        resultSub: 'Google Ads + pSEO · ~100 destination pages',
+        resultSub: 'through Google Ads and programmatic SEO',
       },
     ],
     priorTitle: 'From the team’s earlier track record',
