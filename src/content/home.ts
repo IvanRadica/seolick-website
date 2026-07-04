@@ -8,7 +8,7 @@ export const homeContent = {
   hr: {
     intro: {
       eyebrow: 'Strateška SEO agencija',
-      text: 'Radimo s brendovima koji žive od upita i rezervacija\nklinike, charteri, agencije za nekretnine.\n\nL.I.C.K. framework pretvara Google pretragu u stalan priljev upita, ne u trošak koji staje kad ugasite oglase.',
+      text: 'Radimo s brendovima koji žive od upita i rezervacija.\nPoliklinike, charteri, agencije za nekretnine, webshopovi.\n\nL.I.C.K. framework pretvara Google i AI pretrage u stalan priljev upita, koji dolaze i kad ugasite oglase.',
       cta: 'Zatraži FIRST LICK',
     },
     problem: {
@@ -113,7 +113,7 @@ export const homeContent = {
   en: {
     intro: {
       eyebrow: 'Strategic SEO agency',
-      text: 'We work with brands that live on inquiries and bookings\nclinics, charters, real-estate agencies.\n\nThe L.I.C.K. framework turns Google search into a steady stream of inquiries, not a cost that stops the moment you switch off the ads.',
+      text: 'We work with brands that live on inquiries and bookings.\nPolyclinics, charters, real-estate agencies, online stores.\n\nThe L.I.C.K. framework turns Google and AI search into a steady stream of inquiries — ones that keep coming even when you switch off the ads.',
       cta: 'Get your FIRST LICK',
     },
     problem: {
