@@ -15,9 +15,9 @@ export const homeContent = {
       eyebrow: 'Problem',
       title: 'Ako se prepoznate u ijednoj od ovih tvrdnji — treba vam L.I.C.K.',
       items: [
-        'Vaš biznis je obiteljska tajna koju tržište još nije otkrilo.',
-        'Konkurencija trči maraton, dok vi još učite vezati tenisice.',
-        'Plaćate oglase iz mjeseca u mjesec — SEO je nekretnina, oglasi su najam, a vi i dalje samo plaćate najam.',
+        'Plaćate oglase iz mjeseca u mjesec. Kad ugasite kampanje, upiti stanu.',
+        'Ne pojavljujete se na Googleu kad kupci pretražuju. Konkurent s lošijom uslugom pokupi sve upite.',
+        'Kupci sve češće pitaju AI koga odabrati. Vas u tom odgovoru nema.',
       ],
       close: 'Svi ovi problemi imaju isti rezultat:\nKupci pronalaze vašu konkurenciju prije vas. SEO LICK to mijenja.',
     },
@@ -93,7 +93,7 @@ export const homeContent = {
     },
     finalCta: {
       title: 'Spremni da vaš biznis izađe iz sjene? Mi jesmo.',
-      sub: 'Pomoću L.I.C.K. frameworka pretvaramo pretragu u stalan priljev upita.',
+      sub: 'SEO je nekretnina, oglasi su najam — a vi i dalje samo plaćate najam. S L.I.C.K. frameworkom gradite ono što ostaje vaše.',
       cta: 'Zatraži FIRST LICK',
     },
     faqTitle: 'Često postavljana pitanja',
@@ -120,9 +120,9 @@ export const homeContent = {
       eyebrow: 'The problem',
       title: 'If you recognize yourself in any of these — you need L.I.C.K.',
       items: [
-        'Your business is a family secret the market hasn’t discovered yet.',
-        'It feels like competitors are running a marathon while you’re still learning to tie your shoes.',
-        'You pay for ads month after month — SEO is the property you own, ads are the rent, and you’re still only paying rent.',
+        'You pay for ads month after month. The moment you pause the campaigns, inquiries stop.',
+        'You don’t show up on Google when customers search. A competitor with a worse service scoops up all the inquiries.',
+        'Customers increasingly ask AI who to choose. You’re not in that answer.',
       ],
       close: 'All of these problems share the same result:\nCustomers find your competitors before they find you. SEO LICK changes that.',
     },
@@ -195,7 +195,7 @@ export const homeContent = {
     },
     finalCta: {
       title: 'Ready for your business to step out of the shadows? We are.',
-      sub: 'With the L.I.C.K. framework we turn search into a steady stream of inquiries.',
+      sub: 'SEO is the property you own; ads are rent — and you’re still only paying rent. With the L.I.C.K. framework you build something that stays yours.',
       cta: 'Get your FIRST LICK',
     },
     faqTitle: 'Frequently asked questions',
