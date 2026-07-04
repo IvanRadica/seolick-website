@@ -19,7 +19,7 @@ export const homeContent = {
         'Konkurencija trči maraton, dok vi još učite vezati tenisice.',
         'Plaćate oglase iz mjeseca u mjesec — SEO je nekretnina, oglasi su najam, a vi i dalje samo plaćate najam.',
       ],
-      close: 'Svi ovi problemi imaju isti korijen: tržište vas ne pronalazi prije konkurencije. L.I.C.K. to mijenja.',
+      close: 'Svi ovi problemi imaju isti rezultat:\nKupci pronalaze vašu konkurenciju prije vas. SEO LICK to mijenja.',
     },
     framework: {
       eyebrow: 'Framework',
@@ -124,7 +124,7 @@ export const homeContent = {
         'It feels like competitors are running a marathon while you’re still learning to tie your shoes.',
         'You pay for ads month after month — SEO is the property you own, ads are the rent, and you’re still only paying rent.',
       ],
-      close: 'All of these problems share one root: the market finds your competitors before it finds you. L.I.C.K. changes that.',
+      close: 'All of these problems share the same result:\nCustomers find your competitors before they find you. SEO LICK changes that.',
     },
     framework: {
       eyebrow: 'Framework',
