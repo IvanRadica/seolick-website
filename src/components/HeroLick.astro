@@ -1,35 +1,28 @@
 ---
-// SEO LICK — locked LICK letter-reveal hero (LIGHT theme).
-// Ported verbatim from the approved dark hero. LOCKED choreography — do not
-// change the timeline. Light re-theme per design_handoff_light_theme: colors
-// only (white ground, #111 letters, same red flip at #e12c2c). Includes the
-// optional "↺ Replay" control from the mocks and a prefers-reduced-motion
-// resting state.
+// SEO LICK — locked letter-reveal hero, v2 (approved by Ivan 2026-07-04,
+// source: LightVersion/hero-v2-test.html).
+// v2 changes vs v1: letters spell the full brand S·E·O·L·I·C·K (descriptors
+// removed), per-letter step 375ms so the 7th letter lands at 2650ms — the
+// same absolute time as v1's 4th letter — and every downstream beat
+// (turnRed, divider, tagline, logo, scroll hint) keeps the locked timings.
+// Only L-I-C-K flip to red, matching the wordmark. Do not change the
+// choreography.
 interface Props {
   tagline?: string;
   scrollLabel?: string;
 }
 const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel = 'Scroll' } = Astro.props;
+
+const letters = ['S', 'E', 'O', 'L', 'I', 'C', 'K'];
 ---
 
 <section class="hero-lick" id="hero" aria-label="SEO LICK">
   <div class="letters" id="letters">
-    <div class="letter-group" id="lg-l">
-      <div class="letter" id="lt-l">L</div>
-      <div class="descriptor" id="dc-l">Links &amp;<br />Authority</div>
-    </div>
-    <div class="letter-group" id="lg-i">
-      <div class="letter" id="lt-i">I</div>
-      <div class="descriptor" id="dc-i">Infra-<br />structure</div>
-    </div>
-    <div class="letter-group" id="lg-c">
-      <div class="letter" id="lt-c">C</div>
-      <div class="descriptor" id="dc-c">Content</div>
-    </div>
-    <div class="letter-group" id="lg-k">
-      <div class="letter" id="lt-k">K</div>
-      <div class="descriptor" id="dc-k">Keywords</div>
-    </div>
+    {letters.map((ch) => (
+      <div class="letter-group" id={`lg-${ch.toLowerCase()}`}>
+        <div class="letter" id={`lt-${ch.toLowerCase()}`}>{ch}</div>
+      </div>
+    ))}
   </div>
 
   <div class="divider-wrap">
@@ -49,8 +42,8 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
 </section>
 
 <style is:global>
-  /* ── Locked LICK hero — namespaced under .hero-lick, keyframes global so the
-       runtime JS can assign them by name. Light theme: colors only. ── */
+  /* ── Locked SEOLICK hero v2 — namespaced under .hero-lick, keyframes global
+       so the runtime JS can assign them by name. ── */
   .hero-lick {
     --red: #e12c2c;
     min-height: 100svh;
@@ -65,33 +58,17 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
   }
   .hero-lick .letters {
     display: flex;
-    gap: clamp(20px, 4vw, 60px);
-    align-items: flex-start;
-  }
-  .hero-lick .letter-group {
-    display: flex;
-    flex-direction: column;
+    gap: clamp(8px, 1.8vw, 36px);
     align-items: center;
-    gap: 20px;
-    opacity: 0;
   }
+  .hero-lick .letter-group { opacity: 0; }
   .hero-lick .letter {
     font-family: "Montserrat", sans-serif;
-    font-size: clamp(80px, 14vw, 180px);
+    font-size: clamp(40px, 8.8vw, 128px);
     font-weight: 900;
     line-height: 1;
     letter-spacing: -0.02em;
     color: #111;
-  }
-  .hero-lick .descriptor {
-    font-family: "Roboto Mono", monospace;
-    font-size: clamp(9px, 1vw, 13px);
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    text-align: center;
-    line-height: 1.6;
   }
   .hero-lick .divider-wrap {
     width: clamp(300px, 70vw, 900px);
@@ -169,12 +146,10 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
   }
   .hero-lick .hero-replay:hover { color: var(--red); }
 
-  /* Small screens: shrink letterforms so all four letters + tagline fit.
-     Sizing only — the animation timeline is untouched. */
+  /* Small screens: shrink letterforms so all seven letters + tagline fit. */
   @media (max-width: 520px) {
-    .hero-lick .letters { gap: 14px; }
-    .hero-lick .letter { font-size: clamp(52px, 18vw, 80px); }
-    .hero-lick .descriptor { font-size: 8px; letter-spacing: 0.14em; }
+    .hero-lick .letters { gap: 6px; }
+    .hero-lick .letter { font-size: clamp(30px, 10.5vw, 52px); }
     .hero-lick .tagline { font-size: 14px; padding: 0 10px; }
     .hero-lick .hero-logo { margin-top: 48px; }
   }
@@ -185,10 +160,6 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     60%  { filter: blur(0px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
   }
-  @keyframes descriptorIn {
-    from { color: rgba(0, 0, 0, 0); transform: translateY(6px); }
-    to   { color: rgba(0, 0, 0, 0.55); transform: translateY(0); }
-  }
   @keyframes turnRed { from { color: #111; } to { color: var(--red); } }
   @keyframes taglineIn {
     from { opacity: 0; transform: translateY(14px); }
@@ -196,11 +167,12 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
   }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  /* Reduced motion: skip the timeline, show the final resting state. */
+  /* Reduced motion: skip the timeline, show the final resting state —
+     S·E·O black, L·I·C·K red, everything visible. */
   @media (prefers-reduced-motion: reduce) {
     .hero-lick .letter-group { opacity: 1; }
-    .hero-lick .letter { color: var(--red); }
-    .hero-lick .descriptor { color: rgba(0, 0, 0, 0.55); }
+    .hero-lick .letter { color: #111; }
+    #lt-l, #lt-i, #lt-c, #lt-k { color: var(--red); }
     .hero-lick .divider-line { width: 100%; transition: none; }
     .hero-lick .tagline { opacity: 1; transform: none; }
     .hero-lick .hero-logo { opacity: 1; }
@@ -216,13 +188,16 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
     var replayBtn = document.getElementById('hero-replay');
     if (reduce) return; // resting state is handled by CSS
 
-    var STEP = 750;
-    var steps = [
-      { group: 'lg-l', letter: 'lt-l', desc: 'dc-l', t: 400 },
-      { group: 'lg-i', letter: 'lt-i', desc: 'dc-i', t: 400 + STEP },
-      { group: 'lg-c', letter: 'lt-c', desc: 'dc-c', t: 400 + STEP * 2 },
-      { group: 'lg-k', letter: 'lt-k', desc: 'dc-k', t: 400 + STEP * 3 },
-    ];
+    // 375ms step lands the 7th letter (K) at 2650ms — identical to the v1
+    // 4-letter timeline — so every downstream beat below stays locked.
+    var STEP = 375;
+    var order = ['s', 'e', 'o', 'l', 'i', 'c', 'k'];
+    var steps = order.map(function (ch, i) {
+      return { group: 'lg-' + ch, letter: 'lt-' + ch, t: 400 + STEP * i };
+    });
+
+    // Only L-I-C-K flip to red (brand wordmark).
+    var redIds = ['lt-l', 'lt-i', 'lt-c', 'lt-k'];
 
     var timers = [];
 
@@ -234,18 +209,12 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
           void g.offsetWidth;
           g.style.animation = 'letterIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards';
         }, s.t));
-        timers.push(setTimeout(function () {
-          var d = document.getElementById(s.desc);
-          if (!d) return;
-          void d.offsetWidth;
-          d.style.animation = 'descriptorIn 0.4s ease forwards';
-        }, s.t + 280));
       });
 
-      var redAt = steps[steps.length - 1].t + 480;
+      var redAt = steps[steps.length - 1].t + 480; // 3130ms, same as v1
 
       timers.push(setTimeout(function () {
-        ['lt-l', 'lt-i', 'lt-c', 'lt-k'].forEach(function (id) {
+        redIds.forEach(function (id) {
           var el = document.getElementById(id);
           if (!el) return;
           void el.offsetWidth;
@@ -289,10 +258,8 @@ const { tagline = 'We <em>LICK</em> websites. For organic growth.', scrollLabel 
       steps.forEach(function (s) {
         var g = document.getElementById(s.group);
         var l = document.getElementById(s.letter);
-        var d = document.getElementById(s.desc);
         if (g) g.style.animation = '';
         if (l) l.style.animation = '';
-        if (d) d.style.animation = '';
       });
       var divider = document.getElementById('divider');
       if (divider) {
